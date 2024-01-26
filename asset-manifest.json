@@ -1,13 +1,13 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.904bdf3f.css",
-    "main.js": "/H2Ometer_front/static/js/main.fa3afed8.js",
+    "main.js": "/H2Ometer_front/static/js/main.c4f76800.js",
     "index.html": "/H2Ometer_front/index.html",
     "main.904bdf3f.css.map": "/H2Ometer_front/static/css/main.904bdf3f.css.map",
-    "main.fa3afed8.js.map": "/H2Ometer_front/static/js/main.fa3afed8.js.map"
+    "main.c4f76800.js.map": "/H2Ometer_front/static/js/main.c4f76800.js.map"
   },
   "entrypoints": [
     "static/css/main.904bdf3f.css",
-    "static/js/main.fa3afed8.js"
+    "static/js/main.c4f76800.js"
   ]
 }
