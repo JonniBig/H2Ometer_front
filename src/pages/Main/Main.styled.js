@@ -1,5 +1,27 @@
 import styled from 'styled-components';
+import backgroundMPMob from '../../assets/images/main/backgroundMPMob.png';
+import backgroundMPTabl from '../../assets/images/main/backgroundMPTabl.png';
+import backgroundMP from '../../assets/images/main/backgroundMP.png';
+import backgroundElementMP from '../../assets/images/main/backgroundElementMP.png';
 
-export const StyledMainPage = styled.section`
-  margin: 0 auto;
+export const StyledMainPageBackgroun = styled.div`
+  position: fixed;
+  top: 60px;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  z-index: -1;
+
+  background-image: url(${backgroundMPMob});
+  background-size: cover;
+  background-position: bottom;
+  background-repeat: no-repeat;
+
+  @media screen and (min-width: 768px) {
+    background-image: url(${backgroundMPTabl});
+  }
+  @media screen and (min-width: 1440px) {
+    background-image: url(${backgroundMP}), url(${backgroundElementMP});
+    background-size: contain;
+  }
 `;
