@@ -15,6 +15,8 @@ import storage from 'redux-persist/lib/storage';
 import { modalReducer } from './modal/modalSlice';
 import { userReducer } from './user/userSlice';
 
+
+
 const modalExampleConfig = {
   key: 'modalExample',
   storage,
