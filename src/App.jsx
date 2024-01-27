@@ -1,6 +1,6 @@
 import { Route, Routes } from 'react-router-dom';
 
-import { Layout } from 'components';
+import { Layout, PrivateRoute, RestrictedRoute } from 'components';
 import { Home, Login, Main, Register } from 'pages';
 
 import {
@@ -17,15 +17,27 @@ const appRoutes = [
   },
   {
     path: HOME_ROUTE,
-    element: <Home />,
+    element: (
+      <PrivateRoute>
+        <Home />
+      </PrivateRoute>
+    ),
   },
   {
     path: REGISTER_ROUTE,
-    element: <Register />,
+    element: (
+      <RestrictedRoute>
+        <Register />
+      </RestrictedRoute>
+    ),
   },
   {
     path: LOGIN_ROUTE,
-    element: <Login />,
+    element: (
+      <RestrictedRoute>
+        <Login />
+      </RestrictedRoute>
+    ),
   },
 ];
 

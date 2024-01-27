@@ -1,11 +1,12 @@
 import React from 'react';
-import { StyledMainPage } from './Main.styled';
+import { StyledMainPageBackgroun } from './Main.styled';
+import { Welcome } from 'components';
 
 const Main = () => {
   return (
-    <StyledMainPage>
-      <div>main</div>
-    </StyledMainPage>
+    <StyledMainPageBackgroun>
+      <Welcome />
+    </StyledMainPageBackgroun>
   );
 };
 
