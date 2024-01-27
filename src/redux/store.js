@@ -13,6 +13,7 @@ import {
 import storage from 'redux-persist/lib/storage';
 
 import { modalReducer } from './modal/modalSlice';
+import {authReducer } from './auth/authSlice'
 
 const modalExampleConfig = {
   key: 'modalExample',
@@ -20,9 +21,16 @@ const modalExampleConfig = {
   whitelist: ['isOpenModal'],
 };
 
+const authConfig = {
+  key: 'auth',
+  storage,
+  whitelist: ['token'],
+};
+
 export const store = configureStore({
   reducer: {
     modal: persistReducer(modalExampleConfig, modalReducer),
+    auth: persistReducer(authConfig, authReducer)
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
