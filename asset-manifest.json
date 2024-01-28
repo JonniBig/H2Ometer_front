@@ -1,9 +1,10 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.33a44fcf.css",
-    "main.js": "/H2Ometer_front/static/js/main.7f1f42e6.js",
+    "main.js": "/H2Ometer_front/static/js/main.e5091a77.js",
     "static/media/backgroundMPTabl.png": "/H2Ometer_front/static/media/backgroundMPTabl.b92dad6e5603ef48e646.png",
     "static/media/backgroundMP.png": "/H2Ometer_front/static/media/backgroundMP.3bf126b95881c2e32d3b.png",
+    "static/media/sprite.svg": "/H2Ometer_front/static/media/sprite.e2112a028717a55b180003fba5ae75d0.svg",
     "static/media/backgroundElementMP.png": "/H2Ometer_front/static/media/backgroundElementMP.0fdfaf15928336e9b794.png",
     "static/media/backgroundMPMob.png": "/H2Ometer_front/static/media/backgroundMPMob.8f07f6a7cc02e6516a3c.png",
     "index.html": "/H2Ometer_front/index.html",
@@ -11,10 +12,10 @@
     "static/media/wrench-screwdriver.svg": "/H2Ometer_front/static/media/wrench-screwdriver.12b0d684859135b29706b3a4da2e71f1.svg",
     "static/media/presentation-chart-bar.svg": "/H2Ometer_front/static/media/presentation-chart-bar.e61a53726b5de7a376d6425df107ae04.svg",
     "main.33a44fcf.css.map": "/H2Ometer_front/static/css/main.33a44fcf.css.map",
-    "main.7f1f42e6.js.map": "/H2Ometer_front/static/js/main.7f1f42e6.js.map"
+    "main.e5091a77.js.map": "/H2Ometer_front/static/js/main.e5091a77.js.map"
   },
   "entrypoints": [
     "static/css/main.33a44fcf.css",
-    "static/js/main.7f1f42e6.js"
+    "static/js/main.e5091a77.js"
   ]
 }
