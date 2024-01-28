@@ -18,8 +18,6 @@ import { authReducer } from './auth/authSlice';
 
 // import { userReducer } from './user/userSlice';
 
-
-
 const modalExampleConfig = {
   key: 'modalExample',
   storage,
@@ -28,6 +26,7 @@ const modalExampleConfig = {
 
 const authConfig = {
   key: 'auth',
+  storage,
 };
 // const userConfig = {
 //   key: 'user',
