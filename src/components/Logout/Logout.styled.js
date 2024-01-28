@@ -5,11 +5,10 @@ export const StyledLogout = styled.div`
     position: fixed;
     top: 50%;
     left: 50%;
-    width: ;
-    height: ;
+    width: 280px;
+    height: 260px;
     border-radius: 10px;
-
-    background: #fff;
+    background-color: var(--white);
     overflow: hidden;
     overflow-y: auto;
   }
