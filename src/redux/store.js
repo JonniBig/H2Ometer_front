@@ -16,7 +16,7 @@ import { modalReducer } from './modal/modalSlice';
 
 import { authReducer } from './auth/authSlice';
 
-import { userReducer } from './user/userSlice';
+// import { userReducer } from './user/userSlice';
 
 const modalExampleConfig = {
   key: 'modalExample',
@@ -27,16 +27,16 @@ const modalExampleConfig = {
 const authConfig = {
   key: 'auth',
 };
-const userConfig = {
-  key: 'user',
+// const userConfig = {
+//   key: 'user',
 
-  storage,
-  whitelist: ['token'],
-};
+//   storage,
+//   whitelist: ['token'],
+// };
 
 export const store = configureStore({
   reducer: {
-    auth: persistReducer(userConfig, userReducer),
+    // auth: persistReducer(userConfig, userReducer),
     modal: persistReducer(modalExampleConfig, modalReducer),
     auth: persistReducer(authConfig, authReducer),
   },
