@@ -9,8 +9,8 @@ export const WaterConsumptionTracker = () => {
   return (
     <WaterConsTrackerStyled>
       <h1>Water consumption tracker</h1>
-      <h2>Record daily water intake and track</h2>
-      <h3>Tracker Benefits</h3>
+      <p>Record daily water intake and track</p>
+      <h2>Tracker Benefits</h2>
       <ul>
         <li>
           <img src={calendarDays} width={40} height={40} alt="Habit drive" />
@@ -21,7 +21,7 @@ export const WaterConsumptionTracker = () => {
             src={presentationCharBar}
             width={40}
             height={40}
-            alt="Habit drive"
+            alt="View statistics"
           />
           View statistics
         </li>
@@ -30,7 +30,7 @@ export const WaterConsumptionTracker = () => {
             src={wrenchScrewdriver}
             width={40}
             height={40}
-            alt="Habit drive"
+            alt="Personal rate setting"
           />
           Personal rate setting
         </li>

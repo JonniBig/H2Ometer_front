@@ -14,7 +14,7 @@ import storage from 'redux-persist/lib/storage';
 
 import { modalReducer } from './modal/modalSlice';
 
-import {authReducer } from './auth/authSlice'
+import { authReducer } from './auth/authSlice';
 
 import { userReducer } from './user/userSlice';
 
@@ -26,19 +26,19 @@ const modalExampleConfig = {
 
 const authConfig = {
   key: 'auth',
+  storage,
+};
 
 const userConfig = {
   key: 'user',
-
   storage,
-  whitelist: ['token'],
 };
 
 export const store = configureStore({
   reducer: {
     auth: persistReducer(userConfig, userReducer),
     modal: persistReducer(modalExampleConfig, modalReducer),
-    auth: persistReducer(authConfig, authReducer)
+    auth: persistReducer(authConfig, authReducer),
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({
