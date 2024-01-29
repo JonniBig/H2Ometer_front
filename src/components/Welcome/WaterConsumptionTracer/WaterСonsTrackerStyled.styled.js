@@ -25,7 +25,7 @@ export const WaterConsTrackerStyled = styled.div`
     }
   }
 
-  h2 {
+  p {
     font-size: 24px;
     margin-bottom: 24px;
 
@@ -35,7 +35,7 @@ export const WaterConsTrackerStyled = styled.div`
     }
   }
 
-  h3 {
+  h2 {
     font-size: 18px;
     font-weight: 500;
     margin-bottom: 12px;

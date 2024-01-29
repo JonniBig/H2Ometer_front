@@ -1,4 +1,4 @@
-import { Route, Routes } from 'react-router-dom';
+import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Layout, PrivateRoute, RestrictedRoute } from 'components';
 import { Home, Login, Main, Register } from 'pages';
@@ -45,6 +45,7 @@ export const App = () => {
   return (
     <Layout>
       <Routes>
+        <Route path="/" element={<Navigate to={WELCOME_ROUTE} />} />
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
