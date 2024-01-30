@@ -30,6 +30,8 @@ export const StyledCalendar = styled.div`
     display: grid;
     grid-template-columns: repeat(10, 34px);
     gap: 22px;
+    min-height: 284px;
+    align-content: flex-start;
   }
 
   .cell {

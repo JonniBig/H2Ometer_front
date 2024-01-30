@@ -4,6 +4,8 @@ import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { StyledRegisterPage } from './Register.styled';
 import { registerThunk } from '../../redux/auth/authSlice';
+import { Link } from 'react-router-dom';
+import { LOGIN_ROUTE } from 'constants/routes';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -17,7 +19,7 @@ const Register = () => {
     validationSchema: Yup.object({
       email: Yup.string().email('Invalid email address').required('Required'),
       password: Yup.string()
-        .min(8, 'Password must be at least 8 characters')
+        .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
         .required('Required'),
       confirmPassword: Yup.string()
@@ -25,15 +27,16 @@ const Register = () => {
         .required('Required'),
     }),
     onSubmit: data => {
-      dispatch(registerThunk(data))
-     formik.resetForm();
+      console.log(data);
+      const formData = { email: data.email, password: data.password };
+      dispatch(registerThunk(formData));
+      formik.resetForm();
     },
   });
 
-
   return (
-      <StyledRegisterPage>
-        <h1>Sign Up</h1>
+    <StyledRegisterPage>
+      <h1>Sign Up</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="email">Email Address</label>
@@ -83,9 +86,9 @@ const Register = () => {
         <button type="submit">Submit</button>
       </form>
       <div>
-        <a href="/signin">Sign In</a>
+        <Link to={LOGIN_ROUTE}>Sign In</Link>
       </div>
-      </StyledRegisterPage>
+    </StyledRegisterPage>
   );
 };
 
