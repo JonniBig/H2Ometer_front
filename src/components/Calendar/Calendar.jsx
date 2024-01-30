@@ -1,10 +1,18 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyledCalendar } from './Calendar.styled';
-import { getDaysInMonth } from 'date-fns';
+import { format, getDaysInMonth, setMonth } from 'date-fns';
 
 const Calendar = () => {
-  const daysInMonth = getDaysInMonth(new Date());
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const daysInMonth = getDaysInMonth(selectedDate);
   const calendarDays = Array.from({ length: daysInMonth });
+
+  const onPrevMonth = () => {
+    setSelectedDate(prevDate => setMonth(prevDate, prevDate.getMonth() - 1));
+  };
+  const onNextMonth = () => {
+    setSelectedDate(prevDate => setMonth(prevDate, prevDate.getMonth() + 1));
+  };
 
   return (
     <div>
@@ -12,11 +20,11 @@ const Calendar = () => {
         <div className="header">
           <h3 className="title">Month</h3>
           <div className="changeMonth">
-            <button className="navBtn" type="button">
+            <button onClick={onPrevMonth} className="navBtn" type="button">
               {'<'}
             </button>
-            <span>April, 2023</span>
-            <button className="navBtn" type="button">
+            <span>{format(selectedDate, 'MMMM, y')}</span>
+            <button onClick={onNextMonth} className="navBtn" type="button">
               {'>'}
             </button>
           </div>
@@ -26,7 +34,7 @@ const Calendar = () => {
           {calendarDays.map((_, index) => {
             const dayNumber = index + 1;
             return (
-              <div className="cell">
+              <div key={dayNumber} className="cell">
                 <span className="dayNumber">{dayNumber}</span>
                 <span className="percents">100&#37;</span>
               </div>
