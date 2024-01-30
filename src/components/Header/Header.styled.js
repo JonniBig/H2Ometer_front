@@ -29,7 +29,7 @@ export const StyledHeader = styled.header`
   outline: 2px solid red;
 `;
 
-export const StyledLogo = styled.a`
+export const StyledLogo = styled.div`
   font-weight: 700;
   margin: 0;
 `;
@@ -45,8 +45,7 @@ export const LinkStyled = styled(Link)`
 
   &:hover,
   &:focus {
-    color:var(--secondary-orange);
-
+    color: var(--secondary-orange);
   }
   .text {
     font-size: 16px;
@@ -56,9 +55,6 @@ export const LinkStyled = styled(Link)`
     @media screen and (min-width: 768px) {
       font-size: 18px;
       line-height: 1.33;
-     
     }
-  }
-
   }
 `;

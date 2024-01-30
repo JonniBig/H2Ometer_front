@@ -7,7 +7,6 @@ import {
   StyledTitle,
   StyledTodayDiv,
 } from './TodayList.styled';
-import sprite from '../../assets/images/icons/sprite.svg';
 
 const TodayList = () => {
   return (
@@ -17,14 +16,14 @@ const TodayList = () => {
         <StyledList>
           <li>
             <StyledText>You haven't drank any water today</StyledText>
-            <li>
+            <div>
               <StyledAddBtn>
-                <svg>
+                {/* <svg>
                   <use href={sprite + '#plus'}></use>
-                </svg>
+                </svg> */}
                 Add water
               </StyledAddBtn>
-            </li>
+            </div>
           </li>
         </StyledList>
       </StyledAddDiv>
