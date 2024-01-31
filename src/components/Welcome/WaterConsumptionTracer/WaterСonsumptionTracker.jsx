@@ -1,9 +1,10 @@
-import { WaterConsTrackerStyled } from './WaterСonsTrackerStyled.styled';
+import { Link } from 'react-router-dom';
+
 import calendarDays from '../../../assets/images/icons/calendar-days.svg';
 import presentationCharBar from '../../../assets/images/icons/presentation-chart-bar.svg';
 import wrenchScrewdriver from '../../../assets/images/icons/wrench-screwdriver.svg';
 
-import { Link } from 'react-router-dom';
+import { WaterConsTrackerStyled } from './WaterСonsTrackerStyled.styled';
 
 export const WaterConsumptionTracker = () => {
   return (
