@@ -1,10 +1,116 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { StyledCalendar } from './Calendar.styled';
-import { getDaysInMonth } from 'date-fns';
+import { format, getDaysInMonth, setMonth } from 'date-fns';
+
+const mockWaterData = {
+  '2024-01-22': {
+    waterVolumes: [
+      {
+        _id: '65123451',
+        waterAmount: 750,
+        date: '2024-01-22T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+      {
+        _id: '65123451',
+        waterAmount: 600,
+        date: '2024-01-22T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+    ],
+    date: '22, January',
+    waterVolumeTimes: 1,
+    waterVolumePercentage: 90,
+    dailyNorma: 1.5,
+  },
+  '2024-01-23': {
+    waterVolumes: [
+      {
+        _id: '65123451',
+        waterAmount: 750,
+        date: '2024-01-23T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+      {
+        _id: '65123451',
+        waterAmount: 750,
+        date: '2024-01-23T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+    ],
+    date: '23, January',
+    waterVolumeTimes: 1,
+    waterVolumePercentage: 100,
+    dailyNorma: 1.5,
+  },
+  '2024-01-24': {
+    waterVolumes: [
+      {
+        _id: '65123451',
+        waterAmount: 750,
+        date: '2024-01-24T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+      {
+        _id: '65123451',
+        waterAmount: 750,
+        date: '2024-01-24T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+    ],
+    date: '24, January',
+    waterVolumeTimes: 1,
+    waterVolumePercentage: 100,
+    dailyNorma: 1.5,
+  },
+  '2024-01-25': {
+    waterVolumes: [
+      {
+        _id: '65123451',
+        waterAmount: 150,
+        date: '2024-01-25T10:10:02.389Z',
+        owner: 'wdawd12',
+      },
+    ],
+    date: '25, January',
+    waterVolumeTimes: 1,
+    waterVolumePercentage: 10,
+    dailyNorma: 1.5,
+  },
+  '2024-01-26': {
+    waterVolumes: [
+      {
+        _id: '65123451',
+        waterAmount: 150,
+        date: '2024-01-26T10:10:02.342Z',
+        owner: 'wdawd12',
+      },
+      {
+        _id: '65123451',
+        waterAmount: 150,
+        date: '2024-01-26T10:10:02.342Z',
+        owner: 'wdawd12',
+      },
+    ],
+    date: '26, January',
+    waterVolumeTimes: 1,
+    waterVolumePercentage: 20,
+    dailyNorma: 1.5,
+  },
+};
 
 const Calendar = () => {
-  const daysInMonth = getDaysInMonth(new Date());
+  const waterData = mockWaterData;
+  const [selectedDate, setSelectedDate] = useState(new Date());
+  const daysInMonth = getDaysInMonth(selectedDate);
   const calendarDays = Array.from({ length: daysInMonth });
+
+  const onPrevMonth = () => {
+    setSelectedDate(prevDate => setMonth(prevDate, prevDate.getMonth() - 1));
+  };
+  const onNextMonth = () => {
+    setSelectedDate(prevDate => setMonth(prevDate, prevDate.getMonth() + 1));
+  };
 
   return (
     <div>
@@ -12,11 +118,11 @@ const Calendar = () => {
         <div className="header">
           <h3 className="title">Month</h3>
           <div className="changeMonth">
-            <button className="navBtn" type="button">
+            <button onClick={onPrevMonth} className="navBtn" type="button">
               {'<'}
             </button>
-            <span>April, 2023</span>
-            <button className="navBtn" type="button">
+            <span>{format(selectedDate, 'MMMM, y')}</span>
+            <button onClick={onNextMonth} className="navBtn" type="button">
               {'>'}
             </button>
           </div>
@@ -25,10 +131,23 @@ const Calendar = () => {
         <div className="cellsContainer">
           {calendarDays.map((_, index) => {
             const dayNumber = index + 1;
+            const formattedDayNumber =
+              dayNumber < 10 ? `0${dayNumber}` : `${dayNumber}`;
+
+            const currentDate = `${selectedDate.getFullYear()}-${format(
+              selectedDate,
+              'LL'
+            )}-${formattedDayNumber}`;
+            const currentDateData = waterData[currentDate];
+
+            const dayPercentage = currentDateData?.waterVolumePercentage ?? 0;
+            const fullNorma = dayPercentage === 100;
             return (
-              <div className="cell">
-                <span className="dayNumber">{dayNumber}</span>
-                <span className="percents">100&#37;</span>
+              <div key={dayNumber} className="cell">
+                <span className={`dayNumber ${fullNorma ? 'full' : ''}`}>
+                  {dayNumber}
+                </span>
+                <span className="percents">{dayPercentage}&#37;</span>
               </div>
             );
           })}

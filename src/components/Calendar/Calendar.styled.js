@@ -2,6 +2,8 @@ import styled from 'styled-components';
 
 export const StyledCalendar = styled.div`
   background-color: var(--secondary-white);
+  max-width: 544px;
+
   .header {
     display: flex;
     align-items: center;
@@ -30,6 +32,8 @@ export const StyledCalendar = styled.div`
     display: grid;
     grid-template-columns: repeat(10, 34px);
     gap: 22px;
+    min-height: 290px;
+    align-content: flex-start;
   }
 
   .cell {
@@ -47,11 +51,16 @@ export const StyledCalendar = styled.div`
     justify-content: center;
     align-items: center;
     line-height: 1.25;
-    border: 1px solid var(--secondary-white);
+    border: 1px solid var(--secondary-orange);
+
+    /* border: 1px solid var(--secondary-white); */
     transition: border var(--anim);
-    &:hover,
+    /* &:hover,
     &:focus {
-      border: 1px solid var(--secondary-orange);
+      border: 1px solid var(--secondary-orange); */
+    /* } */
+    &.full {
+      border: 1px solid var(--secondary-white);
     }
   }
 

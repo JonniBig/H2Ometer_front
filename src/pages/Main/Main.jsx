@@ -1,10 +1,11 @@
 import React from 'react';
 import { StyledMainPageBackgroun } from './Main.styled';
-import { Welcome } from 'components';
+import { Loader, Welcome } from 'components';
 
 const Main = () => {
   return (
     <StyledMainPageBackgroun>
+      <Loader />
       <Welcome />
     </StyledMainPageBackgroun>
   );

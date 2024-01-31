@@ -3,10 +3,10 @@ import { useSelector } from 'react-redux';
 import { Navigate } from 'react-router-dom';
 
 import * as routes from 'constants/routes';
-import { selectIsSignedIn } from '../../redux/user/userSlice.selectors';
+import { selectAuthAuthenticated } from '../../redux/auth/authSelectors';
 
 const RestrictedRoute = ({ children }) => {
-  const isSignedIn = useSelector(selectIsSignedIn);
+  const isSignedIn = useSelector(selectAuthAuthenticated);
   return isSignedIn ? <Navigate replace to={routes.HOME_ROUTE} /> : children;
 };
 
