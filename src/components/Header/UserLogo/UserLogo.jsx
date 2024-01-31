@@ -1,12 +1,21 @@
 import React, { useState } from 'react';
+import { useSelector } from 'react-redux';
+
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
-import user from '../../../assets/images/icons/user.svg';
-import { UserLogoStyled } from './UserLogoStyled.styled';
+import {
+  selectAuthAuthenticated,
+  selectUser,
+} from '../../../redux/auth/authSelectors';
+
+import userAva from '../../../assets/images/icons/user.svg';
 import openIcon from '../../../assets/images/icons/chevron-double-up.svg';
-import Button from '@material-ui/core/Button';
+
+import { ImgIconStyled, UserLogoStyled } from './UserLogoStyled.styled';
 
 const UserLogo = () => {
   const [open, setOpen] = useState(false);
+  const isAuthenticated = useSelector(selectAuthAuthenticated);
+  const user = useSelector(selectUser);
 
   const handleClick = () => {
     setOpen(true);
@@ -20,12 +29,20 @@ const UserLogo = () => {
     <>
       <UserLogoStyled>
         <div className="user">
-          <span className="name">NAME</span>
-          <img className="avatar" src={user} alt="Sign in" />
+          <span className="name">
+            {isAuthenticated
+              ? user.name || user.email?.charAt(0).toUpperCase()
+              : user.email?.charAt(0).toUpperCase()}
+          </span>
+          <img
+            className="avatar"
+            src={isAuthenticated && user.avatar ? user.avatar : userAva}
+            alt="User avatar"
+          />
         </div>
-        <Button onClick={handleClick}>
-          <img className="icon" src={openIcon} alt="Open menu" />
-        </Button>
+
+        <ImgIconStyled src={openIcon} onClick={handleClick} alt="Open menu" />
+
         <UserLogoModal open={open} onClose={handleClose} />
       </UserLogoStyled>
     </>
