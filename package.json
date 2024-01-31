@@ -4,7 +4,6 @@
   "private": true,
   "homepage": "https://JonniBig.github.io/H2Ometer_front/",
   "dependencies": {
-    "@material-ui/core": "^4.12.4",
     "@reduxjs/toolkit": "^2.1.0",
     "@testing-library/jest-dom": "^5.16.3",
     "@testing-library/react": "^12.1.4",
