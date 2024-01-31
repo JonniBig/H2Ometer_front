@@ -1,7 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useSelector } from 'react-redux';
 
-// import UserLogoModal from '../UserLogoModal/UserLogoModal';
+import UserLogoModal from '../UserLogoModal/UserLogoModal';
 import {
   selectAuthAuthenticated,
   selectUser,
@@ -17,17 +17,17 @@ import {
 } from './UserLogoStyled.styled';
 
 const UserLogo = () => {
-  // const [open, setOpen] = useState(false);
+  const [isModalOpen, setIsModalOpen] = useState(false);
   const isAuthenticated = useSelector(selectAuthAuthenticated);
   const user = useSelector(selectUser);
 
-  // const handleClick = () => {
-  //   setOpen(true);
-  // };
+  const handleToggleModal = () => {
+    setIsModalOpen(prev => !prev);
+  };
 
-  // const handleClose = () => {
-  //   setOpen(false);
-  // };
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
+  };
 
   return (
     <UserLogoWrapper>
@@ -45,10 +45,10 @@ const UserLogo = () => {
           />
         </div>
         <ButtonMenuStyled>
-          <img src={openIcon} alt="Open menu" />
+          <img src={openIcon} onClick={handleToggleModal} alt="Open menu" />
         </ButtonMenuStyled>
 
-        {/* <UserLogoModal open={open} onClose={handleClose} /> */}
+        {isModalOpen && <UserLogoModal onClose={handleCloseModal} />}
       </UserLogoStyled>
     </UserLogoWrapper>
   );

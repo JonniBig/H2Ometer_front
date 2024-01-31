@@ -32,20 +32,16 @@ export const UserLogoStyled = styled.div`
 `;
 
 export const ButtonMenuStyled = styled.button`
-
   display: flex;
   align-items: center;
   gap: 4px;
   cursor: pointer;
   border: none;
   background-color: transparent;
-  cursor: pointer;
 
   &:hover,
   &:focus {
-    
     border-radius: 50%;
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
-
-    
-  `;
+  }
+`;
