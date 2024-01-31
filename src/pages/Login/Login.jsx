@@ -25,12 +25,15 @@ const Login = () => {
     onSubmit: data => {
       dispatch(loginThunk(data));
       formik.resetForm();
+
+      localStorage.setItem('userEmail', formik.values.email);
+
     },
   });
 
   return (
     <StyledLoginPage>
-      <h1>Sign Ip</h1>
+      <h1>Sign In</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="email">Email Address</label>
@@ -38,6 +41,7 @@ const Login = () => {
             id="email"
             name="email"
             type="email"
+            placeholder="E-mail"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -53,6 +57,7 @@ const Login = () => {
             id="password"
             name="password"
             type="password"
+            placeholder="Password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}

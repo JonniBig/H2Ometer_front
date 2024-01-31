@@ -20,6 +20,12 @@ export const requestLogin = async formData => {
   return data;
 };
 
+export const requestRefreshUser = async () => {
+  const { data } = await waterTrackerInstance.get('/users/current');
+
+  return data;
+};
+
 export const requestWaterData = async formData => {
   const { data } = await waterTrackerInstance.post(
     '-/-users-/-signin',
