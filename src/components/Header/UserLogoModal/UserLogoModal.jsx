@@ -7,11 +7,9 @@ import logoutIcon from '../../../assets/images/icons/arrow-right-on-rectangle.sv
 
 const UserLogoModal = ({ open, onClose }) => {
   const [anchorEl, setAnchorEl] = useState(null);
-
   const handleClick = event => {
     setAnchorEl(event.currentTarget);
   };
-
   const handleClose = () => {
     setAnchorEl(null);
     onClose();
