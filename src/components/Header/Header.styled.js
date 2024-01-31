@@ -3,8 +3,9 @@ import { Link } from 'react-router-dom';
 
 export const Conteiner = styled.div`
   margin: 0 auto;
-  max-width: 320px;
+  max-width: 280px;
   padding: 8px 20px 0px 20px;
+  outline: 2px solid black;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -25,6 +26,7 @@ export const StyledHeader = styled.header`
   align-items: center;
   width: 100%;
   height: 48px;
+  outline: 2px solid red;
 `;
 
 export const StyledLogo = styled.div`

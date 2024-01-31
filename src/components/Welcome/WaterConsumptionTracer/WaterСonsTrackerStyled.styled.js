@@ -2,7 +2,6 @@ import styled from 'styled-components';
 
 export const WaterConsTrackerStyled = styled.div`
    margin-top: 24px;
-   width:100%;
 
   @media screen and (min-width: 768px) {
       margin-top: 40px;
@@ -27,13 +26,11 @@ export const WaterConsTrackerStyled = styled.div`
   }
 
   p {
-    width: 197px;
     font-size: 24px;
     margin-bottom: 24px;
 
     /* Tablet style */
     @media screen and (min-width: 768px) {
-      width: 100%;
       font-size: 26px;
     }
   }
@@ -49,13 +46,11 @@ export const WaterConsTrackerStyled = styled.div`
     flex-direction: column;
     gap: 16px;
     margin-bottom: 24px;
-    padding-left: 0px;
 
     /* Tablet style */
     @media screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: space-between;
-      padding-left: 0;
     }
 
     /* Desktop style */
