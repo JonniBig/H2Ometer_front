@@ -5,8 +5,6 @@ import * as Yup from 'yup';
 import { StyledLoginPage } from './Login.styled';
 import { loginThunk } from '../../redux/auth/authSlice';
 
-
-
 const Login = () => {
   const dispatch = useDispatch();
 
@@ -27,13 +25,14 @@ const Login = () => {
         .required('Required'),
     }),
     onSubmit: data => {
-      dispatch(loginThunk(data))
-     formik.resetForm();
+      dispatch(loginThunk(data));
+      formik.resetForm();
     },
   });
 
-  return <StyledLoginPage>
-    <h1>Sign Ip</h1>
+  return (
+    <StyledLoginPage>
+      <h1>Sign Ip</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
           <label htmlFor="email">Email Address</label>
@@ -70,7 +69,8 @@ const Login = () => {
       <div>
         <a href="/signin">Sign Up</a>
       </div>
-  </StyledLoginPage>;
+    </StyledLoginPage>
+  );
 };
 
 export default Login;

@@ -7,7 +7,6 @@ const Home = () => {
     <StyledHomePage>
       <div>home</div>
       <TodayList />
-
       <Calendar />
     </StyledHomePage>
   );

@@ -1,13 +1,13 @@
 import React from 'react';
 import {
-  StyledAddBtn,
   StyledAddDiv,
   StyledList,
   StyledText,
   StyledTitle,
   StyledTodayDiv,
 } from './TodayList.styled';
-import sprite from '../../assets/images/icons/sprite.svg';
+
+import { WaterModal } from './WaterModal';
 
 const TodayList = () => {
   return (
@@ -18,12 +18,7 @@ const TodayList = () => {
           <li>
             <StyledText>You haven't drank any water today</StyledText>
             <li>
-              <StyledAddBtn>
-                <svg>
-                  <use href={sprite + '#plus'}></use>
-                </svg>
-                Add water
-              </StyledAddBtn>
+              <WaterModal />
             </li>
           </li>
         </StyledList>
