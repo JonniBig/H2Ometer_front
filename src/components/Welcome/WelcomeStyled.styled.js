@@ -2,8 +2,9 @@ import styled from 'styled-components';
 
 export const Conteiner = styled.div`
   margin: 0 auto;
-  max-width: 320px;
+  max-width: 280px;
   padding: 0px 20px;
+  outline: 2px solid black;
 
   @media screen and (min-width: 768px) {
     max-width: 768px;
@@ -23,6 +24,7 @@ export const WelcomeStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
+  outline: 2px solid red;
 
   @media screen and (min-width: 768px) {
     max-width: 707px;

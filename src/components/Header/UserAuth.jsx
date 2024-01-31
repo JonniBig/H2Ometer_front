@@ -1,8 +1,6 @@
 import React from 'react';
-
-import user from '../../../assets/images/icons/user.svg';
-
-import { LinkStyled } from '../Header.styled';
+import { LinkStyled } from './Header.styled';
+import user from '../../assets/images/icons/user.svg';
 
 const UserAuth = () => (
   <nav to="/signin">
