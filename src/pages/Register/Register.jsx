@@ -44,6 +44,7 @@ const Register = () => {
             id="email"
             name="email"
             type="email"
+            placeholder="E-mail"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.email}
@@ -59,6 +60,7 @@ const Register = () => {
             id="password"
             name="password"
             type="password"
+            placeholder="Password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.password}
@@ -74,6 +76,7 @@ const Register = () => {
             id="confirmPassword"
             name="confirmPassword"
             type="password"
+            placeholder="Repeat password"
             onChange={formik.handleChange}
             onBlur={formik.handleBlur}
             value={formik.values.confirmPassword}
