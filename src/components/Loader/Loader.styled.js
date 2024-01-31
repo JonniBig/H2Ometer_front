@@ -7,7 +7,7 @@ export const StyledLoader = styled.div`
   display: inline-block;
   position: relative;
   border: 3px solid;
-  border-color: #fff #fff transparent;
+  border-color: var(--blue) var(--blue) transparent;
   box-sizing: border-box;
   animation: rotation 1s linear infinite;
 
@@ -21,7 +21,7 @@ export const StyledLoader = styled.div`
     bottom: 0;
     margin: auto;
     border: 3px solid;
-    border-color: transparent #ff3d00 #ff3d00;
+    border-color: transparent var(--secondary-orange) var(--secondary-orange);
     width: 24px;
     height: 24px;
     border-radius: 50%;
