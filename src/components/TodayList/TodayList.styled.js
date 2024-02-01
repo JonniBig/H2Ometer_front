@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const StyledTodayDiv = styled.div`
-  background-color: var(--secondary-white);
+  // background-color: var(--secondary-white);
   font-family: Roboto;
   width: 264px;
   height: 258px;

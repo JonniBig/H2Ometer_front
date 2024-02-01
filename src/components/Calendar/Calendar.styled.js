@@ -1,8 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledCalendar = styled.div`
-  background-color: var(--secondary-white);
-  max-width: 544px;
+  // background-color: var(--secondary-white);
+  // max-width: 544px;
 
   .header {
     display: flex;
@@ -29,11 +29,23 @@ export const StyledCalendar = styled.div`
   }
 
   .cellsContainer {
-    display: grid;
-    grid-template-columns: repeat(10, 34px);
-    gap: 22px;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 16px 26px;
+
+    // display: grid;
+    // grid-template-columns: repeat(10, 34px);
+    // gap: 22px;
     min-height: 290px;
     align-content: flex-start;
+
+    @media screen and (min-width: 768px) {
+      gap: 20px 34px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      gap: 20px 22px;
+    }
   }
 
   .cell {
@@ -45,14 +57,18 @@ export const StyledCalendar = styled.div`
   .dayNumber {
     background-color: var(--white);
     display: flex;
-    width: 34px;
-    height: 34px;
+    width: 32px;
+    height: 32px;
     border-radius: 17px;
     justify-content: center;
     align-items: center;
     line-height: 1.25;
     border: 1px solid var(--secondary-orange);
 
+    @media screen and (min-width: 768px) {
+      width: 34px;
+      height: 34px;
+    }
     /* border: 1px solid var(--secondary-white); */
     transition: border var(--anim);
     /* &:hover,

@@ -14,15 +14,13 @@ const Main = () => {
 
   return (
     <StyledMainPageBackgroun>
-      <StyledMainPageBackgroun>
-        {showLoader ? (
-          <LoaderStyledMain>
-            <Loader />
-          </LoaderStyledMain>
-        ) : (
-          <Welcome />
-        )}
-      </StyledMainPageBackgroun>
+      {showLoader ? (
+        <LoaderStyledMain>
+          <Loader />
+        </LoaderStyledMain>
+      ) : (
+        <Welcome />
+      )}
     </StyledMainPageBackgroun>
   );
 };

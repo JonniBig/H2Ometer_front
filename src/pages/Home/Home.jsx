@@ -3,18 +3,19 @@ import { StyledHomePage } from './Home.styled';
 
 import { Calendar, TodayList, DailyNorma, DailyProgress } from 'components';
 
-
-
-
-
 const Home = () => {
   return (
     <StyledHomePage>
-      <div>home</div>
-      <DailyNorma/>
-      <TodayList />
-      <DailyProgress />
-      <Calendar />
+      <div className="conteiner">
+        <div className="div1">
+          <DailyNorma />
+          <DailyProgress />
+        </div>
+        <div className="div2">
+          <TodayList />
+          <Calendar />
+        </div>
+      </div>
     </StyledHomePage>
   );
 };
