@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.dbb51b06.css",
-    "main.js": "/H2Ometer_front/static/js/main.f057aefd.js",
+    "main.js": "/H2Ometer_front/static/js/main.3cb9b73e.js",
     "static/media/Roboto-Medium.ttf": "/H2Ometer_front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/H2Ometer_front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/H2Ometer_front/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
@@ -18,12 +18,14 @@
     "static/media/outline.svg": "/H2Ometer_front/static/media/outline.bc84041421ba50635179681b1c2e287e.svg",
     "static/media/presentation-chart-bar.svg": "/H2Ometer_front/static/media/presentation-chart-bar.e61a53726b5de7a376d6425df107ae04.svg",
     "static/media/chevron-double-up.svg": "/H2Ometer_front/static/media/chevron-double-up.64305ed58233021470a2d8343553225b.svg",
+    "static/media/minus-small.svg": "/H2Ometer_front/static/media/minus-small.7e8fbb59d254c876fd4644c3abad15ef.svg",
     "static/media/plus-circle.svg": "/H2Ometer_front/static/media/plus-circle.d2126115d1f844f9d8c2c7fdd5aa3555.svg",
+    "static/media/plus-small.svg": "/H2Ometer_front/static/media/plus-small.fe8382781a07bd36e11d3320f5c187ee.svg",
     "main.dbb51b06.css.map": "/H2Ometer_front/static/css/main.dbb51b06.css.map",
-    "main.f057aefd.js.map": "/H2Ometer_front/static/js/main.f057aefd.js.map"
+    "main.3cb9b73e.js.map": "/H2Ometer_front/static/js/main.3cb9b73e.js.map"
   },
   "entrypoints": [
     "static/css/main.dbb51b06.css",
-    "static/js/main.f057aefd.js"
+    "static/js/main.3cb9b73e.js"
   ]
 }
