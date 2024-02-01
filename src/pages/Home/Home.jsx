@@ -1,10 +1,7 @@
 import React from 'react';
 import { StyledHomePage } from './Home.styled';
 
-import { Calendar, TodayList, DailyNorma } from 'components';
-
-
-import { Calendar, DailyProgress, TodayList } from 'components';
+import { Calendar, DailyProgress, TodayList, DailyNorma, } from 'components';
 
 
 const Home = () => {
