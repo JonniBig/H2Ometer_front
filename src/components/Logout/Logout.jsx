@@ -1,7 +1,14 @@
 import React from 'react';
 import { StyledLogout } from './Logout.styled';
+import { useDispatch } from 'react-redux';
+import { logoutThunk } from '../../redux/auth/authSlice';
 
 const Logout = () => {
+  const dispatch = useDispatch();
+  const handleLogout = () => {
+    dispatch(logoutThunk());
+  };
+
   return (
     <div className="backdrop isHidden">
       <StyledLogout>
@@ -14,7 +21,7 @@ const Logout = () => {
           <button type="button" className="btnCan">
             Cancel
           </button>
-          <button type="button" className="btnLog">
+          <button type="button" className="btnLog" onClick={handleLogout}>
             Log out
           </button>
         </div>

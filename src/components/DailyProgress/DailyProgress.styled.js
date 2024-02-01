@@ -2,11 +2,15 @@ import styled from 'styled-components';
 
 export const StyledDailyProgress = styled.div`
   display: flex;
-  align-items: center;
-  justify-content: space-between;
-  gap: 23px;
-  max-width: 592px;
+  flex-direction: column;
   margin-bottom: 50px;
+  .bottomContainer {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 23px;
+    max-width: 592px;
+  }
   .title {
     font-size: 18px;
     line-height: 1.33;
@@ -76,6 +80,26 @@ export const StyledDailyProgress = styled.div`
     }
   }
   .addWaterBtn {
+    background-color: var(--blue);
+    color: var(--white);
+    font-weight: 500;
+    font-size: 18px;
+    line-height: 1.33;
+    display: flex;
+    align-items: center;
+    padding: 10px 30px;
+    gap: 10px;
+    border-radius: 10px;
+    border: none;
+    transform: box-shadow var(--anim-slow);
+    &:hover,
+    &:focus {
+      box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
+    }
+  }
+  .plus {
+    width: 18px;
+    height: 18px;
   }
   .p-0 {
     left: 15px;
