@@ -1,13 +1,17 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.81d5051a.css",
-    "main.js": "/H2Ometer_front/static/js/main.e60da44a.js",
+    "main.js": "/H2Ometer_front/static/js/main.e022cf3c.js",
     "static/media/Roboto-Medium.ttf": "/H2Ometer_front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/H2Ometer_front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/H2Ometer_front/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
+    "static/media/botleHomeDesk.png": "/H2Ometer_front/static/media/botleHomeDesk.c961ca127c00af4ff220.png",
     "static/media/backgroundMPTabl.png": "/H2Ometer_front/static/media/backgroundMPTabl.b92dad6e5603ef48e646.png",
     "static/media/logo-header.svg": "/H2Ometer_front/static/media/logo-header.1711bcc50fabc6bcb675ab66e6db3ba5.svg",
     "static/media/backgroundMP.png": "/H2Ometer_front/static/media/backgroundMP.3bf126b95881c2e32d3b.png",
+    "static/media/bottleHomeTabl.png": "/H2Ometer_front/static/media/bottleHomeTabl.a98f5fce758f6d1e28dc.png",
+    "static/media/backgroundHomeTabl.png": "/H2Ometer_front/static/media/backgroundHomeTabl.d714952956cc9515d876.png",
+    "static/media/bottleHomeMob.png": "/H2Ometer_front/static/media/bottleHomeMob.f0361f1a4a6782ec872e.png",
     "static/media/backgroundElementMP.png": "/H2Ometer_front/static/media/backgroundElementMP.0fdfaf15928336e9b794.png",
     "static/media/backgroundMPMob.png": "/H2Ometer_front/static/media/backgroundMPMob.8f07f6a7cc02e6516a3c.png",
     "static/media/cog-6-tooth2.svg": "/H2Ometer_front/static/media/cog-6-tooth2.58262017e00fce9672e6b933c2d8ee67.svg",
@@ -24,10 +28,10 @@
     "static/media/minus-small.svg": "/H2Ometer_front/static/media/minus-small.7e8fbb59d254c876fd4644c3abad15ef.svg",
     "static/media/plus-small.svg": "/H2Ometer_front/static/media/plus-small.fe8382781a07bd36e11d3320f5c187ee.svg",
     "main.81d5051a.css.map": "/H2Ometer_front/static/css/main.81d5051a.css.map",
-    "main.e60da44a.js.map": "/H2Ometer_front/static/js/main.e60da44a.js.map"
+    "main.e022cf3c.js.map": "/H2Ometer_front/static/js/main.e022cf3c.js.map"
   },
   "entrypoints": [
     "static/css/main.81d5051a.css",
-    "static/js/main.e60da44a.js"
+    "static/js/main.e022cf3c.js"
   ]
 }
