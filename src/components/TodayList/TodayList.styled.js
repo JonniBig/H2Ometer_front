@@ -17,95 +17,168 @@ export const StyledTodayDiv = styled.div`
     width: 544px;
     height: 260px;
   }
-`;
 
-export const StyledTitle = styled.h2`
-  color: var(--black);
-  font-family: Roboto;
-  font-size: 24px;
-  font-weight: 500;
-  line-height: 1.25;
-
-  @media screen and (min-width: 768px) {
-    font-size: 26px;
-    line-height: 1.23;
-  }
-`;
-
-export const StyledAddDiv = styled.div`
-  width: 264px;
-  height: 212px;
-  @media screen and (min-width: 768px) {
-    height: 260px;
-    width: 565px;
-  }
-`;
-
-export const StyledAddBtn = styled.button`
-  display: flex;
-  gap: 8px;
-  padding: 1px;
-  color: var(--blue);
-  border: none;
-  background-color: transparent;
-  font-family: Roboto;
-  font-size: 16px;
-  font-weight: 500;
-  line-height: 1.25;
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-    line-height: 1.33;
-  }
-  & svg {
-    width: 16px;
-    height: 16px;
+  .title {
+    color: var(--black);
+    font-family: Roboto;
+    font-size: 24px;
+    font-weight: 500;
+    line-height: 1.25;
     @media screen and (min-width: 768px) {
-      width: 24px;
-      height: 24px;
-    }
-    & use {
-      fill: var(--blue);
-      transition: fill var(--anim);
+      font-size: 26px;
+      line-height: 1.23;
     }
   }
-  &:hover {
+
+  .addWater {
+    width: 264px;
+    height: 212px;
+    @media screen and (min-width: 768px) {
+      height: 260px;
+      width: 565px;
+    }
+  }
+
+  .waterList {
+    height: 212px;
+    padding-left: 0px;
+    &::-webkit-scrollbar {
+      width: 4px;
+    }
+    &::-webkit-scrollbar-track {
+      margin-block: 5px;
+      background: var(--secondary-blue);
+      border-radius: 50px;
+      border: 1px solid var(--secondary-white);
+    }
+    &::-webkit-scrollbar-thumb {
+      background: var(--secondary-blue);
+      border-radius: 50px;
+    }
+    &::-webkit-scrollbar-thumb:hover {
+      background: var(--primary-blue);
+    }
+  }
+
+  .emptyText {
+    color: var(--blue);
+    font-family: Roboto;
+    font-size: 14px;
+    text-align: center;
+    line-height: 1.25;
+  }
+
+  .addBtn {
+    display: flex;
+    gap: 8px;
+    padding: 1px;
+    color: var(--blue);
+    border: none;
+    background-color: transparent;
+    font-family: Roboto;
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 1.25;
+    transition: border var(--anim);
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      line-height: 1.33;
+    }
+    &:hover,
+    &:focus {
+      cursor: pointer;
+      color: var(--secondary-orange);
+    }
+  }
+
+  .title {
+    font-size: 18px;
+    font-weight: 500;
+    line-height: 24px;
+  }
+
+  .content {
+    display: flex;
+    align-items: center;
+    margin: 0px;
+    gap: 12px;
+  }
+
+  .edit {
+    background: none;
+    border: none;
+    color: var(--secondary-blue);
     cursor: pointer;
-    color: var(--secondary-orange);
-    & use {
-      fill: var(--secondary-orange);
+    padding: 0;
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 20px;
+    &:hover {
+      color: var(--secondary-orange);
     }
   }
-`;
 
-export const StyledList = styled.ul`
-  height: 212px;
-  padding-left: 0px;
-  &::-webkit-scrollbar {
-    width: 4px;
+  .volume {
+    margin: 0;
+    color: var(--blue);
+    font-size: 24px;
+    font-weight: 700;
+    line-height: 24px;
   }
 
-  &::-webkit-scrollbar-track {
-    margin-block: 5px;
-    background: var(--secondary-blue);
-    border-radius: 50px;
-    border: 1px solid var(--secondary-white);
+  .modal {
+    position: fixed;
+    z-index: 1;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.5);
+    overflow: auto;
   }
 
-  &::-webkit-scrollbar-thumb {
-    background: var(--secondary-blue);
-    border-radius: 50px;
+  .modal-content {
+    background-color: var(--white);
+    position: relative;
+    top: 50%;
+    left: 50%;
+    translate: -50% -50%;
+    padding: 24px 12px;
+    border: 1px solid rgb(136, 136, 136);
+    border-radius: 10px;
+    max-width: 280px;
+    @media screen and (min-width: 768px) {
+      max-width: 704px;
+      top: 15%;
+      left: 8%;
+      translate: -4% -4%;
+      padding: 32px 24px;
+    }
+    @media only screen and (min-width: 1440px) {
+      max-width: 592px;
+      top: 50%;
+      left: 50%;
+      translate: -30% -30%;
+      padding: 32px 24px;
+    }
   }
 
-  &::-webkit-scrollbar-thumb:hover {
-    background: var(--primary-blue);
+  .modal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 24px;
   }
-`;
 
-export const StyledText = styled.p`
-  color: var(--blue);
-  font-family: Roboto;
-  font-size: 14px;
-  text-align: center;
-
-  line-height: 1.25;
+  .close {
+    color: var(--blue);
+    float: right;
+    font-size: 26px;
+    cursor: pointer;
+    &:hover,
+    &:focus {
+      color: black;
+      text-decoration: none;
+    }
+  }
 `;
