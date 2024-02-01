@@ -16,7 +16,11 @@ import { refreshThunk } from './redux/auth/authSlice';
 const appRoutes = [
   {
     path: WELCOME_ROUTE,
-    element: <Main />,
+    element: (
+      <RestrictedRoute>
+        <Main />
+      </RestrictedRoute>
+    ),
   },
   {
     path: HOME_ROUTE,
@@ -48,8 +52,8 @@ export const App = () => {
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(refreshThunk())
-  }, [dispatch])
+    dispatch(refreshThunk());
+  }, [dispatch]);
 
   return (
     <Layout>

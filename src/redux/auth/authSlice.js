@@ -1,6 +1,7 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   requestLogin,
+  requestLogout,
   requestRefreshUser,
   requestRegister,
   setToken,
@@ -31,6 +32,19 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await requestLogout();
+
+      return;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -40,7 +54,6 @@ export const refreshThunk = createAsyncThunk(
     try {
       setToken(token);
       const authData = await requestRefreshUser();
-      console.log('authData: ', authData);
 
       return authData;
     } catch (error) {
@@ -59,6 +72,7 @@ export const refreshThunk = createAsyncThunk(
 );
 
 const INITIAL_STATE = {
+  isLoading: false,
   token: null,
   user: {
     email: null,
@@ -93,11 +107,20 @@ const authSlice = createSlice({
         state.user = action.payload;
       })
 
+      .addCase(logoutThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authenticated = false;
+        state.token = null;
+        state.user.email = null;
+        state.user.name = null;
+      })
+
       .addMatcher(
         isAnyOf(
           registerThunk.pending,
           loginThunk.pending,
-          refreshThunk.pending
+          refreshThunk.pending,
+          logoutThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -105,7 +128,11 @@ const authSlice = createSlice({
         }
       )
       .addMatcher(
-        isAnyOf(registerThunk.rejected, loginThunk.rejected),
+        isAnyOf(
+          registerThunk.rejected,
+          loginThunk.rejected,
+          logoutThunk.rejected
+        ),
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;

@@ -1,6 +1,7 @@
 import React, { useState } from 'react';
 import { StyledTodayDiv } from './TodayList.styled';
 import FormWater from '../FormWater/FormWater';
+import { createPortal } from 'react-dom';
 
 const TodayList = () => {
   const [showModal, setShowModal] = useState(false);
@@ -20,19 +21,21 @@ const TodayList = () => {
           </button>
         </ul>
 
-        {showModal && (
-          <div className="modal">
-            <div className="modal-content">
-              <div className="modal-header">
-                <h2>Add water</h2>
-                <span className="close" onClick={toggleModal}>
-                  &times;
-                </span>
+        {showModal &&
+          createPortal(
+            <div className="modal">
+              <div className="modal-content">
+                <div className="modal-header">
+                  <h2>Add water</h2>
+                  <span className="close" onClick={toggleModal}>
+                    &times;
+                  </span>
+                </div>
+                <FormWater onSave={toggleModal} />
               </div>
-              <FormWater onSave={toggleModal} />
-            </div>
-          </div>
-        )}
+            </div>,
+            document.querySelector('#portal')
+          )}
       </div>
     </StyledTodayDiv>
   );
