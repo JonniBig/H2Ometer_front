@@ -9,11 +9,18 @@ import {
   REGISTER_ROUTE,
   WELCOME_ROUTE,
 } from 'constants/routes';
+import { useDispatch } from 'react-redux';
+import { useEffect } from 'react';
+import { refreshThunk } from './redux/auth/authSlice';
 
 const appRoutes = [
   {
     path: WELCOME_ROUTE,
-    element: <Main />,
+    element: (
+      <RestrictedRoute>
+        <Main />
+      </RestrictedRoute>
+    ),
   },
   {
     path: HOME_ROUTE,
@@ -42,6 +49,12 @@ const appRoutes = [
 ];
 
 export const App = () => {
+  const dispatch = useDispatch();
+
+  useEffect(() => {
+    dispatch(refreshThunk());
+  }, [dispatch]);
+
   return (
     <Layout>
       <Routes>

@@ -8,6 +8,10 @@ export const setToken = token => {
   waterTrackerInstance.defaults.headers.common.Authorization = `Bearer ${token}`;
 };
 
+export const clearToken = () => {
+  waterTrackerInstance.defaults.headers.common.Authorization = '';
+};
+
 export const requestRegister = async formData => {
   const { data } = await waterTrackerInstance.post('/users/signup', formData);
   setToken(data.token);
@@ -20,10 +24,21 @@ export const requestLogin = async formData => {
   return data;
 };
 
-export const requestWaterData = async formData => {
-  const { data } = await waterTrackerInstance.post(
-    '-/-users-/-signin',
-    formData
+export const requestLogout = async () => {
+  const { data } = await waterTrackerInstance.post('/users/logout');
+  clearToken();
+  return data;
+};
+
+export const requestRefreshUser = async () => {
+  const { data } = await waterTrackerInstance.get('/users/current');
+
+  return data;
+};
+
+export const requestWaterData = async (day, month) => {
+  const { data } = await waterTrackerInstance.get(
+    `/api/water-data?day=${day}&month=${month}&`
   );
   return data;
 };

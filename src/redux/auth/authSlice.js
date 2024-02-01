@@ -1,5 +1,11 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
-import { requestLogin, requestRegister } from 'services/api';
+import {
+  requestLogin,
+  requestLogout,
+  requestRefreshUser,
+  requestRegister,
+  setToken,
+} from 'services/api';
 
 export const loginThunk = createAsyncThunk(
   'auth/login',
@@ -26,7 +32,47 @@ export const registerThunk = createAsyncThunk(
   }
 );
 
+export const logoutThunk = createAsyncThunk(
+  'auth/logout',
+  async (_, thunkAPI) => {
+    try {
+      await requestLogout();
+
+      return;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const refreshThunk = createAsyncThunk(
+  'auth/refresh',
+  async (_, thunkAPI) => {
+    const state = thunkAPI.getState();
+    const token = state.auth.token;
+
+    try {
+      setToken(token);
+      const authData = await requestRefreshUser();
+
+      return authData;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  },
+  {
+    condition: (_, thunkAPI) => {
+      const state = thunkAPI.getState();
+      const token = state.auth.token;
+
+      if (!token) return false;
+      return true;
+    },
+  }
+);
+
 const INITIAL_STATE = {
+  isLoading: false,
   token: null,
   user: {
     email: null,
@@ -55,12 +101,38 @@ const authSlice = createSlice({
         state.user = action.payload.user;
       })
 
-      .addMatcher(isAnyOf(registerThunk.pending, loginThunk.pending), state => {
-        state.isLoading = true;
-        state.error = null;
+      .addCase(refreshThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authenticated = true;
+        state.user = action.payload;
       })
+
+      .addCase(logoutThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.authenticated = false;
+        state.token = null;
+        state.user.email = null;
+        state.user.name = null;
+      })
+
       .addMatcher(
-        isAnyOf(registerThunk.rejected, loginThunk.rejected),
+        isAnyOf(
+          registerThunk.pending,
+          loginThunk.pending,
+          refreshThunk.pending,
+          logoutThunk.pending
+        ),
+        state => {
+          state.isLoading = true;
+          state.error = null;
+        }
+      )
+      .addMatcher(
+        isAnyOf(
+          registerThunk.rejected,
+          loginThunk.rejected,
+          logoutThunk.rejected
+        ),
         (state, action) => {
           state.isLoading = false;
           state.error = action.payload;

@@ -1,9 +1,40 @@
 import { requestWaterData } from 'services/api';
 
 import { createSlice, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
+import { format } from 'date-fns';
+
+export const getWaterDataThunk = createAsyncThunk(
+  'calendar/getWaterData',
+  async ({ day, month }, thunkAPI) => {
+    try {
+      const response = await requestWaterData(day, month);
+
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const getWaterProgressThunk = createAsyncThunk(
+  'calendar/getWaterProgressThunk',
+  async (_, thunkAPI) => {
+    try {
+      const response = await requestWaterData(
+        format(new Date(), 'dd'),
+        format(new Date(), 'LL')
+      );
+
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
 
 const initialState = {
   data: null,
+  progressData: null,
   isLoading: false,
   error: null,
 };
@@ -17,6 +48,10 @@ const calendarSlice = createSlice({
         state.isLoading = false;
         state.data = action.payload;
       })
+      .addCase(getWaterProgressThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.progressData = action.payload;
+      })
 
       .addMatcher(isAnyOf(getWaterDataThunk.pending), state => {
         state.isLoading = true;
@@ -27,18 +62,5 @@ const calendarSlice = createSlice({
         state.error = action.payload;
       }),
 });
-
-export const getWaterDataThunk = createAsyncThunk(
-  'calendar/getWaterData',
-  async (formData, thunkAPI) => {
-    try {
-      const response = await requestWaterData(formData);
-
-      return response;
-    } catch (error) {
-      return thunkAPI.rejectWithValue(error.message);
-    }
-  }
-);
 
 export const calendarReducer = calendarSlice.reducer;
