@@ -11,7 +11,7 @@ const initialValues = {
   personalAmount: '',
 };
 
-const FormDailyNorma = () => {
+const FormDailyNorma = ({ onSave }) => {
   const [formData, setFormData] = useState(initialValues);
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
 
@@ -142,19 +142,21 @@ const FormDailyNorma = () => {
                   onChange={handleChange}
                 />
               </div>
-             <div className='req-amount-container'>
-             <p>
-                The required amount of water in liters per day:
-              </p>
-              <span className='volume'>{' '}
-                {calculatedQuantity+"L"}</span>
-             </div>
+              <div className="req-amount-container">
+                <p>The required amount of water in liters per day:</p>
+                <span className="volume"> {calculatedQuantity + 'L'}</span>
+              </div>
             </div>
             <div className="personal-amount-container">
               <label htmlFor="personalAmount">
                 Write down how much water you will drink:
               </label>
-              <Field type="number" id="personalAmount" name="personalAmount" placeholder="0"/>
+              <Field
+                type="number"
+                id="personalAmount"
+                name="personalAmount"
+                placeholder="0"
+              />
             </div>
             <div className="save-btn-container">
               <button

@@ -42,3 +42,24 @@ export const requestWaterData = async (day, month) => {
   );
   return data;
 };
+
+export const requestAddWaterIntake = async formData => {
+  const { data } = await waterTrackerInstance.post(
+    `/api/water-intake`,
+    formData
+  );
+  return data;
+};
+
+export const requestEditWaterIntake = async (id, formData) => {
+  const { data } = await waterTrackerInstance.put(
+    `/api/water-intake/${id}`,
+    formData
+  );
+  return data;
+};
+
+export const requestDeleteWaterIntake = async id => {
+  const { data } = await waterTrackerInstance.delete(`/api/water-intake/${id}`);
+  return data;
+};
