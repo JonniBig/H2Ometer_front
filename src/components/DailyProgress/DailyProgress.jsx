@@ -55,7 +55,8 @@ const DailyProgress = () => {
           </div>
         </div>
         <button className="addWaterBtn" type="button" onClick={toggleModal}>
-          <IconPlus className="plus" /> Add water
+          <IconPlus className="plus" />
+          <span className="textBtn">Add water</span>
         </button>
         {showModal &&
           createPortal(

@@ -8,6 +8,7 @@ export const StyledCalendar = styled.div`
     display: flex;
     align-items: center;
     justify-content: space-between;
+    margin-bottom: 16px;
   }
 
   .title {
@@ -36,11 +37,12 @@ export const StyledCalendar = styled.div`
     // display: grid;
     // grid-template-columns: repeat(10, 34px);
     // gap: 22px;
-    min-height: 290px;
+    min-height: 480px;
     align-content: flex-start;
 
     @media screen and (min-width: 768px) {
       gap: 20px 34px;
+      min-height: 292px;
     }
 
     @media screen and (min-width: 1440px) {

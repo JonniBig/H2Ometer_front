@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 import Logout from '../../Logout/Logout';
 import UserInfoModal from '../../Setting/Setting';
@@ -20,10 +20,30 @@ const UserLogoModal = () => {
     setIsLogoutModalOpen(true);
   };
 
-  const handleOverlayClick = () => {
+  const handleCloseModal = () => {
     setIsSettingModalOpen(false);
     setIsLogoutModalOpen(false);
   };
+
+  const handleOverlayClick = () => {
+    handleCloseModal();
+  };
+
+  useEffect(() => {
+    const handleClickOutsideModal = event => {
+      if (isSettingModalOpen || isLogoutModalOpen) {
+        const modal = document.querySelector('.user-logo-modal');
+        if (modal && !modal.contains(event.target)) {
+          handleCloseModal();
+        }
+      }
+    };
+
+    window.addEventListener('click', handleClickOutsideModal);
+    return () => {
+      window.removeEventListener('click', handleClickOutsideModal);
+    };
+  }, [isSettingModalOpen, isLogoutModalOpen]);
 
   return (
     <>
@@ -37,13 +57,8 @@ const UserLogoModal = () => {
           Log out
         </button>
 
-        {isSettingModalOpen && (
-          <UserInfoModal onClose={() => setIsSettingModalOpen(false)} />
-        )}
-
-        {isLogoutModalOpen && (
-          <Logout onClose={() => setIsLogoutModalOpen(false)} />
-        )}
+        {isSettingModalOpen && <UserInfoModal onClose={handleCloseModal} />}
+        {isLogoutModalOpen && <Logout onClose={handleCloseModal} />}
       </UserLogoModalStyled>
       <Overlay onClick={handleOverlayClick} />
     </>
