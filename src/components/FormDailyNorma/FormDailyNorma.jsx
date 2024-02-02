@@ -5,8 +5,8 @@ import { StyledFormDailyNorma } from './FormDailyNorma.styled';
 
 const initialValues = {
   gender: 'female',
-  weight: '',
-  activityTime: '',
+  weight: null,
+  activityTime: null,
   calculatedQuantity: '',
   personalAmount: '',
 };
@@ -159,8 +159,8 @@ const FormDailyNorma = () => {
             <div className="save-btn-container">
               <button
                 className="save-btn"
-                type="button"
-                onClick={saveCalcQuantity}
+                type="submit"
+                onSubmit={saveCalcQuantity}
               >
                 Save
               </button>

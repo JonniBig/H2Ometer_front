@@ -1,13 +1,15 @@
 import React, { useEffect, useState } from 'react';
 import { LoaderStyledHome, StyledHomePage } from './Home.styled';
 
-import {
-  Calendar,
-  TodayList,
-  DailyNorma,
-  DailyProgress,
-  Loader,
-} from 'components';
+
+
+
+import { Calendar, TodayList, DailyNorma, DailyProgress } from 'components';
+
+
+
+
+
 
 const Home = () => {
   const [showLoader, setShowLoader] = useState(true);

@@ -19,8 +19,8 @@ const DailyNorma = () => {
         </button>
       </div>
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
+        <div className="overlay">
+          <div className="modal">
             <div className="modal-header">
               <h2>My daily norma</h2>
               <span className="close" onClick={toggleModal}>
