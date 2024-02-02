@@ -2,7 +2,9 @@ import React from 'react';
 import { StyledHomePage } from './Home.styled';
 
 
+
 import { Calendar, TodayList, DailyNorma, DailyProgress } from 'components';
+
 
 
 
