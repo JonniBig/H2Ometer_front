@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 export const StyledFormDailyNorma = styled.form`
   position: relative;
-  max-width: 600px;
+  width: 100%;
   margin: 0 auto;
   background-color: var(--white);
   border-radius: 8px;
@@ -10,19 +10,40 @@ export const StyledFormDailyNorma = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 12px;
+    // gap: 12px;
   }
 
+  @media screen and (min-width: 768px) {
+    .formulas-container {      
+      gap: 12px;
+    }
+  }
+  
   .formulas-string {
-    display: flex;
-    align-items: flex-start;
+    display: block;
     gap: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .formulas-string {
+      display: flex;
+      align-items: flex-start;
+      gap: 24px;
+    }
   }
 
   .formula-box {
     display: flex;
     align-items: center;
-    gap: 4px;
+    // gap: 4px;
+    margin-bottom: 24px;
+  }
+
+  @media screen and (min-width: 768px) {
+    .formula-box {      
+      margin-bottom: 0px;
+    }
+  
   }
 
   .formula {
@@ -60,11 +81,16 @@ export const StyledFormDailyNorma = styled.form`
     font-weight: 500;
     line-height: 20px;
   }
+
   .gender-container {
     display: flex;
     align-items: center;
     gap: 24px;
   }
+ 
+
+
+
   .req-amount-container {
     display: flex;
     align-items: center;

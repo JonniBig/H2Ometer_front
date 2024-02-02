@@ -3,7 +3,7 @@ export const StyledDailyNorma = styled.div`
   background-color: var(--white);
   border: 1px solid var(--secondary-white);
   width: 166px;
-  height: 76px;
+  height: 74px;
   padding: 8px 20px;
   border-radius: 10px;
   display: flex;
@@ -11,6 +11,9 @@ export const StyledDailyNorma = styled.div`
   gap: 12px;
   align-items: center;
 
+  @media screen and (min-width: 768px) {
+    height: 76px;
+  }
   .title {
     font-size: 18px;
     font-weight: 500;
@@ -46,7 +49,7 @@ export const StyledDailyNorma = styled.div`
     font-weight: 700;
     line-height: 24px;
   }
-  .modal {
+  .overlay {
     position: fixed;
     z-index: 1;
     left: 0;
@@ -57,13 +60,30 @@ export const StyledDailyNorma = styled.div`
     overflow: auto;
   }
 
-  .modal-content {
+  .modal {
     background-color: var(--white);
-    margin: 15% auto;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    // translate: -297px -375px;
     padding: 32px 24px;
     border: 1px solid #888;
     border-radius: 8px;
-    max-width: 592px;
+    // max-width: 592px;
+    width: calc(100% - 30px);
+    height: 100hw;
+  }
+
+  @media screen and (min-width: 768px) {
+    .modal{
+      max-width: 704px;
+    }
+  }
+  @media screen and (min-width: 1440px) {
+    .modal{
+      height: auto;
+    }
   }
 
   .modal-header {
