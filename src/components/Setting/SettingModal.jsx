@@ -1,19 +1,19 @@
 import React, { useContext, useRef } from 'react';
 import { Title } from '../Form/Title/Title.styled';
-import { TitlePart } from '../DailyNorma/DailyNorma.styled';
+import { TitlePart } from '../DailyNormaSetting/DailyNorma.styled';
 import {
   CloseBtn,
   ContainerAvatar,
   ContainerSettings,
   WrapperUpload,
-} from './Setting.styled';
+} from './SettingForm.styled';
 import Icons from '../../../img/sprite.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import { selectorUserProfile } from 'redux/auth/selectors';
 import { updateAvatarThunk } from 'redux/auth/thunk';
-import FormaUpdateUserProfile from './FormaUpdateUserProfile';
-import { ModalContext } from 'components/ModalContext';
-import { HoverCloseBtn } from 'CommonStyle/Buttons/Button.styled';
+import FormaUpdateUserProfile from './Setting';
+import { ModalContext } from 'components/Setting/ModalContext';
+import { HoverCloseBtn } from '../Setting/Button/Button.styled';
 
 const Setting = () => {
   const filePecker = useRef(null);

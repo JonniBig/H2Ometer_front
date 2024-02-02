@@ -25,6 +25,7 @@ export const ContainerSettings = styled.div`
     transform: translate(-50%, -50%);
   }
 `;
+
 export const WrapperUpload = styled.div`
   display: flex;
   align-items: center;
@@ -49,10 +50,6 @@ export const WrapperUpload = styled.div`
     stroke: ${theme.colors.primaryAccent};
     fill: none;
   }
-
-  /* width: 80px;
-  height: 80px;
-  border-radius: 100%; */
 `;
 
 export const ContainerAvatar = styled.div`
@@ -89,6 +86,7 @@ export const WrapperFormaMain = styled.div`
     flex-direction: row;
   }
 `;
+
 export const WrapperFormaLeft = styled.div`
   display: flex;
   flex-direction: column;

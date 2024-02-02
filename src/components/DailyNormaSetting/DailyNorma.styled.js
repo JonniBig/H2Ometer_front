@@ -106,7 +106,7 @@ export const FormLabelRadio = styled.label`
   line-height: calc(20 / 16);
 
   div {
-       width: 14px;
+    width: 14px;
     height: 14px;
     background-color: transparent;
     border-radius: 100%;
