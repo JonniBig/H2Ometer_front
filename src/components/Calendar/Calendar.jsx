@@ -68,14 +68,18 @@ const Calendar = () => {
             const dayPercentage = Math.round(
               (drunkedWaterAmount / dailyNorma) * 100
             );
+            const limitedDailyPercents =
+              dayPercentage >= 100 ? 100 : dayPercentage;
 
-            const fullNorma = dayPercentage === 100;
+            const fullNorma = limitedDailyPercents === 100;
             return (
               <div key={dayNumber} className="cell">
                 <span className={`dayNumber ${fullNorma ? 'full' : ''}`}>
                   {dayNumber}
                 </span>
-                <span className="percents">{dayPercentage || 0}&#37;</span>
+                <span className="percents">
+                  {limitedDailyPercents || 0}&#37;
+                </span>
               </div>
             );
           })}
