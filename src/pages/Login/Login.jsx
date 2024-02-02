@@ -33,6 +33,10 @@ const Login = () => {
 
   return (
     <StyledLoginPage>
+      
+      <div className='container'>
+      <div className='backgr-elem-decktop'></div>
+      <div className='content'>
       <div className='login-form-container'>
       <h1>Sign In</h1>
       <form onSubmit={formik.handleSubmit}>
@@ -73,6 +77,9 @@ const Login = () => {
       <div>
         <Link to={REGISTER_ROUTE}>Sign Up</Link>
       </div>
+      </div>
+      </div>
+      <div className='backgr-elem-mob'></div>
       </div>
     </StyledLoginPage>
   );

@@ -3,45 +3,89 @@ import backgroundMP from '../../assets/images/signin-signup/backgroundMP.png';
 import bottleSigninDecktop from '../../assets/images/signin-signup/bottleSigninDecktop.png';
 import backgrBottleTab from '../../assets/images/signin-signup/backgrBottleTab.png';
 import bottleMob from '../../assets/images/signin-signup/bottleMob.png';
+import backgrSigninMob from '../../assets/images/signin-signup/backgrSigninMob.png';
 
-export const StyledLoginPage = styled.div`
+export const StyledLoginPage = styled.section`
   position: fixed;
   top: 60px;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
+  
 
-  @media screen and (min-width: 1440px) {
-    display: flex;
-    justify-content: flex-start;
-  }
-
-  background-image: url(${bottleMob});
-  background-size: cover;
-  background-position: bottom;
+  background-image: url(${backgrSigninMob}), url(${bottleMob});  
+  background-position: bottom, center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-image: url(${backgrBottleTab});
+    background-position: top;    
+    background-image: url(${backgrBottleTab});    
   }
 
   @media screen and (min-width: 1440px) {
-    background-image: url(${backgroundMP}), url(${bottleSigninDecktop});
+    background-image: url(${backgroundMP});
     background-size: contain;
+    
+  }
+
+  .container{
+    margin: 0 auto;
+    max-width: 320px;
+    padding: 0px 20px;
+    display: flex;
+
+    @media screen and (min-width: 768px) {
+      max-width: 768px;
+      padding: 0px 32px;
+    }
+
+    @media screen and (min-width: 1440px) {
+      max-width: 1440px;
+      padding: 0px 112px 0px 0px;
+      display: flex;
+    }  
+  }
+
+
+  .backgr-elem-decktop{
+    display: none;
+      @media screen and (min-width: 1440px) {
+        display: block;
+        background-image: url(${bottleSigninDecktop});
+        background-position: bottom;
+        background-repeat: no-repeat;
+        width: 916px;
+        height: 680px;
+      }
+
+  }
+  .content {
+    @media screen and (min-width: 1440px) {
+      width: 384px;
+      display: flex;
+      align-items: center;
+    }
   }
 
   .login-form-container {
-    max-width: 384px;
-    margin: 0 auto;
+    max-width: 280px;
+    margin: 24px auto;
+    background-color: transparent;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-  }
 
-  // .container {
-  //   max-width: 400px;
-  //   margin: 0 auto;
-  //   padding: 20px;
-  // }
+    @media screen and (min-width: 768px) {
+      margin-top: 24px;
+      margin-left: 0;
+      max-width: 100%;
+      height: 312px; 
+    }
+
+    @media screen and (min-width: 1440px) {       
+      width: 100%;
+      height: 312px; 
+    }    
+  }  
 
   h1 {
     font-size: 26px;
@@ -72,6 +116,7 @@ export const StyledLoginPage = styled.div`
     border-radius: 6px;
     box-sizing: border-box;
   }
+  
   input::placeholder {
     color: var(--secondary-blue);
     font-size: 16px;
