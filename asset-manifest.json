@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.81d5051a.css",
-    "main.js": "/H2Ometer_front/static/js/main.6e7526c0.js",
+    "main.js": "/H2Ometer_front/static/js/main.aaaa9a9f.js",
     "static/media/Roboto-Medium.ttf": "/H2Ometer_front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/H2Ometer_front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/H2Ometer_front/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
@@ -29,10 +29,10 @@
     "static/media/close-x.svg": "/H2Ometer_front/static/media/close-x.522b2c595a77d1df50c4eaf35b522689.svg",
     "static/media/plus-small.svg": "/H2Ometer_front/static/media/plus-small.fe8382781a07bd36e11d3320f5c187ee.svg",
     "main.81d5051a.css.map": "/H2Ometer_front/static/css/main.81d5051a.css.map",
-    "main.6e7526c0.js.map": "/H2Ometer_front/static/js/main.6e7526c0.js.map"
+    "main.aaaa9a9f.js.map": "/H2Ometer_front/static/js/main.aaaa9a9f.js.map"
   },
   "entrypoints": [
     "static/css/main.81d5051a.css",
-    "static/js/main.6e7526c0.js"
+    "static/js/main.aaaa9a9f.js"
   ]
 }
