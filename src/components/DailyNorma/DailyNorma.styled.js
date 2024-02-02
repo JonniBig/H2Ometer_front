@@ -11,6 +11,10 @@ export const StyledDailyNorma = styled.div`
   gap: 12px;
   align-items: center;
 
+  @media screen and (min-width: 1440px) {
+    margin-top: 52px;
+  }
+
   .title {
     font-size: 18px;
     font-weight: 500;

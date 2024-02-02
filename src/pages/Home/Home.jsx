@@ -1,21 +1,42 @@
-import React from 'react';
-import { StyledHomePage } from './Home.styled';
+import React, { useEffect, useState } from 'react';
+import { LoaderStyledHome, StyledHomePage } from './Home.styled';
 
-import { Calendar, TodayList, DailyNorma, DailyProgress } from 'components';
+import {
+  Calendar,
+  TodayList,
+  DailyNorma,
+  DailyProgress,
+  Loader,
+} from 'components';
 
 const Home = () => {
+  const [showLoader, setShowLoader] = useState(true);
+
+  useEffect(() => {
+    const loadData = async () => {
+      setShowLoader(false);
+    };
+    loadData();
+  }, []);
   return (
     <StyledHomePage>
-      <div className="conteiner">
-        <div className="div1">
-          <DailyNorma />
-          <DailyProgress />
+      {showLoader ? (
+        <LoaderStyledHome>
+          <Loader />
+        </LoaderStyledHome>
+      ) : (
+        <div className="conteiner">
+          <div className="div1">
+            <DailyNorma />
+            <div className="bottle-image"></div>
+            <DailyProgress />
+          </div>
+          <div className="div2">
+            <TodayList />
+            <Calendar />
+          </div>
         </div>
-        <div className="div2">
-          <TodayList />
-          <Calendar />
-        </div>
-      </div>
+      )}
     </StyledHomePage>
   );
 };
