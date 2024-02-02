@@ -4,7 +4,7 @@ import { LoaderStyledHome, StyledHomePage } from './Home.styled';
 
 
 
-import { Calendar, TodayList, DailyNorma, DailyProgress } from 'components';
+import { Calendar, TodayList, DailyNorma, DailyProgress, Loader  } from 'components';
 
 
 
