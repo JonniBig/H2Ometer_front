@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { useSelector } from 'react-redux';
 
 import UserLogoModal from '../UserLogoModal/UserLogoModal';
@@ -8,7 +8,7 @@ import {
 } from '../../../redux/auth/authSelectors';
 
 import userAva from '../../../assets/images/icons/user.svg';
-import openIcon from '../../../assets/images/icons/chevron-double-up.svg';
+import openIcon from '../../../assets/images/icons/double-up.svg';
 
 import {
   ButtonMenuStyled,
@@ -29,6 +29,19 @@ const UserLogo = () => {
     setIsModalOpen(false);
   };
 
+  const handleEscKey = event => {
+    if (event.key === 'Escape') {
+      setIsModalOpen(false);
+    }
+  };
+
+  useEffect(() => {
+    window.addEventListener('keydown', handleEscKey);
+    return () => {
+      window.removeEventListener('keydown', handleEscKey);
+    };
+  }, []);
+
   return (
     <UserLogoWrapper>
       <UserLogoStyled>
@@ -39,9 +52,11 @@ const UserLogo = () => {
               : user.email?.charAt(0).toUpperCase()}
           </span>
           <img
-            className="avatar"
             src={isAuthenticated && user.avatar ? user.avatar : userAva}
             alt="User avatar"
+            width="28px"
+            height="28px"
+            border-radius="50%"
           />
         </div>
         <ButtonMenuStyled>

@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 export const Conteiner = styled.div`
-   position: fixed;
+      position: fixed;
   top: 0;
   left: 0;
   width: 100%;
@@ -13,7 +13,7 @@ export const Conteiner = styled.div`
 }
 `;
 
-export const StyledLogout = styled.div`
+export const DeleteStyled = styled.div`
   width: 280px;
   height: 260px;
   border-radius: 10px;
@@ -33,7 +33,14 @@ export const StyledLogout = styled.div`
     top: 30%;
   }
 
-  .logoutQuest {
+  .deleteTitle {
+    margin-bottom: 24px;
+    font-size: 26px;
+    font-weight: 500;
+    line-height: 1.11;
+  }
+
+  .deleteQuest {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.1;
@@ -52,7 +59,7 @@ export const StyledLogout = styled.div`
     padding: 0;
   }
 
-  .logoutBtns {
+  .deleteBtns {
     display: flex;
     flex-direction: column;
     gap: 24px;
@@ -65,13 +72,6 @@ export const StyledLogout = styled.div`
     @media only screen and (min-width: 1440px) {
       justify-content: flex-start;
     }
-  }
-
-  .logoutTitle {
-    margin-bottom: 24px;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.11;
   }
 
   .btnCan {
@@ -102,7 +102,7 @@ export const StyledLogout = styled.div`
     }
   }
 
-  .btnLog {
+  .btnDelete {
     display: flex;
     justify-content: center;
     align-items: center;

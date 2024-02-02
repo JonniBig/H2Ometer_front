@@ -22,8 +22,13 @@ export const UserLogoModalStyled = styled.div`
   border-radius: 10px;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
 
+  @media screen and (min-width: 1440px) {
+    top: 35px;
+  }
+
   .btn {
     display: flex;
+    align-items: center;
     width: 86px;
     height: 20px;
     padding: 0;
@@ -37,7 +42,6 @@ export const UserLogoModalStyled = styled.div`
       &:focus {
     color: var(--secondary-orange);
     text-decoration: underline;
-    /* Інші стилі */
   }
 
   .image {

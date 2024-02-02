@@ -15,10 +15,10 @@ export const StyledHomePage = styled.section`
   @media screen and (min-width: 768px) {
     background-image: url(${backgroundHomeTabl});
   }
-  // @media screen and (min-width: 1440px) {
-  //   background-image: url(${bottleHomeDesk}, url(${element});
-  //   background-size: contain;
-  // }
+  @media screen and (min-width: 1440px) {
+    background-image: url(${element});
+    background-size: contain;
+  }
 
   .conteiner {
     margin: 0 auto;
@@ -36,31 +36,43 @@ export const StyledHomePage = styled.section`
       padding: 0px 112px;
       display: flex;
       justify-content: space-between;
-      align-items: flex-end;
     }
 
     .div1 {
-      background-image: url(${bottledHomeMob});
-      background-position: center;
-      background-repeat: no-repeat;
       margin-top: 24px;
 
       display: flex;
       flex-direction: column;
       justify-content: space-between;
-      height: 406px;
-      outline: 1px solid blue; // ВИДАЛИТИ
+      height: 438px;
+      margin-bottom: 40px;
 
       @media screen and (min-width: 768px) {
         background-image: url(${bottledHomeTabl});
+        background-repeat: no-repeat;
+
+        background-position: top;
+        height: 502px;
         margin-top: 40px;
       }
 
       @media screen and (min-width: 1440px) {
         background-image: url(${bottleHomeDesk});
-        margin-top: 52px;
+        // margin-top: 52px;
+        margin: 0;
         width: 592px;
         height: 680px;
+      }
+
+      @media only screen and (max-width: 767px) {
+        .bottle-image {
+          background-image: url(${bottledHomeMob});
+          background-repeat: no-repeat;
+          background-size: contain;
+          margin-top: 8px;
+          margin-bottom: 16px;
+          height: 208px;
+        }
       }
     }
   }
@@ -80,7 +92,14 @@ export const StyledHomePage = styled.section`
     @media screen and (min-width: 1440px) {
       width: 592px;
       height: 680px;
-      margin: 0;
+      margin-top: 20px;
     }
   }
+`;
+
+export const LoaderStyledHome = styled.section`
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 100px;
 `;
