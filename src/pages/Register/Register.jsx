@@ -36,6 +36,10 @@ const Register = () => {
 
   return (
     <StyledRegisterPage>
+      <div className='container'>
+      <div className='backgr-elem-decktop'></div>
+        <div className='content'>
+        <div className='register-form-container'>
       <h1>Sign Up</h1>
       <form onSubmit={formik.handleSubmit}>
         <div>
@@ -90,6 +94,11 @@ const Register = () => {
       </form>
       <div>
         <Link to={LOGIN_ROUTE}>Sign In</Link>
+      </div>
+      </div>
+
+        </div>
+
       </div>
     </StyledRegisterPage>
   );

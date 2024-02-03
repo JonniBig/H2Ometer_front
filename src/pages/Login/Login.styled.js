@@ -7,7 +7,7 @@ import backgrSigninMob from '../../assets/images/signin-signup/backgrSigninMob.p
 
 export const StyledLoginPage = styled.section`
   position: fixed;
-  top: 60px;
+  top: 0;
   left: 0;
   right: 0;
   bottom: 0;
@@ -52,6 +52,7 @@ export const StyledLoginPage = styled.section`
     display: none;
       @media screen and (min-width: 1440px) {
         display: block;
+        margin-top: 60px;
         background-image: url(${bottleSigninDecktop});
         background-position: bottom;
         background-repeat: no-repeat;
@@ -70,12 +71,12 @@ export const StyledLoginPage = styled.section`
 
   .login-form-container {
     max-width: 280px;
-    margin: 24px auto;
+    margin: 68px auto;
     background-color: transparent;
-    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     @media screen and (min-width: 768px) {
-      margin-top: 24px;
+      margin-top: 88px;
       margin-left: 0;
       max-width: 100%;
       height: 312px; 
