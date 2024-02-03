@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { StyledDailyNorma } from './DailyNorma.styled';
-import {FormDailyNorma} from 'components';
+import { FormDailyNorma, GeneralModal } from 'components';
 
 const DailyNorma = () => {
   const [showModal, setShowModal] = useState(false);
@@ -19,18 +19,11 @@ const DailyNorma = () => {
         </button>
       </div>
       {showModal && (
-        <div className="modal">
-          <div className="modal-content">
-            <div className="modal-header">
-              <h2>My daily norma</h2>
-              <span className="close" onClick={toggleModal}>
-                &times;
-              </span>
-            </div>
-
-            <FormDailyNorma onSave={toggleModal} />
-          </div>
-        </div>
+        <GeneralModal
+          title="My daily norma"
+          onClose={toggleModal}
+          renderContent={onClose => <FormDailyNorma onSave={onClose} />}
+        />
       )}
     </StyledDailyNorma>
   );

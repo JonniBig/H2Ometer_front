@@ -37,65 +37,77 @@ const Register = () => {
   });
 
   return (
-    <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-      <StyledRegisterPage>
-        <h1>Sign Up</h1>
-        <form onSubmit={formik.handleSubmit}>
-          <div>
-            <label htmlFor="email">Email Address</label>
-            <input
-              id="email"
-              name="email"
-              type="email"
-              placeholder="E-mail"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.email}
-            />
-            {formik.touched.email && formik.errors.email ? (
-              <div>{formik.errors.email}</div>
-            ) : null}
-          </div>
+    <StyledRegisterPage>
+      <div className="container">
+        <div className="backgr-elem-decktop"></div>
+        <div className="content">
+          <div className="register-form-container">
+            <h1>Sign Up</h1>
+            <form onSubmit={formik.handleSubmit}>
+              <div>
+                <label htmlFor="email">Email Address</label>
+                <input
+                  id="email"
+                  name="email"
+                  type="email"
+                  placeholder="E-mail"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.email}
+                />
+                {formik.touched.email && formik.errors.email ? (
+                  <div>{formik.errors.email}</div>
+                ) : null}
+              </div>
 
-          <div>
-            <label htmlFor="password">Password</label>
-            <input
-              id="password"
-              name="password"
-              type="password"
-              placeholder="Password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.password}
-            />
-            {formik.touched.password && formik.errors.password ? (
-              <div>{formik.errors.password}</div>
-            ) : null}
-          </div>
+              <div>
+                <label htmlFor="password">Password</label>
+                <input
+                  id="password"
+                  name="password"
+                  type="password"
+                  placeholder="Password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.password}
+                />
+                {formik.touched.password && formik.errors.password ? (
+                  <div>{formik.errors.password}</div>
+                ) : null}
+              </div>
 
-          <div>
-            <label htmlFor="confirmPassword">Confirm Password</label>
-            <input
-              id="confirmPassword"
-              name="confirmPassword"
-              type="password"
-              placeholder="Repeat password"
-              onChange={formik.handleChange}
-              onBlur={formik.handleBlur}
-              value={formik.values.confirmPassword}
-            />
-            {formik.touched.confirmPassword && formik.errors.confirmPassword ? (
-              <div>{formik.errors.confirmPassword}</div>
-            ) : null}
-          </div>
+              <div>
+                <label htmlFor="confirmPassword">Confirm Password</label>
+                <input
+                  id="confirmPassword"
+                  name="confirmPassword"
+                  type="password"
+                  placeholder="Repeat password"
+                  onChange={formik.handleChange}
+                  onBlur={formik.handleBlur}
+                  value={formik.values.confirmPassword}
+                />
+                {formik.touched.confirmPassword &&
+                formik.errors.confirmPassword ? (
+                  <div>{formik.errors.confirmPassword}</div>
+                ) : null}
+              </div>
 
-          <button type="submit">Submit</button>
-        </form>
-        <div>
-          <Link to={LOGIN_ROUTE}>Sign In</Link>
+              <button type="submit">Submit</button>
+            </form>
+            <div>
+              <Link to={LOGIN_ROUTE}>Sign In</Link>
+            </div>
+
+            <button type="submit">Submit</button>
+
+            <div>
+              <Link to={LOGIN_ROUTE}>Sign In</Link>
+            </div>
+          </div>
         </div>
-      </StyledRegisterPage>
-    </div>
+      </div>
+    </StyledRegisterPage>
   );
 };
 

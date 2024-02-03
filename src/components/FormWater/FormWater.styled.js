@@ -98,6 +98,11 @@ export const StyledFormWater = styled.form`
 }
 
 .recordsField {
+  &::-webkit-outer-spin-button,
+&::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;}
+
   border: 1px solid var(--secondary-skiblue);
   border-radius: 6px;
   width: 120px;

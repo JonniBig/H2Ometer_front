@@ -5,13 +5,13 @@ import { StyledFormDailyNorma } from './FormDailyNorma.styled';
 
 const initialValues = {
   gender: 'female',
-  weight: '',
-  activityTime: '',
+  weight: null,
+  activityTime: null,
   calculatedQuantity: '',
   personalAmount: '',
 };
 
-const FormDailyNorma = () => {
+const FormDailyNorma = ({ onSave }) => {
   const [formData, setFormData] = useState(initialValues);
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
 
@@ -32,7 +32,7 @@ const FormDailyNorma = () => {
   }, [formData]);
 
   const handleChange = e => {
-    const { name, value } = e.target;
+    const { name, value } = e.currentTarget;
     setFormData({
       ...formData,
       [name]: value,
@@ -142,25 +142,27 @@ const FormDailyNorma = () => {
                   onChange={handleChange}
                 />
               </div>
-             <div className='req-amount-container'>
-             <p>
-                The required amount of water in liters per day:
-              </p>
-              <span className='volume'>{' '}
-                {calculatedQuantity+"L"}</span>
-             </div>
+              <div className="req-amount-container">
+                <p>The required amount of water in liters per day:</p>
+                <span className="volume"> {calculatedQuantity + 'L'}</span>
+              </div>
             </div>
             <div className="personal-amount-container">
               <label htmlFor="personalAmount">
                 Write down how much water you will drink:
               </label>
-              <Field type="number" id="personalAmount" name="personalAmount" placeholder="0"/>
+              <Field
+                type="number"
+                id="personalAmount"
+                name="personalAmount"
+                placeholder="0"
+              />
             </div>
             <div className="save-btn-container">
               <button
                 className="save-btn"
-                type="button"
-                onClick={saveCalcQuantity}
+                type="submit"
+                onSubmit={saveCalcQuantity}
               >
                 Save
               </button>
