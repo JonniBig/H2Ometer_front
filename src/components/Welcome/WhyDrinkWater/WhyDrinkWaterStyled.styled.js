@@ -7,9 +7,16 @@ export const WhyDrinkWaterStyled = styled.div`
   padding: 24px 16px;
   width: 100%;
   background-color: var(--secondary-white);
+  color: var(--black);
   border-radius: 10px;
 
   @media screen and (min-width: 768px) {
+    width: 494px;
+    height: 332px;
+    padding: 32px 24px;
+  }
+
+  @media screen and (min-width: 1440px) {
     width: 494px;
     height: 332px;
     padding: 32px 24px;
@@ -51,11 +58,5 @@ export const WhyDrinkWaterStyled = styled.div`
         border-radius: 50%;
       }
     }
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 494px;
-    height: 332px;
-    padding: 32px 24px;
   }
 `;

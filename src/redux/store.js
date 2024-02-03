@@ -16,6 +16,7 @@ import { modalReducer } from './modal/modalSlice';
 
 import { authReducer } from './auth/authSlice';
 import { calendarReducer } from './calendar/calendarSlice';
+import themeReducer from './redusers/themeReducer';
 
 // import { userReducer } from './user/userSlice';
 
@@ -36,6 +37,7 @@ export const store = configureStore({
     modal: persistReducer(modalExampleConfig, modalReducer),
     auth: persistReducer(authConfig, authReducer),
     calendar: calendarReducer,
+    theme: themeReducer,
   },
   middleware: getDefaultMiddleware =>
     getDefaultMiddleware({

@@ -114,3 +114,13 @@ p {
     text-decoration: none;
   }
 }
+
+.light-mode {
+  color: var(--black);
+  background-color: var(--white);
+}
+
+.dark-mode {
+  color: var(--white);
+  background-color: #001f3f;
+}

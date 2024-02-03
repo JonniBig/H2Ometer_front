@@ -8,9 +8,12 @@ import {
   DailyProgress,
   Loader,
 } from 'components';
+import { useSelector } from 'react-redux';
 
 const Home = () => {
   const [showLoader, setShowLoader] = useState(true);
+
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
     const loadData = async () => {
@@ -19,7 +22,7 @@ const Home = () => {
     loadData();
   }, []);
   return (
-    <StyledHomePage>
+    <StyledHomePage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       {showLoader ? (
         <LoaderStyledHome>
           <Loader />

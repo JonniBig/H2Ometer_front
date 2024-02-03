@@ -119,6 +119,7 @@ export const StyledDailyProgress = styled.div`
 
     &:hover,
     &:focus {
+      color: var(----secondary-orange)
       box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
     }
 

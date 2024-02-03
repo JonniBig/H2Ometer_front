@@ -27,7 +27,6 @@ const Login = () => {
       formik.resetForm();
 
       localStorage.setItem('userEmail', formik.values.email);
-
     },
   });
 

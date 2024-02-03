@@ -8,6 +8,9 @@ export const UserLogoStyled = styled.div`
   display: flex;
   align-items: center;
   gap: 4px;
+      background-color: white;
+    border-radius: 10px;
+    padding: 4px 8px;
 
   .user {
     display:flex;
