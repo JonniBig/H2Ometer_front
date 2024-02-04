@@ -63,3 +63,8 @@ export const requestDeleteWaterIntake = async id => {
   const { data } = await waterTrackerInstance.delete(`/api/water-intake/${id}`);
   return data;
 };
+
+export const requestVerifyEmail = async token => {
+  const { data } = await waterTrackerInstance.get(`/users/verify/${token}`);
+  return data;
+};

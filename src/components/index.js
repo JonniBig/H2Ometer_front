@@ -13,6 +13,7 @@ export { default as Logout } from './Logout/Logout';
 export { default as PrivateRoute } from './PrivateRoute/PrivateRoute';
 export { default as RestrictedRoute } from './RestrictedRoute/RestrictedRoute';
 export { default as TodayList } from './TodayList/TodayList';
+export { default as VerifyEmail } from './VerifyEmail/VerifyEmail';
 export { default as Welcome } from './Welcome/Welcome';
 export { default as Setting } from './Setting/Setting';
 export { default as DeleteModal } from './DeleteModal/DeleteModal';
