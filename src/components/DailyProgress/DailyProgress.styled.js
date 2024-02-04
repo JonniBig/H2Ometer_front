@@ -150,7 +150,6 @@ export const StyledDailyProgress = styled.div`
     left: ${({ $dailyPercents }) => `${$dailyPercents}%`};
     z-index: 1;
     background-color: var(--white);
-    padding: 16px 15px 0 15px;
   }
   .p-100 {
     right: 15px;

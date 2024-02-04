@@ -125,4 +125,8 @@ export const StyledTodayDiv = styled.div`
     font-weight: 700;
     line-height: 24px;
   }
+
+  .string {
+    display: flex;
+  }
 `;
