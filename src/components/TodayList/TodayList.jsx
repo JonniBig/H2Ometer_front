@@ -37,47 +37,47 @@ const TodayList = () => {
   )?.waterIntake;
   return (
     <StyledTodayDiv>
-      <h2 className="title">Today</h2>
+      <h3 className="title">Today</h3>
       <div className="addWater">
-        <ul className="waterList">
-          <p className="emptyText">You haven't drank any water today</p>
-          <ul>
-            {currentDateData?.map(({ _id, time, amount }) => {
-              const amPm =
-                Number.parseInt(time.split(':')[0], 10) > 12 ? 'AM' : 'PM';
-              return (
-                <li key={_id} className="string">
-                  <div>
-                    <IconCup />
-                    <span className="amount">{amount}ml</span>
-                    <span className="time">
-                      {time} {amPm}
-                    </span>
-                  </div>
-                  <div>
-                    <button
-                      type="button"
-                      className="editBtn"
-                      onClick={() => {
-                        dispatch(setEditingPortionId(_id));
-                        setShowEditModal(true);
-                      }}
-                    >
-                      <IconEdit />
-                    </button>
-                    <button
-                      onClick={() => {
-                        dispatch(deleteWaterIntakeThunk(_id));
-                      }}
-                      className="deleteBtn"
-                    >
-                      <IconTrash />
-                    </button>
-                  </div>
-                </li>
-              );
-            })}
-          </ul>
+        <p className="emptyText">You haven't drank any water today</p>
+        <ul className="list">
+          {currentDateData?.map(({ _id, time, amount }) => {
+            const amPm =
+              Number.parseInt(time.split(':')[0], 10) > 12 ? 'AM' : 'PM';
+            return (
+              <li key={_id} className="string">
+                <div className="left">
+                  <IconCup />
+                  <span className="amount">{amount}ml</span>
+                  <span className="time">
+                    {time} {amPm}
+                  </span>
+                </div>
+                <div className="rightBtn">
+                  <button
+                    type="button"
+                    className="editBtn"
+                    onClick={() => {
+                      dispatch(setEditingPortionId(_id));
+                      setShowEditModal(true);
+                    }}
+                  >
+                    <IconEdit />
+                  </button>
+                  <button
+                    type="button"
+                    className="deleteBtn"
+                    onClick={() => {
+                      dispatch(deleteWaterIntakeThunk(_id));
+                    }}
+                  >
+                    <IconTrash />
+                  </button>
+                </div>
+              </li>
+            );
+          })}
+
           <button className="addBtn" type="button" onClick={toggleModal}>
             + Add water
           </button>

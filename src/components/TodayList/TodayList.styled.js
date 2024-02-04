@@ -7,15 +7,15 @@ export const StyledTodayDiv = styled.div`
   height: 258px;
   display: flex;
   flex-direction: column;
-  margin: 24px 8px 24px 8px;
   @media screen and (min-width: 768px) {
     width: 656px;
     height: 276px;
-    margin: 32px 24px 24px 24px;
+    /* margin: 32px 24px 24px 24px; */
   }
   @media only screen and (min-width: 1440px) {
-    width: 544px;
-    height: 260px;
+    width: 100%;
+    /* width: 544px;
+    height: 260px; */
   }
 
   .title {
@@ -31,15 +31,19 @@ export const StyledTodayDiv = styled.div`
   }
 
   .addWater {
+    margin-right: auto;
     width: 264px;
     height: 212px;
     @media screen and (min-width: 768px) {
       height: 260px;
       width: 565px;
     }
+    @media only screen and (min-width: 1440px) {
+      width: 100%;
+    }
   }
 
-  .waterList {
+  /* .waterList {
     height: 212px;
     padding-left: 0px;
     &::-webkit-scrollbar {
@@ -58,7 +62,7 @@ export const StyledTodayDiv = styled.div`
     &::-webkit-scrollbar-thumb:hover {
       background: var(--primary-blue);
     }
-  }
+  } */
 
   .emptyText {
     color: var(--blue);
@@ -92,9 +96,9 @@ export const StyledTodayDiv = styled.div`
   }
 
   .title {
-    font-size: 18px;
+    font-size: 26px;
     font-weight: 500;
-    line-height: 24px;
+    line-height: 1.23;
   }
 
   .content {
@@ -125,8 +129,33 @@ export const StyledTodayDiv = styled.div`
     font-weight: 700;
     line-height: 24px;
   }
-
+  .left {
+    display: flex;
+    align-items: center;
+  }
+  .list {
+    display: flex;
+    gap: 24px;
+    flex-direction: column;
+    padding: 0;
+  }
   .string {
     display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 1px solid var(--secondary-skiblue);
+  }
+  .editBtn {
+    background: transparent;
+    border: none;
+  }
+  .deleteBtn {
+    background: transparent;
+
+    border: none;
+  }
+  .rightBtn {
+    display: flex;
+    gap: 18px;
   }
 `;
