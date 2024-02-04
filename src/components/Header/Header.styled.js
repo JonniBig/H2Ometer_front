@@ -25,6 +25,21 @@ export const StyledHeader = styled.header`
   align-items: center;
   width: 100%;
   height: 48px;
+
+  .btnTema {
+    border: var(--blue);
+    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
+    background-color: var(--secondary-skiblue);
+    padding: 0;
+    position: relative;
+    width: 58px;
+    height: 24px;
+    border-radius: 25px;
+    cursor: pointer;
+    transition: background-color 0.25s ease-in-out;
+    display: flex;
+    justify-content: center;
+  }
 `;
 
 export const StyledLogo = styled.div`
@@ -54,5 +69,10 @@ export const LinkStyled = styled(Link)`
       font-size: 18px;
       line-height: 1.33;
     }
+  }
+
+  .icon {
+    background: white;
+    border-radius: 50%;
   }
 `;

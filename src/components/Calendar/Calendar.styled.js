@@ -3,6 +3,7 @@ import styled from 'styled-components';
 export const StyledCalendar = styled.div`
   // background-color: var(--secondary-white);
   // max-width: 544px;
+  color: black;
 
   .header {
     display: flex;
@@ -21,6 +22,14 @@ export const StyledCalendar = styled.div`
     color: var(--blue);
     font-size: 16px;
     line-height: 1.25;
+
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    @media screen and (min-width: 768px) {
+      width: 175px;
+    }
   }
 
   .navBtn {

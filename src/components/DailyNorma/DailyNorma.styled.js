@@ -11,7 +11,6 @@ export const StyledDailyNorma = styled.div`
   gap: 12px;
   align-items: center;
 
-
   @media screen and (min-width: 768px) {
     height: 76px;
   }
@@ -20,6 +19,7 @@ export const StyledDailyNorma = styled.div`
     font-size: 18px;
     font-weight: 500;
     line-height: 24px;
+    color: var(--black);
   }
 
   .content {
@@ -78,12 +78,12 @@ export const StyledDailyNorma = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    .modal{
+    .modal {
       max-width: 704px;
     }
   }
   @media screen and (min-width: 1440px) {
-    .modal{
+    .modal {
       height: auto;
     }
   }

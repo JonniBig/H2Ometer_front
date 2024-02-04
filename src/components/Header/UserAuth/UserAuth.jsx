@@ -8,7 +8,7 @@ const UserAuth = () => (
   <nav to="/signin">
     <LinkStyled to="/signin">
       <span className="text">Sign in</span>
-      <img src={user} alt="Sign in" />
+      <img className="icon" src={user} alt="Sign in" />
     </LinkStyled>
   </nav>
 );

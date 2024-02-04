@@ -1,15 +1,20 @@
 import React, { useState } from 'react';
 import { useFormik } from 'formik';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import * as Yup from 'yup';
+import { toast } from 'react-toastify';
+import { format } from 'date-fns';
 
 import { ReactComponent as IconPlus } from 'assets/images/icons/plus-small.svg';
 import { ReactComponent as IconMinus } from 'assets/images/icons/minus-small.svg';
 
-import { StyledFormWater } from './FormWater.styled';
-import { addWaterIntakeThunk } from '../../redux/calendar/calendarSlice';
-import { toast } from 'react-toastify';
-import { format } from 'date-fns';
+import { StyledFormWater } from './EditFormWater.styled';
+import { editWaterIntakeThunk } from '../../redux/calendar/calendarSlice';
+
+import {
+  selectWaterEditingPortionId,
+  selectWaterProgressData,
+} from '../../redux/calendar/calendarSlice.selectors';
 
 const addWaterSchema = Yup.object({
   amount: Yup.string()
@@ -31,8 +36,10 @@ const initialValues = {
   amount: '250',
 };
 
-const FormWater = ({ onSave }) => {
+const EditFormWater = ({ onSave }) => {
   const dispatch = useDispatch();
+  const waterData = useSelector(selectWaterProgressData);
+  const selectedEditingPortionId = useSelector(selectWaterEditingPortionId);
   const [localWaterAmount, setLocalWaterAmount] = useState(250);
   const {
     handleChange,
@@ -44,13 +51,17 @@ const FormWater = ({ onSave }) => {
     initialValues,
     validationSchema: addWaterSchema,
     onSubmit: values => {
-      dispatch(addWaterIntakeThunk(values))
+      dispatch(
+        editWaterIntakeThunk({
+          portionId: selectedEditingPortionId,
+          formData: values,
+        })
+      )
         .unwrap()
         .then(() => {
           toast.success('Your intake record was saved!');
           onSave();
         });
-      // alert(JSON.stringify(values, null, 2));
     },
   });
 
@@ -70,9 +81,26 @@ const FormWater = ({ onSave }) => {
     setFieldValue('amount', number <= 0 ? '0' : number.toString());
   };
 
+  const currentDate = `${format(new Date(), 'd')}/${format(
+    new Date(),
+    'L'
+  )}/${new Date().getFullYear()}`;
+  const currentDateData = waterData?.drunkedWater?.find(
+    date => date.day === currentDate
+  )?.waterIntake;
+  const currentEditingPortion = currentDateData?.find(
+    record => record._id === selectedEditingPortionId
+  );
+  const amPm = Number.parseInt(time.split(':')[0], 10) > 12 ? 'AM' : 'PM';
   return (
     <StyledFormWater onSubmit={handleSubmit}>
       <div className="edit">
+        <div>
+          <p>value: {currentEditingPortion.amount}ml</p>
+          <p>
+            time: {currentEditingPortion.time} {amPm}
+          </p>
+        </div>
         <h3 className="editTitle">Choose a value</h3>
         <p className="editText">Amount of water</p>
         <div className="editBtnDiv">
@@ -139,4 +167,4 @@ const FormWater = ({ onSave }) => {
   );
 };
 
-export default FormWater;
+export default EditFormWater;

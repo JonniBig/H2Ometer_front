@@ -1,4 +1,9 @@
-import { requestAddWaterIntake, requestWaterData } from 'services/api';
+import {
+  requestAddWaterIntake,
+  requestDeleteWaterIntake,
+  requestEditWaterIntake,
+  requestWaterData,
+} from 'services/api';
 
 import { createSlice, createAsyncThunk, isAnyOf } from '@reduxjs/toolkit';
 import { format } from 'date-fns';
@@ -46,9 +51,41 @@ export const addWaterIntakeThunk = createAsyncThunk(
   }
 );
 
+export const editWaterIntakeThunk = createAsyncThunk(
+  'calendar/editWaterIntakeThunk',
+  async ({ portionId, formData }, thunkAPI) => {
+    try {
+      const response = await requestEditWaterIntake(portionId, formData);
+      thunkAPI.dispatch(
+        getWaterDataThunk({ day: 10, month: format(new Date(), 'LL') })
+      );
+
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const deleteWaterIntakeThunk = createAsyncThunk(
+  'calendar/deleteWaterIntakeThunk',
+  async (portionId, thunkAPI) => {
+    try {
+      const response = await requestDeleteWaterIntake(portionId);
+      thunkAPI.dispatch(
+        getWaterDataThunk({ day: 10, month: format(new Date(), 'LL') })
+      );
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const initialState = {
   data: null,
   progressData: null,
+  selectedEditingPortionId: null,
   isLoading: false,
   error: null,
 };
@@ -56,6 +93,11 @@ const initialState = {
 const calendarSlice = createSlice({
   name: 'calendar',
   initialState,
+  reducers: {
+    setEditingPortionId: (state, action) => {
+      state.selectedEditingPortionId = action.payload;
+    },
+  },
   extraReducers: builder =>
     builder
       .addCase(getWaterDataThunk.fulfilled, (state, action) => {
@@ -64,7 +106,6 @@ const calendarSlice = createSlice({
       })
       .addCase(addWaterIntakeThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        console.log(action.payload);
 
         const doesRecordExist = state.data.drunkedWater.some(
           record => record.day === action.payload.day
@@ -79,8 +120,26 @@ const calendarSlice = createSlice({
         } else {
           state.data.drunkedWater.push(action.payload);
         }
+      })
+      .addCase(editWaterIntakeThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
 
-        // state.data = action.payload;
+        state.progressData.drunkedWater = state.progressData.drunkedWater.map(
+          record =>
+            record.day === action.payload.day
+              ? { ...record, ...action.payload }
+              : record
+        );
+      })
+      .addCase(deleteWaterIntakeThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+
+        state.progressData.drunkedWater = state.progressData.drunkedWater.map(
+          record =>
+            record.day === action.payload.day
+              ? { ...record, ...action.payload }
+              : record
+        );
       })
       .addCase(getWaterProgressThunk.fulfilled, (state, action) => {
         state.isLoading = false;
@@ -103,4 +162,5 @@ const calendarSlice = createSlice({
       ),
 });
 
+export const { setEditingPortionId } = calendarSlice.actions;
 export const calendarReducer = calendarSlice.reducer;

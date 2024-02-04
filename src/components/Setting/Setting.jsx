@@ -1,7 +1,7 @@
 import React from 'react';
 
-const UserInfoModal = () => {
+const Setting = () => {
   return <>Setting</>;
 };
 
-export default UserInfoModal;
+export default Setting;

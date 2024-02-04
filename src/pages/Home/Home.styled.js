@@ -24,23 +24,21 @@ export const StyledHomePage = styled.section`
     margin: 0 auto;
     max-width: 320px;
     // max-height: 836px;
-    padding: 0px 20px;
+    padding: 24px 20px;
 
     @media screen and (min-width: 768px) {
       max-width: 768px;
-      padding: 0px 32px;
+      padding: 24px 32px;
     }
 
     @media screen and (min-width: 1440px) {
       max-width: 1440px;
-      padding: 0px 112px;
+      padding: 40px 112px;
       display: flex;
       justify-content: space-between;
     }
 
     .div1 {
-      margin-top: 24px;
-
       display: flex;
       flex-direction: column;
       justify-content: space-between;
@@ -53,7 +51,6 @@ export const StyledHomePage = styled.section`
 
         background-position: top;
         height: 502px;
-        margin-top: 40px;
       }
 
       @media screen and (min-width: 1440px) {
@@ -78,7 +75,6 @@ export const StyledHomePage = styled.section`
   }
 
   .div2 {
-    margin-bottom: 40px;
     padding: 24px 8px;
     background: var(--secondary-white);
     border-radius: 10px;

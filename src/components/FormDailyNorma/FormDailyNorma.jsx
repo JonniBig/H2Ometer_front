@@ -60,8 +60,6 @@ const FormDailyNorma = ({ onSave }) => {
         throw new Error('Failed to save data to the backend');
       }
 
-      const responseData = await response.json();
-      console.log('Data saved successfully:', responseData);
       toast.success('Data saved successfully');
     } catch (error) {
       console.error('Error saving data to backend:', error.message);
