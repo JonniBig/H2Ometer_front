@@ -111,26 +111,11 @@ export const StyledLoginPage = styled.section`
     width: 100%;
     padding: 12px 10px;
     margin-top: 8px;
-    margin-bottom: 6px;
+    margin-bottom: 16px;
     border: 1px solid var(--secondary-skiblue);
     border-radius: 6px;
     box-sizing: border-box;
   }
-
- .password-container{
-  position: relative;
- }
-  .show-psw-btn{
-    
-    position: absolute;
-    border: none;
-    top: calc(13% + 34px);
-    right: 4%;
-    cursor: pointer;
-  }
-
- 
-
 
   input::placeholder {
     color: var(--secondary-blue);
@@ -140,15 +125,10 @@ export const StyledLoginPage = styled.section`
     line-height: 20px;
   }
 
-  .errorMsg{    
-    font-size: 12px;  
-    color: var(--secondary-red);
-  }
-
   form button {
     width: 100%;
     padding: 10px 30px;
-    margin: 16px 0;
+    margin-bottom: 16px;
     border: none;
     border-radius: 10px;
     background: var(--blue);
