@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const WaterConsTrackerStyled = styled.div`
-   margin-top: 24px;
    width:100%;
 
   @media screen and (min-width: 768px) {

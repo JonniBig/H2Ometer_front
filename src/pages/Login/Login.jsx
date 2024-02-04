@@ -1,5 +1,5 @@
 import React from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { StyledLoginPage } from './Login.styled';
@@ -9,6 +9,8 @@ import { REGISTER_ROUTE } from 'constants/routes';
 
 const Login = () => {
   const dispatch = useDispatch();
+
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const formik = useFormik({
     initialValues: {
@@ -31,7 +33,7 @@ const Login = () => {
   });
 
   return (
-    <StyledLoginPage>
+    <StyledLoginPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">

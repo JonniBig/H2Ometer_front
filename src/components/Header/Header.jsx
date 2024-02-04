@@ -1,27 +1,44 @@
 import React, { Suspense } from 'react';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { Outlet } from 'react-router-dom';
 
 import Logo from './Logo/Logo';
 import UserLogo from './UserLogo/UserLogo';
 import UserAuth from './UserAuth/UserAuth';
 import { selectAuthAuthenticated } from '../../redux/auth/authSelectors';
+import { setDarkMode, setLightMode } from '../../redux/actions/themeActions';
 
 import { Conteiner, StyledHeader } from './Header.styled';
+import MaterialUISwitch from './ButtonToggle';
 
 const Header = () => {
   const authenticated = useSelector(selectAuthAuthenticated);
 
+  const dispatch = useDispatch();
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
+
+  const handleThemeChange = () => {
+    if (isDarkMode) {
+      dispatch(setLightMode());
+    } else {
+      dispatch(setDarkMode());
+    }
+  };
+
   return (
-    <Conteiner>
-      <StyledHeader>
-        <Logo authenticated={authenticated} />
-        {authenticated ? <UserLogo /> : <UserAuth />}
-        <Suspense fallback={<div>Loading page...</div>}>
-          <Outlet />
-        </Suspense>
-      </StyledHeader>
-    </Conteiner>
+    <div className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <Conteiner>
+        <StyledHeader>
+          <Logo authenticated={authenticated} />
+          <MaterialUISwitch onClick={handleThemeChange} />
+
+          {authenticated ? <UserLogo /> : <UserAuth />}
+          <Suspense fallback={<div>Loading page...</div>}>
+            <Outlet />
+          </Suspense>
+        </StyledHeader>
+      </Conteiner>
+    </div>
   );
 };
 
