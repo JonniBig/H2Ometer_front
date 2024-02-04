@@ -1,9 +1,5 @@
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
-
-
-
 
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
@@ -28,16 +24,18 @@ const Login = () => {
     validationSchema: Yup.object({
       email: Yup.string()
         .email('Invalid email address')
-        .matches(
-          /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
-          'Enter a valid email. For example user@gmail.com'
-        )
+        // .matches(
+        //   /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
+        //   'Enter a valid email. For example user@gmail.com'
+        // )
         .required('Required'),
       password: Yup.string()
-        .min(6, 'Password must be at least 6 characters')
-        .max(64, 'Password must be at most 64 characters')
-        .matches(/[a-zA-Z]/, 'Must contain at least one letter')
-        .required('Required'),
+        .min(8, 'Password must be at least 6 characters')
+        .max(
+          64,
+          'Password must be at most 64 characters'
+        )`        // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
+`.required('Required'),
     }),
     onSubmit: data => {
       dispatch(loginThunk(data));
@@ -48,10 +46,7 @@ const Login = () => {
   });
 
   return (
-
-
     <StyledLoginPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">
@@ -70,12 +65,11 @@ const Login = () => {
                   value={formik.values.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
-
-                  <div className='errorMsg'>{formik.errors.email}</div>
+                  <div className="errorMsg">{formik.errors.email}</div>
                 ) : null}
               </div>
 
-              <div className='password-container'>
+              <div className="password-container">
                 <label htmlFor="password">
                   Password
                   <div
@@ -103,20 +97,13 @@ const Login = () => {
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-
-
-             
-
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
                 />
                 {formik.touched.password && formik.errors.password ? (
-
-                  <div className='errorMsg'>{formik.errors.password}</div>
-
-                  
+                  <div className="errorMsg">{formik.errors.password}</div>
                 ) : null}
               </div>
 
