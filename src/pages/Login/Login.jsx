@@ -24,6 +24,7 @@ const Login = () => {
     validationSchema: Yup.object({
       email: Yup.string()
         .email('Invalid email address')
+
         // .matches(
         //   /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
         //   'Enter a valid email. For example user@gmail.com'
@@ -34,6 +35,7 @@ const Login = () => {
         .max(64, 'Password must be at most 64 characters')
         // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
         .required('Required'),
+
     }),
     onSubmit: data => {
       dispatch(loginThunk(data));
@@ -61,6 +63,7 @@ const Login = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
+                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
                 />
                 {formik.touched.email && formik.errors.email ? (
                   <div className="errorMsg">{formik.errors.email}</div>
@@ -94,11 +97,14 @@ const Login = () => {
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? 'text' : 'password'}
+
+                  type={showPassword ? 'text' : 'password'}          
+
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
+                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
                 />
                 {formik.touched.password && formik.errors.password ? (
                   <div className="errorMsg">{formik.errors.password}</div>
