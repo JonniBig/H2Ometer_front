@@ -1,33 +1,25 @@
-// ModalStyles.js
-
+// SettingModalStyles.js
 import styled from 'styled-components';
 
-export const ModalContainer = styled.div`
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  height: 100vh;
-`;
-
 export const Modal = styled.div`
-  position: absolute;
+  position: fixed;
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
   color: #2F2F2F;
   background-color: white;
-  width: 280px;
-  padding: 32px 12px;
+  width: 1008px;
+  height: auto;
+  max-height: 80vh;
+  padding: 32px;
   border-radius: 10px;
+  overflow-y: auto;
 
-  @media screen and (min-width: 768px) {
-    width: 704px;
-    padding: 32px 24px;
-    border-radius: 10px;
-  }
-
-  @media screen and (min-width: 1440px) {
-    width: 1008px;
+  @media screen and (max-width: 767px) {
+    width: 100%;
+    height: 100vh;
+    max-height: none;
+    padding: 16px;
   }
 `;
 
@@ -72,10 +64,11 @@ export const FormGroup = styled.div`
 
 export const RadioButtonGroup = styled.div`
   display: flex;
+  flex-wrap: wrap;
   gap: 16px;
 
   input {
-    margin-right: 8px;
+    margin-bottom: 8px;
   }
 `;
 
@@ -98,3 +91,45 @@ export const Notification = styled.div`
   color: red;
   margin-top: 12px;
 `;
+
+export const ExitButton = styled.button`
+  background-color: transparent;
+  color: #dc3545;
+  font-size: 18px;
+  padding: 12px;
+  border: none;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: color 0.3s ease;
+
+  position: fixed;
+  top: 16px;
+  right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+`;
+
+export const ExitIcon = styled.img`
+  width: 16px;
+  height: 16px;
+  margin-right: 8px;
+`;
+
+export const FormGroupWrapper = styled.div`
+  
+`;
+
+
+export const FormGroupPassword = styled.div`
+  display: flex;
+  flex-direction: column;
+  margin-left: auto; // Переміщення групи вправо
+  width: 50%; // Ширина групи
+`;
+
+export const FormGroupPasswordWrapper = styled.div`
+  // Стилі для wrapper за потреби
+`;
+
+export const ulinput = styled.div`  ;`
