@@ -3,6 +3,7 @@ import React, { useState } from 'react';
 import * as Styles from './ModalStyles';
 import exitIcon from './sprite.svg'; 
 
+
 const SettingModal = ({ onLogout }) => {
   const [userData, setUserData] = useState({
     photo: null,
@@ -151,3 +152,4 @@ const SettingModal = ({ onLogout }) => {
 };
 
 export default SettingModal;
+

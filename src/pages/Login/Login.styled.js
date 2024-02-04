@@ -12,24 +12,22 @@ export const StyledLoginPage = styled.section`
   right: 0;
   bottom: 0;
   z-index: -1;
-  
 
-  background-image: url(${backgrSigninMob}), url(${bottleMob});  
+  background-image: url(${backgrSigninMob}), url(${bottleMob});
   background-position: bottom, center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-position: top;    
-    background-image: url(${backgrBottleTab});    
+    background-position: top;
+    background-image: url(${backgrBottleTab});
   }
 
   @media screen and (min-width: 1440px) {
     background-image: url(${backgroundMP});
     background-size: contain;
-    
   }
 
-  .container{
+  .container {
     margin: 0 auto;
     max-width: 320px;
     padding: 0px 20px;
@@ -44,22 +42,20 @@ export const StyledLoginPage = styled.section`
       max-width: 1440px;
       padding: 0px 112px 0px 0px;
       display: flex;
-    }  
+    }
   }
 
-
-  .backgr-elem-decktop{
+  .backgr-elem-decktop {
     display: none;
-      @media screen and (min-width: 1440px) {
-        display: block;
-        margin-top: 60px;
-        background-image: url(${bottleSigninDecktop});
-        background-position: bottom;
-        background-repeat: no-repeat;
-        width: 916px;
-        height: 680px;
-      }
-
+    @media screen and (min-width: 1440px) {
+      display: block;
+      margin-top: 60px;
+      background-image: url(${bottleSigninDecktop});
+      background-position: bottom;
+      background-repeat: no-repeat;
+      width: 916px;
+      height: 680px;
+    }
   }
   .content {
     @media screen and (min-width: 1440px) {
@@ -70,23 +66,26 @@ export const StyledLoginPage = styled.section`
   }
 
   .login-form-container {
+    border-radius: 10px;
+    background: white;
+    color: black;
     max-width: 280px;
     margin: 68px auto;
-    background-color: transparent;
+    // background-color: transparent;
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     @media screen and (min-width: 768px) {
       margin-top: 88px;
       margin-left: 0;
       max-width: 100%;
-      height: 312px; 
+      height: 312px;
     }
 
-    @media screen and (min-width: 1440px) {       
+    @media screen and (min-width: 1440px) {
       width: 100%;
-      height: 312px; 
-    }    
-  }  
+      height: 312px;
+    }
+  }
 
   h1 {
     font-size: 26px;
@@ -112,12 +111,27 @@ export const StyledLoginPage = styled.section`
     width: 100%;
     padding: 12px 10px;
     margin-top: 8px;
-    margin-bottom: 16px;
+    margin-bottom: 6px;
     border: 1px solid var(--secondary-skiblue);
     border-radius: 6px;
     box-sizing: border-box;
   }
-  
+
+ .password-container{
+  position: relative;
+ }
+  .show-psw-btn{
+    
+    position: absolute;
+    border: none;
+    top: calc(13% + 34px);
+    right: 4%;
+    cursor: pointer;
+  }
+
+ 
+
+
   input::placeholder {
     color: var(--secondary-blue);
     font-size: 16px;
@@ -126,10 +140,15 @@ export const StyledLoginPage = styled.section`
     line-height: 20px;
   }
 
+  .errorMsg{    
+    font-size: 12px;  
+    color: var(--secondary-red);
+  }
+
   form button {
     width: 100%;
     padding: 10px 30px;
-    margin-bottom: 16px;
+    margin: 16px 0;
     border: none;
     border-radius: 10px;
     background: var(--blue);

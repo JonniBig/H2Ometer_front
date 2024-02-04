@@ -4,6 +4,7 @@ import {
   requestLogout,
   requestRefreshUser,
   requestRegister,
+  requestVerifyEmail,
   setToken,
 } from 'services/api';
 
@@ -25,6 +26,18 @@ export const registerThunk = createAsyncThunk(
     try {
       const response = await requestRegister(formData);
 
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const verifyEmailThunk = createAsyncThunk(
+  'auth/verifyEmail',
+  async (token, thunkAPI) => {
+    try {
+      const response = await requestVerifyEmail(token);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -79,6 +92,8 @@ const INITIAL_STATE = {
     name: null,
   },
   authenticated: false,
+  verificationMessage: '',
+  isEmailVerified: false,
 };
 
 const authSlice = createSlice({
@@ -92,6 +107,13 @@ const authSlice = createSlice({
         state.authenticated = true;
         state.token = action.payload.token;
         state.user = action.payload.user;
+      })
+
+      .addCase(verifyEmailThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.verificationMessage =
+          'Your email has been successfully verified.';
+        state.isEmailVerified = true;
       })
 
       .addCase(loginThunk.fulfilled, (state, action) => {
@@ -120,7 +142,8 @@ const authSlice = createSlice({
           registerThunk.pending,
           loginThunk.pending,
           refreshThunk.pending,
-          logoutThunk.pending
+          logoutThunk.pending,
+          verifyEmailThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -131,7 +154,8 @@ const authSlice = createSlice({
         isAnyOf(
           registerThunk.rejected,
           loginThunk.rejected,
-          logoutThunk.rejected
+          logoutThunk.rejected,
+          verifyEmailThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;
