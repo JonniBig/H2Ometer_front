@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 
@@ -24,16 +23,17 @@ const Register = () => {
       confirmPassword: '',
     },
     validationSchema: Yup.object({
-      email: Yup.string().email('Invalid email address')
-      .matches(
-        /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
-        'Enter a valid email. For example user@gmail.com'
-      )
-      .required('Required'),
+      email: Yup.string()
+        .email('Invalid email address')
+        .matches(
+          /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
+          'Enter a valid email. For example user@gmail.com'
+        )
+        .required('Required'),
       password: Yup.string()
-        .min(6, 'Password must be at least 6 characters')
+        .min(8, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
-        .matches(/[a-zA-Z]/, 'Must contain at least one letter')
+        // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
         .required('Required'),
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
@@ -47,10 +47,7 @@ const Register = () => {
   });
 
   return (
-
-    
     <StyledRegisterPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
-
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">
@@ -69,7 +66,6 @@ const Register = () => {
                   value={formik.values.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
-
                   <div className="errorMsg">{formik.errors.email}</div>
                 ) : null}
               </div>
@@ -140,7 +136,6 @@ const Register = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type={showPassword ? 'text' : 'password'}
-
                   placeholder="Repeat password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -148,12 +143,9 @@ const Register = () => {
                 />
                 {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword ? (
-
                   <div className="errorMsg">
                     {formik.errors.confirmPassword}
                   </div>
-               
-
                 ) : null}
               </div>
 
