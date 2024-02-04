@@ -31,7 +31,7 @@ const Register = () => {
         )
         .required('Required'),
       password: Yup.string()
-        .min(8, 'Password must be at least 6 characters')
+        .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
         // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
         .required('Required'),
