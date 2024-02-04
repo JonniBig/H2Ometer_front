@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Layout, PrivateRoute, RestrictedRoute } from 'components';
+import { Layout, PrivateRoute, RestrictedRoute, VerifyEmail } from 'components';
 import { Home, Login, Main, Register } from 'pages';
 
 import {
@@ -8,6 +8,7 @@ import {
   LOGIN_ROUTE,
   REGISTER_ROUTE,
   WELCOME_ROUTE,
+  VERIFY_EMAIL_ROUTE,
 } from 'constants/routes';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
@@ -62,6 +63,7 @@ export const App = () => {
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
+        <Route path={VERIFY_EMAIL_ROUTE} element={<VerifyEmail />} />
       </Routes>
     </Layout>
   );
