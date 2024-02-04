@@ -32,12 +32,12 @@ const Login = () => {
           /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
           'Enter a valid email. For example user@gmail.com'
         )
-        .required('Required'),
+        .required('Type your email please'),
       password: Yup.string()
         .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
         .matches(/[a-zA-Z]/, 'Must contain at least one letter')
-        .required('Required'),
+        .required('Type your password please'),
     }),
     onSubmit: data => {
       dispatch(loginThunk(data));
@@ -68,6 +68,7 @@ const Login = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
+                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
                 />
                 {formik.touched.email && formik.errors.email ? (
 
@@ -102,15 +103,12 @@ const Login = () => {
                 <input
                   id="password"
                   name="password"
-                  type={showPassword ? 'text' : 'password'}
-
-
-             
-
+                  type={showPassword ? 'text' : 'password'}          
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
+                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
                 />
                 {formik.touched.password && formik.errors.password ? (
 
