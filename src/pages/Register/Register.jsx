@@ -1,5 +1,7 @@
-import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+
+import React from 'react';
+import { useDispatch, useSelector } from 'react-redux';
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { StyledRegisterPage } from './Register.styled';
@@ -12,6 +14,8 @@ import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 const Register = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const formik = useFormik({
     initialValues: {
@@ -36,7 +40,6 @@ const Register = () => {
         .required('Required'),
     }),
     onSubmit: data => {
-      console.log(data);
       const formData = { email: data.email, password: data.password };
       dispatch(registerThunk(formData));
       formik.resetForm();
@@ -44,7 +47,10 @@ const Register = () => {
   });
 
   return (
-    <StyledRegisterPage>
+
+    
+    <StyledRegisterPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">
@@ -63,6 +69,7 @@ const Register = () => {
                   value={formik.values.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
+
                   <div className="errorMsg">{formik.errors.email}</div>
                 ) : null}
               </div>
@@ -133,6 +140,7 @@ const Register = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type={showPassword ? 'text' : 'password'}
+
                   placeholder="Repeat password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
@@ -140,9 +148,12 @@ const Register = () => {
                 />
                 {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword ? (
+
                   <div className="errorMsg">
                     {formik.errors.confirmPassword}
                   </div>
+               
+
                 ) : null}
               </div>
 

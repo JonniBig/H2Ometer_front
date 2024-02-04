@@ -1,5 +1,10 @@
+
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+
+import React from 'react';
+
+
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { StyledLoginPage } from './Login.styled';
@@ -12,6 +17,8 @@ import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 const Login = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
+
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const formik = useFormik({
     initialValues: {
@@ -41,7 +48,10 @@ const Login = () => {
   });
 
   return (
-    <StyledLoginPage>
+
+
+    <StyledLoginPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">
@@ -60,6 +70,7 @@ const Login = () => {
                   value={formik.values.email}
                 />
                 {formik.touched.email && formik.errors.email ? (
+
                   <div className='errorMsg'>{formik.errors.email}</div>
                 ) : null}
               </div>
@@ -92,13 +103,20 @@ const Login = () => {
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
+
+
+             
+
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
                 />
                 {formik.touched.password && formik.errors.password ? (
+
                   <div className='errorMsg'>{formik.errors.password}</div>
+
+                  
                 ) : null}
               </div>
 

@@ -119,6 +119,7 @@ export const StyledDailyProgress = styled.div`
 
     &:hover,
     &:focus {
+      // color: var(--secondary-orange);
       box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
     }
 
@@ -150,7 +151,6 @@ export const StyledDailyProgress = styled.div`
     left: ${({ $dailyPercents }) => `${$dailyPercents}%`};
     z-index: 1;
     background-color: var(--white);
-    padding: 16px 15px 0 15px;
   }
   .p-100 {
     right: 15px;

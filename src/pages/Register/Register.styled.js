@@ -5,32 +5,29 @@ import backgrBottleTab from '../../assets/images/signin-signup/backgrBottleTab.p
 import bottleMob from '../../assets/images/signin-signup/bottleMob.png';
 import backgrSigninMob from '../../assets/images/signin-signup/backgrSigninMob.png';
 
-
 export const StyledRegisterPage = styled.section`
-position: fixed;
+  position: fixed;
   top: 0;
   left: 0;
   right: 0;
   bottom: 0;
   z-index: -1;
-  
 
-  background-image: url(${backgrSigninMob}), url(${bottleMob});  
+  background-image: url(${backgrSigninMob}), url(${bottleMob});
   background-position: bottom, center;
   background-repeat: no-repeat;
 
   @media screen and (min-width: 768px) {
-    background-position: top;    
-    background-image: url(${backgrBottleTab});    
+    background-position: top;
+    background-image: url(${backgrBottleTab});
   }
 
   @media screen and (min-width: 1440px) {
     background-image: url(${backgroundMP});
     background-size: contain;
-    
   }
 
-  .container{
+  .container {
     margin: 0 auto;
     max-width: 320px;
     padding: 0px 20px;
@@ -45,21 +42,20 @@ position: fixed;
       max-width: 1440px;
       padding: 0px 0px 0px 0px;
       display: flex;
-    }  
+    }
   }
 
-  .backgr-elem-decktop{
+  .backgr-elem-decktop {
     display: none;
-      @media screen and (min-width: 1440px) {
-        display: block;
-        margin-top: 60px;
-        background-image: url(${bottleSigninDecktop});
-        background-position: bottom;
-        background-repeat: no-repeat;
-        width: 916px;
-        height: 680px;
-      }
-
+    @media screen and (min-width: 1440px) {
+      display: block;
+      margin-top: 60px;
+      background-image: url(${bottleSigninDecktop});
+      background-position: bottom;
+      background-repeat: no-repeat;
+      width: 916px;
+      height: 680px;
+    }
   }
 
   .content {
@@ -71,22 +67,25 @@ position: fixed;
   }
 
   .register-form-container {
+    border-radius: 10px;
+    background: white;
+    color: black;
     max-width: 280px;
     margin: 68px auto;
-    background-color: transparent;
+    // background-color: transparent;
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     @media screen and (min-width: 768px) {
       margin-top: 88px;
       margin-left: 0;
       max-width: 336px;
-      height: 312px; 
+      height: 312px;
     }
 
-    @media screen and (min-width: 1440px) {       
+    @media screen and (min-width: 1440px) {
       max-width: 384px;
-      height: 312px; 
-    }    
+      height: 312px;
+    }
   }
 
   h1 {
@@ -100,7 +99,7 @@ position: fixed;
 
   form {
     background-color: #fff;
-    
+    color: var(--black);
   }
 
   form label {
@@ -140,13 +139,12 @@ position: fixed;
     line-height: 20px;
   }
 
+
   .errorMsg{    
     font-size: 12px;  
     color: var(--secondary-red);
   }
 
-
-  
   form button {
     width: 100%;
     padding: 10px 30px;
@@ -174,8 +172,6 @@ position: fixed;
     margin-top: 5px;
   }
 
-  
-
   a {
     font-size: 16px;
     font-style: normal;
@@ -185,7 +181,7 @@ position: fixed;
     text-decoration: none;
   }
 
-   a:hover {
+  a:hover {
     color: var(--secondary-orange);
   }
 `;
