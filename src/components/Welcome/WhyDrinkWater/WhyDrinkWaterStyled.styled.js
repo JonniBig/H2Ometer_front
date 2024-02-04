@@ -56,6 +56,7 @@ export const WhyDrinkWaterStyled = styled.div`
 
         background-color: var(--blue);
         border-radius: 50%;
+        border: 1px solid white;
       }
     }
   }

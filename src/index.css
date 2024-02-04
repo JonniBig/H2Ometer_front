@@ -124,3 +124,13 @@ p {
   color: var(--white);
   background-color: #001f3f;
 }
+
+.dark-modal.dark-mode {
+  color: var(--white);
+  background-color: #407bff;
+}
+
+.secondary-blue.dark-mode {
+  background-color: var(--secondary-blue);
+  color: black;
+}

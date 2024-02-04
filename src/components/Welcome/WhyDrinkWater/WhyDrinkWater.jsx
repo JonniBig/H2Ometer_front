@@ -1,8 +1,13 @@
+import { useSelector } from 'react-redux';
 import { WhyDrinkWaterStyled } from './WhyDrinkWaterStyled.styled';
 
 export const WhyDrinkWater = () => {
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
+
   return (
-    <WhyDrinkWaterStyled>
+    <WhyDrinkWaterStyled
+      className={`dark-modal ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+    >
       <h2>Why Drink Water</h2>
       <ul>
         <li>Supply of nutrients to all organs</li>

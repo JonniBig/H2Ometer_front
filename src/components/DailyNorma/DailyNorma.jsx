@@ -1,16 +1,20 @@
 import React, { useState } from 'react';
 import { StyledDailyNorma } from './DailyNorma.styled';
 import { FormDailyNorma, GeneralModal } from 'components';
+import { useSelector } from 'react-redux';
 
 const DailyNorma = () => {
   const [showModal, setShowModal] = useState(false);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const toggleModal = () => {
     setShowModal(!showModal);
   };
 
   return (
-    <StyledDailyNorma>
+    <StyledDailyNorma
+      className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+    >
       <p className="title">My daily norma</p>
       <div className="content">
         <p className="volume">2.0 L</p>

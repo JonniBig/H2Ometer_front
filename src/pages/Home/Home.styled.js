@@ -16,6 +16,11 @@ export const StyledHomePage = styled.section`
     background-image: url(${backgroundHomeTabl});
   }
   @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url(${element});
     background-size: contain;
   }

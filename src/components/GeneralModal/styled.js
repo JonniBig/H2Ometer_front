@@ -11,7 +11,7 @@ export const StyledGeneralModal = styled.div`
   overflow: auto;
 
   .modal-content {
-    background-color: var(--white);
+    // background-color: var(--white);
     position: relative;
     top: 50%;
     left: 50%;

@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { logoutThunk } from '../../redux/auth/authSlice';
 
 import closeModal from '../../assets/images/icons/close-x.svg';
@@ -8,6 +8,7 @@ import { Conteiner, StyledLogout } from './Logout.styled';
 const Logout = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleLogout = () => {
     dispatch(logoutThunk());
@@ -22,7 +23,11 @@ const Logout = () => {
     <>
       {isModalOpen && (
         <Conteiner>
-          <StyledLogout>
+          <StyledLogout
+            className={`secondary-blue ${
+              isDarkMode ? 'dark-mode' : 'light-mode'
+            }`}
+          >
             <div className="logoutTitleDiv">
               <h4 className="logoutTitle">Log out</h4>
               <button
