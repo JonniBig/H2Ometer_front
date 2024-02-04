@@ -37,7 +37,7 @@ const Register = () => {
   });
 
   return (
-    <StyledRegisterPage>
+    <StyledRegisterPage className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <div className="container">
         <div className="backgr-elem-decktop"></div>
         <div className="content">
@@ -95,12 +95,6 @@ const Register = () => {
 
               <button type="submit">Submit</button>
             </form>
-            <div>
-              <Link to={LOGIN_ROUTE}>Sign In</Link>
-            </div>
-
-            <button type="submit">Submit</button>
-
             <div>
               <Link to={LOGIN_ROUTE}>Sign In</Link>
             </div>

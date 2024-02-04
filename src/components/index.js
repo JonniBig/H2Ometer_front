@@ -10,3 +10,5 @@ export { default as Loader } from './Loader/Loader';
 export { default as DailyProgress } from './DailyProgress/DailyProgress';
 export { default as TodayList } from './TodayList/TodayList';
 export { default as GeneralModal } from './GeneralModal/GeneralModal';
+export { default as DeleteModal } from './DeleteModal/DeleteModal';
+export { default as Logout } from './Logout/Logout';

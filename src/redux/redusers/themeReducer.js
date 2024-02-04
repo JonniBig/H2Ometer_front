@@ -1,5 +1,5 @@
 const initialState = {
-  isDarkMode: false,
+  isDarkMode: localStorage.getItem('darkTheme') === 'true',
 };
 
 const themeReducer = (state = initialState, action) => {

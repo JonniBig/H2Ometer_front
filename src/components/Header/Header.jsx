@@ -8,9 +8,8 @@ import UserAuth from './UserAuth/UserAuth';
 import { selectAuthAuthenticated } from '../../redux/auth/authSelectors';
 import { setDarkMode, setLightMode } from '../../redux/actions/themeActions';
 
-import sunIcon from '../../assets/images/tema/sun.svg';
-import moonIcon from '../../assets/images/tema/moon.svg';
 import { Conteiner, StyledHeader } from './Header.styled';
+import MaterialUISwitch from './ButtonToggle';
 
 const Header = () => {
   const authenticated = useSelector(selectAuthAuthenticated);
@@ -31,10 +30,8 @@ const Header = () => {
       <Conteiner>
         <StyledHeader>
           <Logo authenticated={authenticated} />
-          <button className="btnTema" onClick={handleThemeChange}>
-            <img src={moonIcon} alt="Moon Icon" />
-            <img src={sunIcon} alt="Sun Icon" />
-          </button>
+          <MaterialUISwitch onClick={handleThemeChange} />
+
           {authenticated ? <UserLogo /> : <UserAuth />}
           <Suspense fallback={<div>Loading page...</div>}>
             <Outlet />
