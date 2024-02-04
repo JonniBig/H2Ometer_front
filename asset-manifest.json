@@ -1,7 +1,7 @@
 {
   "files": {
     "main.css": "/H2Ometer_front/static/css/main.f028897f.css",
-    "main.js": "/H2Ometer_front/static/js/main.b37aa8a4.js",
+    "main.js": "/H2Ometer_front/static/js/main.0c3b2be0.js",
     "static/media/Roboto-Medium.ttf": "/H2Ometer_front/static/media/Roboto-Medium.7c8d04cd831df3033c8a.ttf",
     "static/media/Roboto-Regular.ttf": "/H2Ometer_front/static/media/Roboto-Regular.fc2b5060f7accec5cf74.ttf",
     "static/media/Roboto-Bold.ttf": "/H2Ometer_front/static/media/Roboto-Bold.f80816a5455d171f948d.ttf",
@@ -30,15 +30,17 @@
     "static/media/user.svg": "/H2Ometer_front/static/media/user.84fe416a0041b0b6302f32d50e33accd.svg",
     "static/media/wrench-screwdriver.svg": "/H2Ometer_front/static/media/wrench-screwdriver.12b0d684859135b29706b3a4da2e71f1.svg",
     "static/media/outline.svg": "/H2Ometer_front/static/media/outline.bc84041421ba50635179681b1c2e287e.svg",
+    "static/media/eye-slash.svg": "/H2Ometer_front/static/media/eye-slash.eb22e31b7f270eec7a2969cfd34e0a72.svg",
+    "static/media/eye.svg": "/H2Ometer_front/static/media/eye.59d145a08392ee39d4f80a24b0b272c6.svg",
     "static/media/presentation-chart-bar.svg": "/H2Ometer_front/static/media/presentation-chart-bar.e61a53726b5de7a376d6425df107ae04.svg",
     "static/media/plus-small.svg": "/H2Ometer_front/static/media/plus-small.ce997c23e4419c3ae18bf191c370a59f.svg",
     "static/media/minus-small.svg": "/H2Ometer_front/static/media/minus-small.7e8fbb59d254c876fd4644c3abad15ef.svg",
     "static/media/close-x.svg": "/H2Ometer_front/static/media/close-x.522b2c595a77d1df50c4eaf35b522689.svg",
     "main.f028897f.css.map": "/H2Ometer_front/static/css/main.f028897f.css.map",
-    "main.b37aa8a4.js.map": "/H2Ometer_front/static/js/main.b37aa8a4.js.map"
+    "main.0c3b2be0.js.map": "/H2Ometer_front/static/js/main.0c3b2be0.js.map"
   },
   "entrypoints": [
     "static/css/main.f028897f.css",
-    "static/js/main.b37aa8a4.js"
+    "static/js/main.0c3b2be0.js"
   ]
 }
