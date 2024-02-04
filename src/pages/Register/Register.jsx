@@ -29,7 +29,6 @@ const Register = () => {
         .required('Required'),
     }),
     onSubmit: data => {
-      console.log(data);
       const formData = { email: data.email, password: data.password };
       dispatch(registerThunk(formData));
       formik.resetForm();
