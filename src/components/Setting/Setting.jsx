@@ -1,155 +1,233 @@
-// SettingModal.js
-import React, { useState } from 'react';
-import * as Styles from './ModalStyles';
-import exitIcon from './sprite.svg'; 
+import React, { useEffect, useState } from 'react';
+import { Conteiner, SettingStyled } from './Setting.styled';
 
+const SettingsModal = () => {
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [gender, setGender] = useState('');
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [oldPassword, setOldPassword] = useState('');
+  const [newPassword, setNewPassword] = useState('');
+  const [repeatPassword, setRepeatPassword] = useState('');
+  const [isModalOpen, setIsModalOpen] = useState(true);
 
-const SettingModal = ({ onLogout }) => {
-  const [userData, setUserData] = useState({
-    photo: null,
-    gender: '',
-    name: '',
-    email: '',
-    oldPassword: '',
-    newPassword: '',
-    repeatPassword: '',
-  });
+  const handleEmailChange = e => setEmail(e.target.value);
+  const handleNameChange = e => setName(e.target.value);
+  const handleGenderChange = e => setGender(e.target.value);
 
-  const [notification, setNotification] = useState('');
-
-  const handleInputChange = (field, value) => {
-    setUserData((prevData) => ({
-      ...prevData,
-      [field]: value,
-    }));
-  };
-
-  const handlePhotoChange = (e) => {
+  const handleFileChange = e => {
     const file = e.target.files[0];
-    setUserData((prevData) => ({
-      ...prevData,
-      photo: file,
-    }));
+    if (file) {
+      setSelectedFile(file);
+    }
   };
 
-  const uploadPhoto = () => {
-    // Логіка завантаження фото тут
+  const handleOldPasswordChange = e => setOldPassword(e.target.value);
+  const handleNewPasswordChange = e => setNewPassword(e.target.value);
+  const handleRepeatPasswordChange = e => setRepeatPassword(e.target.value);
+
+  const saveDetails = () => {
+    console.log('Email:', email);
+    console.log('Name:', name);
+    console.log('Gender:', gender);
+    console.log('Selected File:', selectedFile);
+    console.log('Змінено пароль:', newPassword);
   };
 
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    // Логіка обробки подання форми тут
-
-    // Приклад: Показ повідомлення про помилку
-    setNotification('Не вдалося оновити дані користувача. Будь ласка, спробуйте ще раз.');
+  const handleCloseModal = () => {
+    setIsModalOpen(false);
   };
+
+  useEffect(() => {
+    const handleKeyPress = e => {
+      if (e.key === 'Escape') {
+        handleCloseModal();
+      }
+    };
+
+    window.addEventListener('keydown', handleKeyPress);
+    return () => {
+      window.removeEventListener('keydown', handleKeyPress);
+    };
+  }, []);
+
+  if (!isModalOpen) {
+    return null;
+  }
 
   return (
-    <Styles.Modal className="modal">
-      <div className="modal-content">
-        <Styles.ExitButton onClick={onLogout}>
-          <Styles.ExitIcon src={exitIcon} alt="Exit Icon" />
-        </Styles.ExitButton>
+    <Conteiner onClick={handleCloseModal}>
+      <SettingStyled onClick={e => e.stopPropagation()}>
+        <div>
+          <b className="modalSetting">Setting</b>
+        </div>
+        <p className="modalPhotoText">Your Photo</p>
+        <ul className="modalPhotoList">
+          <li className="modalListPhoto">
+            {selectedFile && (
+              <div className="photoDiv">
+                <img
+                  src={URL.createObjectURL(selectedFile)}
+                  className="imageModal"
+                  alt=""
+                />
+              </div>
+            )}
+          </li>
+          <li className="modalListUpload">
+            <label htmlFor="fileInput">
+              <div className="upload_container">
+                <span className="uploadText">Upload a photo</span>
+              </div>
+            </label>
+            <input
+              id="fileInput"
+              className="modalFotoInput"
+              type="file"
+              name="photo"
+              accept="image/jpeg,image/png"
+              onChange={handleFileChange}
+            />
+          </li>
+        </ul>
 
-        <form onSubmit={handleSubmit}>
-          <Styles.FormGroup>
-            <label htmlFor="photo">Ваше фото</label>
-            <input type="file" id="photo" accept="image/*" onChange={handlePhotoChange} />
-            <button type="button" onClick={uploadPhoto}>
-              Завантажити фото
-            </button>
-          </Styles.FormGroup>
-          
-   <Styles.FormGroupWrapper className="form-group-wrapper">
-          <Styles.FormGroup>
-            <label>Ваша гендерна ідентичність</label>
-            <Styles.RadioButtonGroup>
-              <label htmlFor="male">
+        <form onSubmit={e => e.preventDefault()}>
+          <div>
+            <div>
+              <div className="modalGenderBlock">
+                <p className="modalGenderText">Your gender identity</p>
                 <input
                   type="radio"
-                  id="male"
+                  className="genderInput"
+                  value="woman"
+                  id="Woman"
                   name="gender"
-                  value="male"
-                  onChange={() => handleInputChange('gender', 'male')}
+                  checked={gender === 'woman'}
+                  onChange={handleGenderChange}
                 />
-                Чоловік
-              </label>
-
-              <label htmlFor="female">
+                <label htmlFor="Woman" className="genderLabel">
+                  Woman
+                </label>
                 <input
                   type="radio"
-                  id="female"
+                  className="genderInput"
+                  value="man"
+                  id="Man"
                   name="gender"
-                  value="female"
-                  onChange={() => handleInputChange('gender', 'female')}
+                  checked={gender === 'man'}
+                  onChange={handleGenderChange}
                 />
-                Жінка
-              </label>
-              {/* Додайте більше варіантів гендеру за потреби */}
-            </Styles.RadioButtonGroup>
-          </Styles.FormGroup>
- 
-          <Styles.FormGroup>
-            <label htmlFor="name">Ваше ім'я</label>
+                <label htmlFor="Man" className="genderLabel">
+                  Man
+                </label>
+              </div>
+            </div>
+            <label htmlFor="nameInput" className="label">
+              Your name
+            </label>
             <input
               type="text"
-              id="name"
-              placeholder="Введіть ваше ім'я"
-              value={userData.name}
-              onChange={(e) => handleInputChange('name', e.target.value)}
+              placeholder="Name"
+              id="nameInput"
+              name="name"
+              className="modalInput modalInputData"
+              value={name}
+              onChange={handleNameChange}
             />
-          </Styles.FormGroup>
-
-          <Styles.FormGroup>
-            <label htmlFor="email">Електронна пошта</label>
+            <label htmlFor="emailInp" className="label">
+              E-mail
+            </label>
             <input
-              type="email"
-              id="email"
-              placeholder="Введіть вашу електронну пошту"
-              value={userData.email}
-              onChange={(e) => handleInputChange('email', e.target.value)}
+              type="text"
+              name="email"
+              placeholder="test@gmail.com"
+              id="emailInp"
+              className="modalInput modalInputData"
+              value={email}
+              onChange={handleEmailChange}
             />
-          </Styles.FormGroup>
-          </Styles.FormGroupWrapper>
-          <Styles.FormGroupPasswordWrapper className="password-group-wrapper">
-          <Styles.FormGroup>
-            <label htmlFor="oldPassword">Пароль:</label>
-            <input
-              type="password"
-              id="oldPassword"
-              placeholder="Старий пароль, поточний пароль"
-              value={userData.oldPassword}
-              onChange={(e) => handleInputChange('oldPassword', e.target.value)}
-            />
+          </div>
 
-            <label htmlFor="newPassword">Новий пароль:</label>
-            <input
-              type="password"
-              id="newPassword"
-              placeholder="Новий пароль"
-              value={userData.newPassword}
-              onChange={(e) => handleInputChange('newPassword', e.target.value)}
-            />
+          <div>
+            <p className="modalPasswordText">Password</p>
+            <div className="passwordInputContainer">
+              <label htmlFor="oldPassword" className="passwordLabel">
+                Current password:
+              </label>
+              <div className="inputContainer">
+                <input
+                  type="password"
+                  placeholder="Current password"
+                  id="oldPassword"
+                  className="modalInput modalInput_password"
+                  value={oldPassword}
+                  onChange={handleOldPasswordChange}
+                />
+                <div className="togglePasswordIcon"></div>
+              </div>
+            </div>
+            <div className="passwordInputContainer">
+              <label htmlFor="newPassword" className="passwordLabel">
+                New password:
+              </label>
+              <div className="inputContainer">
+                <input
+                  type="password"
+                  placeholder="New password"
+                  id="newPassword"
+                  className="modalInput modalInput_password"
+                  value={newPassword}
+                  onChange={handleNewPasswordChange}
+                />
+                <div className="togglePasswordIcon"></div>
+              </div>
+            </div>
+            <div className="passwordInputContainer">
+              <label htmlFor="repeatPassword" className="passwordLabel">
+                Repeat new password:
+              </label>
+              <div className="inputContainer">
+                <input
+                  type="password"
+                  placeholder="Repeat new password"
+                  id="repeatPassword"
+                  className="modalInput modalInput_password"
+                  value={repeatPassword}
+                  onChange={handleRepeatPasswordChange}
+                />
+                <div className="togglePasswordIcon"></div>
+              </div>
+            </div>
+          </div>
 
-            <label htmlFor="repeatPassword">Повторіть новий пароль:</label>
-            <input
-              type="password"
-              id="repeatPassword"
-              placeholder="Повторіть новий пароль"
-              value={userData.repeatPassword}
-              onChange={(e) => handleInputChange('repeatPassword', e.target.value)}
-            />
-          </Styles.FormGroup>
-          </Styles.FormGroupPasswordWrapper>
-
-          <Styles.Button type="submit">Зберегти</Styles.Button>
-
-          {notification && <Styles.Notification>{notification}</Styles.Notification>}
+          <button
+            type="button"
+            className="modal_form_submit"
+            onClick={saveDetails}
+          >
+            Save
+          </button>
         </form>
-      </div>
-    </Styles.Modal>
+        <button type="button" className="closeBtn" onClick={handleCloseModal}>
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            viewBox="0 0 24 24"
+            fill="none"
+          >
+            <path
+              d="M6 18L18 6M6 6L18 18"
+              stroke="#407BFF"
+              strokeWidth="1.5"
+              strokeLinecap="round"
+              strokeLinejoin="round"
+            />
+          </svg>
+        </button>
+      </SettingStyled>
+    </Conteiner>
   );
 };
 
-export default SettingModal;
-
+export default SettingsModal;

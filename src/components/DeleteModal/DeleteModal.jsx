@@ -2,11 +2,18 @@ import React, { useState } from 'react';
 import closeModal from '../../assets/images/icons/close-x.svg';
 import { Conteiner, DeleteStyled } from './DeleteModalStyled.styled';
 
-const ConfirmDeleteModal = ({ onClose, id }) => {
+const ConfirmDeleteModal = ({ onClose, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    onClose();
+  };
+
+  const handleDelete = () => {
+    onDelete();
+    setIsModalOpen(false);
+    onClose();
   };
 
   return (
@@ -33,7 +40,11 @@ const ConfirmDeleteModal = ({ onClose, id }) => {
               >
                 Cancel
               </button>
-              <button className="btnDelete" type="button">
+              <button
+                className="btnDelete"
+                type="button"
+                onClick={handleDelete}
+              >
                 Delete
               </button>
             </div>
