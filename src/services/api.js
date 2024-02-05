@@ -68,3 +68,10 @@ export const requestVerifyEmail = async token => {
   const { data } = await waterTrackerInstance.get(`/users/verify/${token}`);
   return data;
 };
+
+export const requestPasswordReset = async email => {
+  const { data } = await waterTrackerInstance.post('/users/forgot-password', {
+    email,
+  });
+  return data;
+};

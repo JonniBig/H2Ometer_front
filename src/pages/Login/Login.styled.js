@@ -115,25 +115,21 @@ export const StyledLoginPage = styled.section`
     box-sizing: border-box;
   }
 
-  .errorInput{
+  .errorInput {
     border: 1px solid var(--secondary-red);
-    color: var(--secondary-red)
+    color: var(--secondary-red);
   }
 
- .password-container{
-  position: relative;
- }
-  .show-psw-btn{
-    
+  .password-container {
+    position: relative;
+  }
+  .show-psw-btn {
     position: absolute;
     border: none;
     top: calc(13% + 34px);
     right: 4%;
     cursor: pointer;
   }
-
- 
-
 
   input::placeholder {
     color: var(--secondary-blue);
@@ -143,8 +139,8 @@ export const StyledLoginPage = styled.section`
     line-height: 20px;
   }
 
-  .errorMsg{    
-    font-size: 12px;  
+  .errorMsg {
+    font-size: 12px;
     color: var(--secondary-red);
   }
 
@@ -173,6 +169,12 @@ export const StyledLoginPage = styled.section`
     color: #dc3545;
     font-size: 14px;
     margin-top: 5px;
+  }
+
+  .links-container {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
   }
 
   a {

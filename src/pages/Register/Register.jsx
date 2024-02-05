@@ -9,6 +9,8 @@ import { Link } from 'react-router-dom';
 import { LOGIN_ROUTE } from 'constants/routes';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
   const dispatch = useDispatch();
@@ -30,22 +32,36 @@ const Register = () => {
           /^[-?\w.?%?]+@\w+.{1}\w{2,4}$/,
           'Enter a valid email. For example user@gmail.com'
         )
-        .required('Required'),
+        .required('Type your email please'),
       password: Yup.string()
         .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
         // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
-        .required('Required'),
+        .required('Type your password please'),
 
       confirmPassword: Yup.string()
         .oneOf([Yup.ref('password'), null], 'Passwords must match')
-        .required('Required'),
+        .required('Repeat your password please'),
     }),
-    onSubmit: data => {
-      const formData = { email: data.email, password: data.password };
-      dispatch(registerThunk(formData));
-      formik.resetForm();
+
+    onSubmit: async (data, { resetForm }) => {
+      try {
+        const formData = { email: data.email, password: data.password };
+        await dispatch(registerThunk(formData));
+        resetForm();
+        console.log('Registration  successful!')
+        toast.success('Registration successful!');
+      } catch (error) {
+        console.error('Registration Error:', error);
+        toast.error('Registration failed. Please try again.');
+      }
     },
+  
+    // onSubmit: data => {
+    //   const formData = { email: data.email, password: data.password };
+    //   dispatch(registerThunk(formData));
+    //   formik.resetForm();
+    // },
   });
 
   return (
@@ -105,7 +121,7 @@ const Register = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
-                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
+                  className={formik.touched.password && formik.errors.password ? 'errorInput' : ''}
                 />
                 {formik.touched.password && formik.errors.password ? (
                   <div className="errorMsg">{formik.errors.password}</div>
@@ -144,7 +160,7 @@ const Register = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
-                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
+                  className={formik.touched.confirmPassword && formik.errors.confirmPassword ? 'errorInput' : ''}
                 />
                 {formik.touched.confirmPassword &&
                 formik.errors.confirmPassword ? (
@@ -162,6 +178,7 @@ const Register = () => {
           </div>
         </div>
       </div>
+      <ToastContainer position="top-right" style={{ marginTop: '60px' }}/>
     </StyledRegisterPage>
   );
 };
