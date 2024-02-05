@@ -39,7 +39,7 @@ const TodayList = () => {
     <StyledTodayDiv>
       <h3 className="title">Today</h3>
       <div className="addWater">
-        <p className="emptyText">You haven't drank any water today</p>
+        <p className="emptyText">You haven't drink any water today</p>
         <ul className="list">
           {currentDateData?.map(({ _id, time, amount }) => {
             const amPm =

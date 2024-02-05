@@ -81,7 +81,7 @@ export const StyledHomePage = styled.section`
 
   .div2 {
     padding: 24px 8px;
-    background: var(--secondary-white);
+    background-color: var(--secondary-white);
     border-radius: 10px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 
