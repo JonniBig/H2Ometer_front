@@ -7,12 +7,15 @@ export const StyledGeneralModal = styled.div`
   top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
+  background-color: rgba(0, 0, 0, 0.8);
   overflow: auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
   .modal-content {
     background-color: var(--white);
-    position: relative;
+    position: absolute;
     top: 50%;
     left: 50%;
     translate: -50% -50%;
@@ -20,18 +23,19 @@ export const StyledGeneralModal = styled.div`
     border: 1px solid rgb(136, 136, 136);
     border-radius: 10px;
     max-width: 280px;
+
     @media screen and (min-width: 768px) {
       max-width: 704px;
-      top: 15%;
-      left: 8%;
-      translate: -4% -4%;
+      // top: 15%;
+      // left: 8%;
+      // translate: -4% -4%;
       padding: 32px 24px;
     }
     @media only screen and (min-width: 1440px) {
       max-width: 592px;
       top: 50%;
       left: 50%;
-      translate: -30% -30%;
+      // translate: -30% -30%;
       padding: 32px 24px;
     }
   }

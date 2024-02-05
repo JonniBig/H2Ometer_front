@@ -4,7 +4,7 @@ import { styled } from '@mui/system';
 const MaterialUISwitch = styled(Switch)(({ theme }) => ({
   width: 56,
   height: 34,
-  padding: 7,
+  padding: 10,
   '& .MuiSwitch-switchBase': {
     margin: 4,
     padding: 0,
