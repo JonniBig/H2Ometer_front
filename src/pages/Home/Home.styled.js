@@ -16,6 +16,11 @@ export const StyledHomePage = styled.section`
     background-image: url(${backgroundHomeTabl});
   }
   @media screen and (min-width: 1440px) {
+    position: absolute;
+    top: 56px;
+    left: 0;
+    right: 0;
+    bottom: 0;
     background-image: url(${element});
     background-size: contain;
   }
@@ -76,7 +81,7 @@ export const StyledHomePage = styled.section`
 
   .div2 {
     padding: 24px 8px;
-    background: var(--secondary-white);
+    background-color: var(--secondary-white);
     border-radius: 10px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
 

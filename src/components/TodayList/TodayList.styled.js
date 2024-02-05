@@ -127,17 +127,34 @@ export const StyledTodayDiv = styled.div`
     color: var(--blue);
     font-size: 24px;
     font-weight: 700;
-    line-height: 24px;
+    line-height: 1;
   }
   .left {
     display: flex;
     align-items: center;
+    gap: 16px;
   }
   .list {
+    max-height: 212px;
+    overflow-y: auto;
     display: flex;
     gap: 24px;
     flex-direction: column;
     padding: 0;
+  }
+  ::-webkit-scrollbar {
+    width: 2px;
+  }
+
+  ::-webkit-scrollbar-thumb {
+    background-color: var(--blue);
+    border-radius: 2px;
+    width: 4px;
+  }
+
+  ::-webkit-scrollbar-track {
+    background-color: var(--secondary-skiblue);
+    border-radius: 2px;
   }
   .string {
     display: flex;
@@ -157,5 +174,16 @@ export const StyledTodayDiv = styled.div`
   .rightBtn {
     display: flex;
     gap: 18px;
+  }
+  .amount {
+    font-size: 18px;
+    line-height: 1.33;
+
+    color: var(--blue);
+  }
+  .time {
+    font-size: 12px;
+    line-height: 2;
+    color: var(--black);
   }
 `;

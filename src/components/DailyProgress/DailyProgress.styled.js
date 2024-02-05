@@ -150,7 +150,7 @@ export const StyledDailyProgress = styled.div`
     transform: translateX(-50%);
     left: ${({ $dailyPercents }) => `${$dailyPercents}%`};
     z-index: 1;
-    background-color: var(--white);
+    background-color: transparent;
   }
   .p-100 {
     right: 15px;

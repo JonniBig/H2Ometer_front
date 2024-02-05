@@ -76,11 +76,21 @@ export const requestPasswordReset = async email => {
   return data;
 };
 
+<<<<<<< HEAD
 export const requestResetPassword = async ({ newPassword, token }) => {
   const { data } = await waterTrackerInstance.post(
     `/users/reset-password/${token}`,
     {
       newPassword,
     });
+=======
+export const requestUpdateAvatar = async formData => {
+  const { data } = await waterTrackerInstance.post('/users/avatar', formData);
+  return data;
+};
+
+export const requestUpdateUserSettings = async formData => {
+  const { data } = await waterTrackerInstance.patch('/users/update', formData);
+>>>>>>> main
   return data;
 };

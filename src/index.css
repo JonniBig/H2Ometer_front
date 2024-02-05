@@ -71,7 +71,7 @@ p {
 }
 
 .modal-content {
-  background-color: var(--white);
+  /* background-color: var(--white); */
   position: relative;
   top: 50%;
   left: 50%;
@@ -123,4 +123,14 @@ p {
 .dark-mode {
   color: var(--white);
   background-color: #001f3f;
+}
+
+.dark-modal.dark-mode {
+  color: var(--white);
+  background-color: #407bff;
+}
+
+.secondary-blue.dark-mode {
+  background-color: var(--secondary-blue);
+  color: black;
 }

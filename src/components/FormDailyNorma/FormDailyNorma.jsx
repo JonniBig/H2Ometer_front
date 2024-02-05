@@ -1,19 +1,21 @@
 import React, { useEffect, useState } from 'react';
-import { Formik, Form, Field } from 'formik';
 import { ToastContainer, toast } from 'react-toastify';
 import { StyledFormDailyNorma } from './FormDailyNorma.styled';
+import { useSelector } from 'react-redux';
 
 const initialValues = {
   gender: 'female',
-  weight: null,
-  activityTime: null,
-  calculatedQuantity: '',
+  weight: '',
+  activityTime: '',
   personalAmount: '',
+  calculatedQuantity: '',
 };
 
 const FormDailyNorma = ({ onSave }) => {
   const [formData, setFormData] = useState(initialValues);
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
+
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
     const { gender, weight, activityTime } = formData;
@@ -48,14 +50,17 @@ const FormDailyNorma = ({ onSave }) => {
         bodyData = { calculatedQuantity };
       }
 
-      const response = await fetch('end-point-url', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bodyData),
-      });
-
+      const response = await fetch(
+        'https://h2ometer.onrender.com/users/update',
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ waterRate: bodyData }),
+        }
+      );
+      console.log(response.body);
       if (!response.ok) {
         throw new Error('Failed to save data to the backend');
       }
@@ -68,106 +73,108 @@ const FormDailyNorma = ({ onSave }) => {
   };
 
   return (
-    <StyledFormDailyNorma>
+    <StyledFormDailyNorma
+      className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+    >
       <ToastContainer />
-      <Formik initialValues={initialValues} onSubmit={(values, actions) => {}}>
-        {() => (
-          <Form>
-            <div className="formulas-container">
-              <div className="formulas-string">
-                <div className="formula-box">
-                  <span className="formula-gender">For girl:</span>
-                  <span className="formula">V=(M*0.03) + (T*0.4)</span>
-                </div>
-                <div className="formula-box">
-                  <span className="formula-gender">For man:</span>
-                  <span className="formula"> V=(M*0.04) + (T*0.6)</span>
-                </div>
-              </div>
-              <div className="coment-container">
-                <span className="coment">
-                  * V is the volume of the water norm in liters per day, M is
-                  your body weight, T is the time of active sports, or another
-                  type of activity commensurate in terms of loads (in the
-                  absence of these, you must set 0).
-                </span>
-              </div>
-            </div>
-            <div className="values-container">
-              <div className="to-calc">Calculate your rate</div>
-              <div className="gender-container">
-                <label>
-                  <Field
-                    type="radio"
-                    name="gender"
-                    value="female"
-                    checked="female"
-                    onChange={handleChange}
-                  />
-                  For woman
-                </label>
-                <label>
-                  <Field
-                    type="radio"
-                    name="gender"
-                    value="male"
-                    checked="male"
-                    onChange={handleChange}
-                  />
-                  For man
-                </label>
-              </div>
-              <div>
-                <label htmlFor="weight">Your weight in kilograms: </label>
-                <Field
-                  type="number"
-                  id="weight"
-                  name="weight"
-                  placeholder="0"
-                  onChange={handleChange}
-                />
-              </div>
-              <div>
-                <label htmlFor="activityTime">
-                  The time of active participation in sports or other activities
-                  with a high physical load in hours:
-                </label>
-                <Field
-                  type="number"
-                  id="activityTime"
-                  name="activityTime"
-                  placeholder="0"
-                  onChange={handleChange}
-                />
-              </div>
-              <div className="req-amount-container">
-                <p>The required amount of water in liters per day:</p>
-                <span className="volume"> {calculatedQuantity + 'L'}</span>
-              </div>
-            </div>
-            <div className="personal-amount-container">
-              <label htmlFor="personalAmount">
-                Write down how much water you will drink:
-              </label>
-              <Field
-                type="number"
-                id="personalAmount"
-                name="personalAmount"
-                placeholder="0"
+      <div className="formulas-container">
+        <div className="formulas-string">
+          <div className="formula-box">
+            <span className="formula-gender">For girl:</span>
+            <span className="formula">V=(M*0,03) + (T*0,4)</span>
+          </div>
+          <div className="formula-box">
+            <span className="formula-gender">For man:</span>
+            <span className="formula"> V=(M*0,04) + (T*0,6)</span>
+          </div>
+        </div>
+        <div className="coment-container">
+          <span className="coment">
+            * V is the volume of the water norm in liters per day, M is your
+            body weight, T is the time of active sports, or another type of
+            activity commensurate in terms of loads (in the absence of these,
+            you must set 0).
+          </span>
+        </div>
+      </div>
+      <div className="values-container">
+        <div className="to-calc">Calculate your rate</div>
+        <div className="gender-container">
+          <div className="genderBtn">
+            <label htmlFor="Woman" className="genderLabel">
+              <input
+                className="genderInput"
+                type="radio"
+                name="gender"
+                value="female"
+                checked={formData.gender === 'female'}
+                onChange={handleChange}
               />
-            </div>
-            <div className="save-btn-container">
-              <button
-                className="save-btn"
-                type="submit"
-                onSubmit={saveCalcQuantity}
-              >
-                Save
-              </button>
-            </div>
-          </Form>
-        )}
-      </Formik>
+              For woman
+            </label>
+          </div>
+          <div className="genderBtn">
+            <label htmlFor="Man" className="genderLabel">
+              <input
+                className="genderInput"
+                type="radio"
+                name="gender"
+                value="male"
+                checked={formData.gender === 'male'}
+                onChange={handleChange}
+              />
+              For man
+            </label>
+          </div>
+        </div>
+        <div>
+          <label htmlFor="weight">Your weight in kilograms: </label>
+          <input
+            type="number"
+            id="weight"
+            name="weight"
+            placeholder="0"
+            value={formData.weight}
+            onChange={handleChange}
+          />
+        </div>
+        <div>
+          <label htmlFor="activityTime">
+            The time of active participation in sports or other activities with
+            a high physical load in hours:
+          </label>
+          <input
+            type="number"
+            id="activityTime"
+            name="activityTime"
+            placeholder="0"
+            value={formData.activityTime}
+            onChange={handleChange}
+          />
+        </div>
+        <div className="req-amount-container">
+          <p>The required amount of water in liters per day:</p>
+          <span className="volume">{calculatedQuantity + 'L'}</span>
+        </div>
+      </div>
+      <div className="personal-amount-container">
+        <label htmlFor="personalAmount">
+          Write down how much water you will drink:
+        </label>
+        <input
+          type="number"
+          id="personalAmount"
+          name="personalAmount"
+          placeholder="0"
+          value={formData.personalAmount}
+          onChange={handleChange}
+        />
+      </div>
+      <div className="save-btn-container">
+        <button className="save-btn" type="button" onClick={saveCalcQuantity}>
+          Save
+        </button>
+      </div>
     </StyledFormDailyNorma>
   );
 };

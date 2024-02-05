@@ -5,10 +5,13 @@ import {
   FormContainer,
   SignInLink,
 } from './ForgotPasswordPage.styled';
+import { useSelector } from 'react-redux';
 
 const ForgotPasswordPage = () => {
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
+
   return (
-    <PageContainer>
+    <PageContainer className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <FormContainer>
         <ForgotPasswordForm />
         <SignInLink to="/signin">Sign in</SignInLink>

@@ -60,6 +60,7 @@ export const StyledCalendar = styled.div`
   }
 
   .cell {
+    position: relative;
     display: flex;
     flex-direction: column;
     gap: 4px;

@@ -67,11 +67,9 @@ export const StyledLoginPage = styled.section`
 
   .login-form-container {
     border-radius: 10px;
-    background: white;
-    color: black;
     max-width: 280px;
     margin: 68px auto;
-    // background-color: transparent;
+    background-color: transparent;
     // box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 
     @media screen and (min-width: 768px) {
@@ -96,9 +94,9 @@ export const StyledLoginPage = styled.section`
     margin-bottom: 16px;
   }
 
-  form {
-    background-color: #fff;
-  }
+  // form {
+  //   background-color: #fff;
+  // }
 
   form label {
     font-size: 18px;
