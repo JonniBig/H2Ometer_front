@@ -5,12 +5,9 @@ import {
   requestPasswordReset,
   requestRefreshUser,
   requestRegister,
-<<<<<<< HEAD
   requestResetPassword,
-=======
   requestUpdateAvatar,
   requestUpdateUserSettings,
->>>>>>> main
   requestVerifyEmail,
   setToken,
 } from 'services/api';
@@ -236,12 +233,9 @@ const authSlice = createSlice({
           refreshThunk.pending,
           logoutThunk.pending,
           verifyEmailThunk.pending,
-<<<<<<< HEAD
-          resetPasswordThunk.pending
-=======
+          resetPasswordThunk.pending,
           uploadAvatarThunk.pending,
           updateUserSettingsThunk.pending
->>>>>>> main
         ),
         state => {
           state.isLoading = true;
@@ -254,12 +248,9 @@ const authSlice = createSlice({
           loginThunk.rejected,
           logoutThunk.rejected,
           verifyEmailThunk.rejected,
-<<<<<<< HEAD
-          resetPasswordThunk.rejected
-=======
+          resetPasswordThunk.rejected,
           uploadAvatarThunk.rejected,
           updateUserSettingsThunk.rejected
->>>>>>> main
         ),
         (state, action) => {
           state.isLoading = false;
