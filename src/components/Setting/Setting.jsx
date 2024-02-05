@@ -6,9 +6,16 @@ import closeModal from '../../assets/images/icons/close-x.svg';
 import Eye from '../../assets/images/icons/eye-slash.svg';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import ArrowUp from '../../assets/images/icons/arrow-up-tray.svg';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import {
+  updateUserSettingsThunk,
+  uploadAvatarThunk,
+} from '../../redux/auth/authSlice';
+import { selectUser } from '../../redux/auth/authSelectors';
 
 const SettingsModal = () => {
+  const dispatch = useDispatch();
+  const user = useSelector(selectUser);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
@@ -20,10 +27,6 @@ const SettingsModal = () => {
   const [showPassword, setShowPassword] = useState(false);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
-  const handleEmailChange = e => setEmail(e.target.value);
-  const handleNameChange = e => setName(e.target.value);
-  const handleGenderChange = e => setGender(e.target.value);
-
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleFileChange = e => {
@@ -33,9 +36,19 @@ const SettingsModal = () => {
     }
   };
 
+  useEffect(() => {
+    if (selectedFile === null) return;
+    const formData = new FormData();
+    formData.append('avatar', selectedFile);
+    dispatch(uploadAvatarThunk(formData));
+  }, [selectedFile, dispatch]);
+
   const handleOldPasswordChange = e => setOldPassword(e.target.value);
   const handleNewPasswordChange = e => setNewPassword(e.target.value);
   const handleRepeatPasswordChange = e => setRepeatPassword(e.target.value);
+  const handleEmailChange = e => setEmail(e.target.value);
+  const handleNameChange = e => setName(e.target.value);
+  const handleGenderChange = e => setGender(e.target.value);
 
   const saveDetails = () => {
     console.log('Email:', email);
@@ -43,6 +56,20 @@ const SettingsModal = () => {
     console.log('Gender:', gender);
     console.log('Selected File:', selectedFile);
     console.log('Змінено пароль:', newPassword);
+    const settingsFormData = {};
+
+    if (email.length > 0) settingsFormData['email'] = email;
+    if (name.length > 0) settingsFormData['name'] = name;
+    if (
+      newPassword.length > 0 &&
+      repeatPassword.length > 0 &&
+      newPassword === repeatPassword
+    )
+      settingsFormData['password'] = newPassword;
+    dispatch(updateUserSettingsThunk(settingsFormData));
+    // const passwordFormData = {};
+
+    // if (oldPassword.length > 0) passwordFormData['oldPassword'] = email;
   };
 
   const handleCloseModal = () => {
@@ -81,13 +108,17 @@ const SettingsModal = () => {
         <p className="modalPhotoText">Your Photo</p>
         <ul className="modalPhotoList">
           <li className="modalListPhoto">
-            {selectedFile && (
+            {selectedFile ? (
               <div className="photoDiv">
                 <img
                   src={URL.createObjectURL(selectedFile)}
                   className="imageModal"
                   alt="Avatart"
                 />
+              </div>
+            ) : (
+              <div className="photoDiv">
+                <img src={user.avatar} className="imageModal" alt="Avatart" />
               </div>
             )}
           </li>
@@ -109,7 +140,13 @@ const SettingsModal = () => {
           </li>
         </ul>
 
-        <form className="modalForm" onSubmit={e => e.preventDefault()}>
+        <form
+          className="modalForm"
+          onSubmit={e => {
+            e.preventDefault();
+            saveDetails();
+          }}
+        >
           <div>
             <div>
               <div className="modalGenderBlock">
@@ -260,7 +297,7 @@ const SettingsModal = () => {
             </div>
           </div>
 
-          <button type="button" className="modalSubmit" onClick={saveDetails}>
+          <button type="submit" className="modalSubmit">
             Save
           </button>
         </form>

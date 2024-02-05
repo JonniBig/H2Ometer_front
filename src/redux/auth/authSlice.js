@@ -5,6 +5,8 @@ import {
   requestPasswordReset,
   requestRefreshUser,
   requestRegister,
+  requestUpdateAvatar,
+  requestUpdateUserSettings,
   requestVerifyEmail,
   setToken,
 } from 'services/api';
@@ -97,12 +99,39 @@ export const refreshThunk = createAsyncThunk(
   }
 );
 
+export const uploadAvatarThunk = createAsyncThunk(
+  'auth/uploadAvatarThunk',
+  async (formData, thunkAPI) => {
+    try {
+      const response = await requestUpdateAvatar(formData);
+
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const updateUserSettingsThunk = createAsyncThunk(
+  'auth/updateUserSettingsThunk',
+  async (formData, thunkAPI) => {
+    try {
+      const response = await requestUpdateUserSettings(formData);
+      console.log('response: ', response);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 const INITIAL_STATE = {
   isLoading: false,
   token: null,
   user: {
     email: null,
     name: null,
+    avatar: null,
   },
   authenticated: false,
   verificationMessage: '',
@@ -144,12 +173,18 @@ const authSlice = createSlice({
         state.user = action.payload;
       })
 
-      .addCase(logoutThunk.fulfilled, (state, action) => {
+      .addCase(uploadAvatarThunk.fulfilled, (state, action) => {
         state.isLoading = false;
-        state.authenticated = false;
-        state.token = null;
-        state.user.email = null;
-        state.user.name = null;
+        state.user.avatar = action.payload.avatarURL;
+      })
+
+      .addCase(updateUserSettingsThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.user = action.payload.data;
+      })
+
+      .addCase(logoutThunk.fulfilled, () => {
+        return INITIAL_STATE;
       })
 
       .addCase(forgotPasswordThunk.pending, state => {
@@ -171,7 +206,9 @@ const authSlice = createSlice({
           loginThunk.pending,
           refreshThunk.pending,
           logoutThunk.pending,
-          verifyEmailThunk.pending
+          verifyEmailThunk.pending,
+          uploadAvatarThunk.pending,
+          updateUserSettingsThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -183,7 +220,9 @@ const authSlice = createSlice({
           registerThunk.rejected,
           loginThunk.rejected,
           logoutThunk.rejected,
-          verifyEmailThunk.rejected
+          verifyEmailThunk.rejected,
+          uploadAvatarThunk.rejected,
+          updateUserSettingsThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;
