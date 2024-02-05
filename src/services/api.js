@@ -75,3 +75,13 @@ export const requestPasswordReset = async email => {
   });
   return data;
 };
+
+export const requestUpdateAvatar = async formData => {
+  const { data } = await waterTrackerInstance.post('/users/avatar', formData);
+  return data;
+};
+
+export const requestUpdateUserSettings = async formData => {
+  const { data } = await waterTrackerInstance.patch('/users/update', formData);
+  return data;
+};

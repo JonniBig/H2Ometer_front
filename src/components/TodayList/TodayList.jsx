@@ -24,7 +24,10 @@ const TodayList = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
-  const [showDeleteModal, setShowDeleteModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState({
+    portionId: null,
+    isOpen: false,
+  });
   const waterData = useSelector(selectWaterProgressData);
 
   const toggleModal = () => {
@@ -34,9 +37,14 @@ const TodayList = () => {
     setShowEditModal(!showEditModal);
   };
   const toggleDeleteModal = () => {
-    setShowDeleteModal(!showDeleteModal);
+    setShowDeleteModal({
+      portionId: null,
+      isOpen: false,
+    });
   };
-
+  const onDelete = () => {
+    dispatch(deleteWaterIntakeThunk(showDeleteModal.portionId));
+  };
   const currentDate = `${format(new Date(), 'd')}/${format(
     new Date(),
     'L'
@@ -82,8 +90,8 @@ const TodayList = () => {
                     type="button"
                     className="deleteBtn"
                     onClick={() => {
-                      dispatch(deleteWaterIntakeThunk(_id));
-                      setShowDeleteModal(true);
+                      // dispatch(deleteWaterIntakeThunk(_id));
+                      setShowDeleteModal({ portionId: _id, isOpen: true });
                     }}
                   >
                     <IconTrash />
@@ -110,11 +118,13 @@ const TodayList = () => {
             renderContent={onClose => <EditFormWater onSave={onClose} />}
           />
         )}
-        {showEditModal && (
+        {showDeleteModal.isOpen && (
           <GeneralModal
             title="Delete Portion of water"
             onClose={toggleDeleteModal}
-            renderContent={onClose => <DeleteModal onSave={onClose} />}
+            renderContent={onClose => (
+              <DeleteModal onDelete={onDelete} onClose={onClose} />
+            )}
           />
         )}
       </div>

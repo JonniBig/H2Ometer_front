@@ -4,14 +4,13 @@ import { useDispatch, useSelector } from 'react-redux';
 import { useFormik } from 'formik';
 import * as Yup from 'yup';
 import { StyledLoginPage } from './Login.styled';
-import { loginThunk } from '../../redux/auth/authSlice';
+import { loginThunk, refreshThunk } from '../../redux/auth/authSlice';
 import { Link } from 'react-router-dom';
 import { FORGOT_PASSWORD_ROUTE, REGISTER_ROUTE } from 'constants/routes';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-
 
 const Login = () => {
   const dispatch = useDispatch();
@@ -32,23 +31,23 @@ const Login = () => {
         .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
         .required('Type your password please'),
-
     }),
 
-    onSubmit: async (data) => {
+    onSubmit: async data => {
       try {
         await dispatch(loginThunk(data));
+        dispatch(refreshThunk());
         formik.resetForm();
 
         localStorage.setItem('userEmail', formik.values.email);
-        console.log('Login successful!')
+        console.log('Login successful!');
         toast.success('Login successful!');
       } catch (error) {
         console.error('Login error:', error);
         toast.error('Login failed. Please try again.');
       }
     },
-  
+
     // onSubmit: data => {
     //   dispatch(loginThunk(data));
     //   formik.resetForm();
@@ -75,7 +74,11 @@ const Login = () => {
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
-                  className={formik.touched.email && formik.errors.email ? 'errorInput' : ''}
+                  className={
+                    formik.touched.email && formik.errors.email
+                      ? 'errorInput'
+                      : ''
+                  }
                 />
                 {formik.touched.email && formik.errors.email ? (
                   <div className="errorMsg">{formik.errors.email}</div>
@@ -109,14 +112,16 @@ const Login = () => {
                 <input
                   id="password"
                   name="password"
-
-                  type={showPassword ? 'text' : 'password'}          
-
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
-                  className={formik.touched.password && formik.errors.password ? 'errorInput' : ''}
+                  className={
+                    formik.touched.password && formik.errors.password
+                      ? 'errorInput'
+                      : ''
+                  }
                 />
                 {formik.touched.password && formik.errors.password ? (
                   <div className="errorMsg">{formik.errors.password}</div>
@@ -130,9 +135,9 @@ const Login = () => {
               <Link to={FORGOT_PASSWORD_ROUTE}>Forgot Password?</Link>
             </div>
           </div>
-        </div>      
+        </div>
       </div>
-      <ToastContainer position="top-right" style={{ marginTop: '60px' }}/>
+      <ToastContainer position="top-right" style={{ marginTop: '60px' }} />
     </StyledLoginPage>
   );
 };

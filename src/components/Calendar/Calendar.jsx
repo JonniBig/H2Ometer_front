@@ -70,7 +70,6 @@ const Calendar = () => {
               selectedDate,
               'L'
             )}/${selectedDate.getFullYear()}`;
-            console.log('currentDate: ', currentDate);
 
             const currentDateData = waterData?.drunkedWater?.find(
               date => date.day === currentDate
