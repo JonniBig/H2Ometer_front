@@ -14,7 +14,7 @@ export const StyledGeneralModal = styled.div`
   align-items: center;
 
   .modal-content {
-    background-color: var(--white);
+    // background-color: var(--white);
     position: absolute;
     top: 50%;
     left: 50%;
@@ -22,10 +22,11 @@ export const StyledGeneralModal = styled.div`
     padding: 24px 12px;
     border: 1px solid rgb(136, 136, 136);
     border-radius: 10px;
-    max-width: 280px;
+    max-width: 100%;
 
     @media screen and (min-width: 768px) {
-      max-width: 704px;
+      // max-width: 704px;
+      width: 704px;
       // top: 15%;
       // left: 8%;
       // translate: -4% -4%;
