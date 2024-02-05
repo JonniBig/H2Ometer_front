@@ -25,6 +25,7 @@ const DailyNorma = () => {
       {showModal && (
         <GeneralModal
           title="My daily norma"
+          className="formDailiNorma"
           onClose={toggleModal}
           renderContent={onClose => <FormDailyNorma onSave={onClose} />}
         />
