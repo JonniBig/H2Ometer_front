@@ -5,6 +5,7 @@ import {
   requestPasswordReset,
   requestRefreshUser,
   requestRegister,
+  requestResetPassword,
   requestVerifyEmail,
   setToken,
 } from 'services/api';
@@ -71,6 +72,18 @@ export const forgotPasswordThunk = createAsyncThunk(
   }
 );
 
+export const resetPasswordThunk = createAsyncThunk(
+  'auth/resetPassword',
+  async ({ newPassword, token }, thunkAPI) => {
+    try {
+      const response = await requestResetPassword({ newPassword, token });
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -109,6 +122,10 @@ const INITIAL_STATE = {
   isEmailVerified: false,
   forgotPasswordStatus: 'idle',
   forgotPasswordError: null,
+  resetPasswordStatus: 'idle',
+  resetPasswordError: null,
+  resetPasswordSuccess: false,
+  resetPasswordSuccessMessage: '',
 };
 
 const authSlice = createSlice({
@@ -129,6 +146,15 @@ const authSlice = createSlice({
         state.verificationMessage =
           'Your email has been successfully verified.';
         state.isEmailVerified = true;
+      })
+
+      .addCase(resetPasswordThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.resetPasswordSuccess = true;
+        state.resetPasswordSuccessMessage =
+          action.payload.message ||
+          'Your password has been successfully reset.';
+        state.error = null;
       })
 
       .addCase(loginThunk.fulfilled, (state, action) => {
@@ -171,7 +197,8 @@ const authSlice = createSlice({
           loginThunk.pending,
           refreshThunk.pending,
           logoutThunk.pending,
-          verifyEmailThunk.pending
+          verifyEmailThunk.pending,
+          resetPasswordThunk.pending
         ),
         state => {
           state.isLoading = true;
@@ -183,7 +210,8 @@ const authSlice = createSlice({
           registerThunk.rejected,
           loginThunk.rejected,
           logoutThunk.rejected,
-          verifyEmailThunk.rejected
+          verifyEmailThunk.rejected,
+          resetPasswordThunk.rejected
         ),
         (state, action) => {
           state.isLoading = false;
