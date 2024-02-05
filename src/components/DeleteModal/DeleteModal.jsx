@@ -3,12 +3,19 @@ import closeModal from '../../assets/images/icons/close-x.svg';
 import { Conteiner, DeleteStyled } from './DeleteModalStyled.styled';
 import { useSelector } from 'react-redux';
 
-const ConfirmDeleteModal = ({ onClose, id }) => {
+const ConfirmDeleteModal = ({ onClose, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
+    onClose();
+  };
+
+  const handleDelete = () => {
+    onDelete();
+    setIsModalOpen(false);
+    onClose();
   };
 
   return (
@@ -39,7 +46,11 @@ const ConfirmDeleteModal = ({ onClose, id }) => {
               >
                 Cancel
               </button>
-              <button className="btnDelete" type="button">
+              <button
+                className="btnDelete"
+                type="button"
+                onClick={handleDelete}
+              >
                 Delete
               </button>
             </div>

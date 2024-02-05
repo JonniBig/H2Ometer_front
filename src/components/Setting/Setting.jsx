@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Conteiner, SettingStyled } from './Setting.styled';
+
 import closeModal from '../../assets/images/icons/close-x.svg';
 
 import Eye from '../../assets/images/icons/eye-slash.svg';
@@ -23,6 +24,8 @@ const SettingsModal = () => {
   const handleNameChange = e => setName(e.target.value);
   const handleGenderChange = e => setGender(e.target.value);
 
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
+
   const handleFileChange = e => {
     const file = e.target.files[0];
     if (file) {
@@ -44,10 +47,6 @@ const SettingsModal = () => {
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
-  };
-
-  const togglePasswordVisibility = () => {
-    setShowPassword(!showPassword);
   };
 
   useEffect(() => {

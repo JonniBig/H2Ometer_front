@@ -2,7 +2,12 @@ import React, { useState } from 'react';
 import { useDispatch, useSelector } from 'react-redux';
 import { format } from 'date-fns';
 
-import { GeneralModal, FormWater, EditFormWater } from 'components';
+import {
+  GeneralModal,
+  FormWater,
+  EditFormWater,
+  DeleteModal,
+} from 'components';
 
 import { ReactComponent as IconCup } from 'assets/images/icons/cup.svg';
 import { ReactComponent as IconEdit } from 'assets/images/icons/edit.svg';
@@ -19,6 +24,7 @@ const TodayList = () => {
   const dispatch = useDispatch();
   const [showModal, setShowModal] = useState(false);
   const [showEditModal, setShowEditModal] = useState(false);
+  const [showDeleteModal, setShowDeleteModal] = useState(false);
   const waterData = useSelector(selectWaterProgressData);
 
   const toggleModal = () => {
@@ -26,6 +32,9 @@ const TodayList = () => {
   };
   const toggleEditModal = () => {
     setShowEditModal(!showEditModal);
+  };
+  const toggleDeleteModal = () => {
+    setShowDeleteModal(!showDeleteModal);
   };
 
   const currentDate = `${format(new Date(), 'd')}/${format(
@@ -39,18 +48,23 @@ const TodayList = () => {
     <StyledTodayDiv>
       <h3 className="title">Today</h3>
       <div className="addWater">
-        <p className="emptyText">You haven't drink any water today</p>
+        <p className="emptyText">
+          {currentDateData && currentDateData.length === 0
+            ? "You haven't drank any water today"
+            : ''}
+        </p>
+
         <ul className="list">
           {currentDateData?.map(({ _id, time, amount }) => {
             const amPm =
-              Number.parseInt(time.split(':')[0], 10) > 12 ? 'AM' : 'PM';
+              Number.parseInt(time.split(':')[0], 10) > 12 ? 'PM' : 'AM';
             return (
               <li key={_id} className="string">
                 <div className="left">
                   <IconCup />
-                  <span className="amount">{amount}ml</span>
+                  <span className="amount">{amount} ml</span>
                   <span className="time">
-                    {time} {amPm}
+                    {time}&nbsp; {amPm}
                   </span>
                 </div>
                 <div className="rightBtn">
@@ -69,6 +83,7 @@ const TodayList = () => {
                     className="deleteBtn"
                     onClick={() => {
                       dispatch(deleteWaterIntakeThunk(_id));
+                      setShowDeleteModal(true);
                     }}
                   >
                     <IconTrash />
@@ -81,7 +96,6 @@ const TodayList = () => {
             + Add water
           </button>
         </ul>
-
         {showModal && (
           <GeneralModal
             title="Add water"
@@ -94,6 +108,13 @@ const TodayList = () => {
             title="Edit Portion of water"
             onClose={toggleEditModal}
             renderContent={onClose => <EditFormWater onSave={onClose} />}
+          />
+        )}
+        {showEditModal && (
+          <GeneralModal
+            title="Delete Portion of water"
+            onClose={toggleDeleteModal}
+            renderContent={onClose => <DeleteModal onSave={onClose} />}
           />
         )}
       </div>

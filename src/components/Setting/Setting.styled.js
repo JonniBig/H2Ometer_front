@@ -259,7 +259,7 @@ export const SettingStyled = styled.div`
   .togglePasswordIcon {
     position: absolute;
     top: 58%;
-    right: 10px; /* Располагаем иконку справа */
+    right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
   }
