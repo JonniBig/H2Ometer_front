@@ -53,6 +53,7 @@ const TodayList = () => {
             ? "You haven't drank any water today"
             : ''}
         </p>
+
         <ul className="list">
           {currentDateData?.map(({ _id, time, amount }) => {
             const amPm =
@@ -91,7 +92,6 @@ const TodayList = () => {
               </li>
             );
           })}
-
           <button className="addBtn" type="button" onClick={toggleModal}>
             + Add water
           </button>

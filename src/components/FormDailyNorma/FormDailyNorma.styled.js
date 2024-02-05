@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+
 export const StyledFormDailyNorma = styled.form`
   position: relative;
   width: 100%;
@@ -14,11 +15,11 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   @media screen and (min-width: 768px) {
-    .formulas-container {      
+    .formulas-container {
       gap: 12px;
     }
   }
-  
+
   .formulas-string {
     display: block;
     gap: 24px;
@@ -40,10 +41,9 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   @media screen and (min-width: 768px) {
-    .formula-box {      
+    .formula-box {
       margin-bottom: 0px;
     }
-  
   }
 
   .formula {
@@ -87,10 +87,52 @@ export const StyledFormDailyNorma = styled.form`
     align-items: center;
     gap: 24px;
   }
- 
 
+  .genderBtn {
+    display: flex;
+    gap: 3px;
+    align-items: center;
+  }
+  .genderLabel {
+    color: #2f2f2f;
+    font-size: 16px;
+    line-height: 20px;
+  }
 
-
+  .genderInput {
+    position: relative;
+    height: 14px;
+    width: 14px;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    outline: none;
+    margin-right: 6px;
+  }
+  .genderInput::before {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    transform: translate(-50%, -50%);
+    background-color: white;
+    border: 1px solid dodgerblue;
+  }
+  .genderInput:checked::after {
+    content: '';
+    position: absolute;
+    top: 55%;
+    left: 50%;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background-color: dodgerblue;
+    transform: translate(-53%, -54%);
+    visibility: visible;
+  }
   .req-amount-container {
     display: flex;
     align-items: center;
@@ -158,7 +200,7 @@ export const StyledFormDailyNorma = styled.form`
     color: var(--secondary-red);
   }
 
-  //Input focused 
+  //Input focused
   input[type='number']:focus {
     border: 1px solid var(--secondary-skiblue);
   }
@@ -177,37 +219,37 @@ export const StyledFormDailyNorma = styled.form`
     line-height: 18px;
   }
 
-  input[type='radio'] {
-    appearance: none;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    outline: none;
-    cursor: pointer;
-    width: 14px;
-    height: 14px;
-    border-radius: 50%;
-    border: 1px solid var(--blue);
-    background-color: var(--white);
-    margin-right: 8px;
-  }
+  // input[type='radio'] {
+  //   appearance: none;
+  //   -webkit-appearance: none;
+  //   -moz-appearance: none;
+  //   outline: none;
+  //   cursor: pointer;
+  //   width: 14px;
+  //   height: 14px;
+  //   border-radius: 50%;
+  //   border: 1px solid var(--blue);
+  //   background-color: var(--white);
+  //   margin-right: 8px;
+  // }
 
-  input[type='radio']:checked {
-    background-color: var(--white);
-  }
+  // input[type='radio']:checked {
+  //   background-color: var(--white);
+  // }
 
-  input[type='radio']::before {
-    content: '';
-    display: block;
-    width: 7px;
-    height: 7px;
-    margin: 3px;
-    border-radius: 50%;
-    background-color: var(--blue);
-  }
+  // input[type='radio']::before {
+  //   content: '';
+  //   display: block;
+  //   width: 7px;
+  //   height: 7px;
+  //   margin: 3px;
+  //   border-radius: 50%;
+  //   background-color: var(--blue);
+  // }
 
-  input[type='radio']:checked::before {
-    background-color: var(--white);
-  }
+  // input[type='radio']:checked::before {
+  //   background-color: var(--white);
+  // }
 
   .save-btn-container {
     display: flex;

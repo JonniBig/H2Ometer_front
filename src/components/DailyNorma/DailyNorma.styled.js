@@ -63,7 +63,7 @@ export const StyledDailyNorma = styled.div`
   }
 
   .modal {
-    background-color: var(--white);
+    // background-color: var(--white);
     position: absolute;
     left: 50%;
     top: 50%;

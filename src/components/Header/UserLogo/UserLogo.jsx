@@ -20,6 +20,7 @@ const UserLogo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const isAuthenticated = useSelector(selectAuthAuthenticated);
   const user = useSelector(selectUser);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleToggleModal = () => {
     setIsModalOpen(prev => !prev);
@@ -44,7 +45,9 @@ const UserLogo = () => {
 
   return (
     <UserLogoWrapper>
-      <UserLogoStyled>
+      <UserLogoStyled
+        className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+      >
         <div className="user">
           <span className="name">
             {isAuthenticated

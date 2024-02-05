@@ -34,7 +34,11 @@ const Home = () => {
             <div className="bottle-image"></div>
             <DailyProgress />
           </div>
-          <div className="div2">
+          <div
+            className={`div2 secondary-blue ${
+              isDarkMode ? 'dark-mode' : 'light-mode'
+            }`}
+          >
             <TodayList />
             <Calendar />
           </div>

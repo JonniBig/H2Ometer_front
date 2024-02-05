@@ -24,6 +24,7 @@ export const SettingStyled = styled.div`
   @media screen and (min-width: 768px) {
     padding: 32px 24px;
     width: 704px;
+    height: 860px;
   }
   @media screen and (min-width: 1440px) {
     padding: 32px 24px;
@@ -37,6 +38,9 @@ export const SettingStyled = styled.div`
     border-radius: 80px;
     object-position: center;
     object-fit: cover;
+    border-radius: 50%;
+    border: 1px solid black;
+    margin-right: 10px;
   }
   .modalSetting {
     color: rgba(47, 47, 47, 1);
@@ -56,6 +60,14 @@ export const SettingStyled = styled.div`
     margin-bottom: 24px;
     display: flex;
     align-items: center;
+    padding: 0;
+  }
+  .modalListPhoto {
+    border: 1px solid black;
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    margin-right: 8px;
   }
   .modalFotoInput {
     display: none;
@@ -67,6 +79,7 @@ export const SettingStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
+    gap: 8px;
   }
   .uploadText {
     color: rgba(64, 123, 255, 1);
@@ -90,6 +103,13 @@ export const SettingStyled = styled.div`
     height: 80px;
 
     margin-right: 8px;
+  }
+  .modalForm {
+    @media screen and (min-width: 1440px) {
+      display: flex;
+      gap: 0px 24px;
+      flex-wrap: wrap;
+    }
   }
   .modalGenderText {
     font-size: 18px;
@@ -206,7 +226,7 @@ export const SettingStyled = styled.div`
     display: block;
     margin-bottom: 8px;
   }
-  .modal_form_submit {
+  .modalSubmit {
     color: white;
     font-weight: 500;
     line-height: 20px;
@@ -223,7 +243,7 @@ export const SettingStyled = styled.div`
   }
 
   @media screen and (min-width: 768px) {
-    .modal_form_submit {
+    .modalSubmit {
       width: 160px;
       height: 44px;
       font-size: 18px;
@@ -239,7 +259,7 @@ export const SettingStyled = styled.div`
   .togglePasswordIcon {
     position: absolute;
     top: 58%;
-    right: 10px; /* Располагаем иконку справа */
+    right: 10px;
     transform: translateY(-50%);
     cursor: pointer;
   }

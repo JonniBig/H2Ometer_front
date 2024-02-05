@@ -1,9 +1,11 @@
 import React, { useState } from 'react';
 import closeModal from '../../assets/images/icons/close-x.svg';
 import { Conteiner, DeleteStyled } from './DeleteModalStyled.styled';
+import { useSelector } from 'react-redux';
 
 const ConfirmDeleteModal = ({ onClose, onDelete }) => {
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleCloseModal = () => {
     setIsModalOpen(false);
@@ -20,7 +22,11 @@ const ConfirmDeleteModal = ({ onClose, onDelete }) => {
     <>
       {isModalOpen && (
         <Conteiner>
-          <DeleteStyled>
+          <DeleteStyled
+            className={`secondary-blue ${
+              isDarkMode ? 'dark-mode' : 'light-mode'
+            }`}
+          >
             <h4 className="deleteTitle">Delete entry</h4>
             <button
               type="button"

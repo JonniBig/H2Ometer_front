@@ -1,6 +1,13 @@
 import React, { useEffect, useState } from 'react';
 import { Conteiner, SettingStyled } from './Setting.styled';
 
+import closeModal from '../../assets/images/icons/close-x.svg';
+
+import Eye from '../../assets/images/icons/eye-slash.svg';
+import eyeOpened from '../../assets/images/icons/eye.svg';
+import ArrowUp from '../../assets/images/icons/arrow-up-tray.svg';
+import { useSelector } from 'react-redux';
+
 const SettingsModal = () => {
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
@@ -10,10 +17,14 @@ const SettingsModal = () => {
   const [newPassword, setNewPassword] = useState('');
   const [repeatPassword, setRepeatPassword] = useState('');
   const [isModalOpen, setIsModalOpen] = useState(true);
+  const [showPassword, setShowPassword] = useState(false);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   const handleEmailChange = e => setEmail(e.target.value);
   const handleNameChange = e => setName(e.target.value);
   const handleGenderChange = e => setGender(e.target.value);
+
+  const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleFileChange = e => {
     const file = e.target.files[0];
@@ -57,9 +68,15 @@ const SettingsModal = () => {
 
   return (
     <Conteiner onClick={handleCloseModal}>
-      <SettingStyled onClick={e => e.stopPropagation()}>
+      <SettingStyled
+        onClick={e => e.stopPropagation()}
+        className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+      >
         <div>
           <b className="modalSetting">Setting</b>
+          <button type="button" className="closeBtn" onClick={handleCloseModal}>
+            <img src={closeModal} alt="Close" />
+          </button>
         </div>
         <p className="modalPhotoText">Your Photo</p>
         <ul className="modalPhotoList">
@@ -69,7 +86,7 @@ const SettingsModal = () => {
                 <img
                   src={URL.createObjectURL(selectedFile)}
                   className="imageModal"
-                  alt=""
+                  alt="Avatart"
                 />
               </div>
             )}
@@ -77,6 +94,7 @@ const SettingsModal = () => {
           <li className="modalListUpload">
             <label htmlFor="fileInput">
               <div className="upload_container">
+                <img src={ArrowUp} alt="Close" />
                 <span className="uploadText">Upload a photo</span>
               </div>
             </label>
@@ -91,7 +109,7 @@ const SettingsModal = () => {
           </li>
         </ul>
 
-        <form onSubmit={e => e.preventDefault()}>
+        <form className="modalForm" onSubmit={e => e.preventDefault()}>
           <div>
             <div>
               <div className="modalGenderBlock">
@@ -140,7 +158,7 @@ const SettingsModal = () => {
             <input
               type="text"
               name="email"
-              placeholder="test@gmail.com"
+              placeholder="your-email@gmail.com"
               id="emailInp"
               className="modalInput modalInputData"
               value={email}
@@ -152,18 +170,32 @@ const SettingsModal = () => {
             <p className="modalPasswordText">Password</p>
             <div className="passwordInputContainer">
               <label htmlFor="oldPassword" className="passwordLabel">
-                Current password:
+                Outdated password:
               </label>
               <div className="inputContainer">
                 <input
-                  type="password"
-                  placeholder="Current password"
+                  type={showPassword ? 'text' : 'password'}
+                  placeholder="Outdated password"
                   id="oldPassword"
                   className="modalInput modalInput_password"
                   value={oldPassword}
                   onChange={handleOldPasswordChange}
                 />
-                <div className="togglePasswordIcon"></div>
+                <div
+                  className="togglePasswordIcon"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <img
+                      src={eyeOpened}
+                      width={18}
+                      height={18}
+                      alt="Hide Password"
+                    />
+                  ) : (
+                    <img src={Eye} width={18} height={18} alt="Show Password" />
+                  )}
+                </div>
               </div>
             </div>
             <div className="passwordInputContainer">
@@ -172,14 +204,28 @@ const SettingsModal = () => {
               </label>
               <div className="inputContainer">
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="New password"
                   id="newPassword"
                   className="modalInput modalInput_password"
                   value={newPassword}
                   onChange={handleNewPasswordChange}
                 />
-                <div className="togglePasswordIcon"></div>
+                <div
+                  className="togglePasswordIcon"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <img
+                      src={eyeOpened}
+                      width={18}
+                      height={18}
+                      alt="Hide Password"
+                    />
+                  ) : (
+                    <img src={Eye} width={18} height={18} alt="Show Password" />
+                  )}
+                </div>
               </div>
             </div>
             <div className="passwordInputContainer">
@@ -188,43 +234,36 @@ const SettingsModal = () => {
               </label>
               <div className="inputContainer">
                 <input
-                  type="password"
+                  type={showPassword ? 'text' : 'password'}
                   placeholder="Repeat new password"
                   id="repeatPassword"
                   className="modalInput modalInput_password"
                   value={repeatPassword}
                   onChange={handleRepeatPasswordChange}
                 />
-                <div className="togglePasswordIcon"></div>
+                <div
+                  className="togglePasswordIcon"
+                  onClick={togglePasswordVisibility}
+                >
+                  {showPassword ? (
+                    <img
+                      src={eyeOpened}
+                      width={18}
+                      height={18}
+                      alt="Hide Password"
+                    />
+                  ) : (
+                    <img src={Eye} width={18} height={18} alt="Show Password" />
+                  )}
+                </div>
               </div>
             </div>
           </div>
 
-          <button
-            type="button"
-            className="modal_form_submit"
-            onClick={saveDetails}
-          >
+          <button type="button" className="modalSubmit" onClick={saveDetails}>
             Save
           </button>
         </form>
-        <button type="button" className="closeBtn" onClick={handleCloseModal}>
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            width="24"
-            height="24"
-            viewBox="0 0 24 24"
-            fill="none"
-          >
-            <path
-              d="M6 18L18 6M6 6L18 18"
-              stroke="#407BFF"
-              strokeWidth="1.5"
-              strokeLinecap="round"
-              strokeLinejoin="round"
-            />
-          </svg>
-        </button>
       </SettingStyled>
     </Conteiner>
   );
