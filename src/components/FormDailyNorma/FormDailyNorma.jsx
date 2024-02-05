@@ -50,14 +50,17 @@ const FormDailyNorma = ({ onSave }) => {
         bodyData = { calculatedQuantity };
       }
 
-      const response = await fetch('end-point-url', {
-        method: 'PATCH',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(bodyData),
-      });
-
+      const response = await fetch(
+        'https://h2ometer.onrender.com/users/update',
+        {
+          method: 'PATCH',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({ waterRate: bodyData }),
+        }
+      );
+      console.log(response.body);
       if (!response.ok) {
         throw new Error('Failed to save data to the backend');
       }
