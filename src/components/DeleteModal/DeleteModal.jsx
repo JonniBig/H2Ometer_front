@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import closeModal from '../../assets/images/icons/close-x.svg';
 import { Conteiner, DeleteStyled } from './DeleteModalStyled.styled';
 import { useSelector } from 'react-redux';
