@@ -119,6 +119,11 @@ export const StyledRegisterPage = styled.section`
     box-sizing: border-box;
   }
 
+  .errorInput{
+    border: 1px solid var(--secondary-red);
+    color: var(--secondary-red)
+  }
+
   .password-container{
     position: relative;
    }
