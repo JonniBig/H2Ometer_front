@@ -6,7 +6,7 @@ import * as Yup from 'yup';
 import { StyledLoginPage } from './Login.styled';
 import { loginThunk } from '../../redux/auth/authSlice';
 import { Link } from 'react-router-dom';
-import { REGISTER_ROUTE } from 'constants/routes';
+import { FORGOT_PASSWORD_ROUTE, REGISTER_ROUTE } from 'constants/routes';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 
@@ -113,8 +113,9 @@ const Login = () => {
 
               <button type="submit">Sign In</button>
             </form>
-            <div>
+            <div className="links-container">
               <Link to={REGISTER_ROUTE}>Sign Up</Link>
+              <Link to={FORGOT_PASSWORD_ROUTE}>Forgot Password?</Link>
             </div>
           </div>
         </div>

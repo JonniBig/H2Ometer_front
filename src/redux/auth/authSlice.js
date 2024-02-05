@@ -2,6 +2,7 @@ import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
 import {
   requestLogin,
   requestLogout,
+  requestPasswordReset,
   requestRefreshUser,
   requestRegister,
   requestVerifyEmail,
@@ -58,6 +59,18 @@ export const logoutThunk = createAsyncThunk(
   }
 );
 
+export const forgotPasswordThunk = createAsyncThunk(
+  'auth/forgotPassword',
+  async (email, thunkAPI) => {
+    try {
+      const response = await requestPasswordReset(email);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
 export const refreshThunk = createAsyncThunk(
   'auth/refresh',
   async (_, thunkAPI) => {
@@ -94,6 +107,8 @@ const INITIAL_STATE = {
   authenticated: false,
   verificationMessage: '',
   isEmailVerified: false,
+  forgotPasswordStatus: 'idle',
+  forgotPasswordError: null,
 };
 
 const authSlice = createSlice({
@@ -135,6 +150,19 @@ const authSlice = createSlice({
         state.token = null;
         state.user.email = null;
         state.user.name = null;
+      })
+
+      .addCase(forgotPasswordThunk.pending, state => {
+        state.forgotPasswordStatus = 'loading';
+        state.forgotPasswordError = null;
+      })
+      .addCase(forgotPasswordThunk.fulfilled, state => {
+        state.forgotPasswordStatus = 'succeeded';
+        state.forgotPasswordError = null;
+      })
+      .addCase(forgotPasswordThunk.rejected, (state, action) => {
+        state.forgotPasswordStatus = 'failed';
+        state.forgotPasswordError = action.payload;
       })
 
       .addMatcher(
