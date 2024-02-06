@@ -60,7 +60,6 @@ const FormDailyNorma = ({ onSave }) => {
           body: JSON.stringify({ waterRate: bodyData }),
         }
       );
-      console.log(response.body);
       if (!response.ok) {
         throw new Error('Failed to save data to the backend');
       }
