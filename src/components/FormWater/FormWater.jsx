@@ -50,7 +50,6 @@ const FormWater = ({ onSave }) => {
           toast.success('Your intake record was saved!');
           onSave();
         });
-      // alert(JSON.stringify(values, null, 2));
     },
   });
 
