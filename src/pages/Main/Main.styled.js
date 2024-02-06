@@ -5,11 +5,6 @@ import backgroundMP from '../../assets/images/main/backgroundMP.png';
 import backgroundElementMP from '../../assets/images/main/backgroundElementMP.png';
 
 export const StyledMainPageBackgroun = styled.div`
-  // position: absolute;
-  // top: 56px;
-  // left: 0;
-  // right: 0;
-  // bottom: 0;
   background-image: url(${backgroundMPMob});
   background-size: cover;
   background-position: bottom;

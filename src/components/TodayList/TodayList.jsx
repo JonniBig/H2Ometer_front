@@ -113,14 +113,14 @@ const TodayList = () => {
         )}
         {showEditModal && (
           <GeneralModal
-            title="Edit Portion of water"
+            title="Edit the entered amount of water"
             onClose={toggleEditModal}
             renderContent={onClose => <EditFormWater onSave={onClose} />}
           />
         )}
         {showDeleteModal.isOpen && (
           <GeneralModal
-            title="Delete Portion of water"
+            title="Delete entry"
             onClose={toggleDeleteModal}
             renderContent={onClose => (
               <DeleteModal onDelete={onDelete} onClose={onClose} />

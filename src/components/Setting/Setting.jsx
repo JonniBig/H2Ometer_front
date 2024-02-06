@@ -6,11 +6,13 @@ import closeModal from '../../assets/images/icons/close-x.svg';
 import Eye from '../../assets/images/icons/eye-slash.svg';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import ArrowUp from '../../assets/images/icons/arrow-up-tray.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserSettingsThunk,
   uploadAvatarThunk,
 } from '../../redux/auth/authSlice';
+
 import { selectUser } from '../../redux/auth/authSelectors';
 import userAva from '../../assets/images/icons/user.svg';
 
@@ -21,6 +23,7 @@ const SettingsModal = () => {
   const [email, setEmail] = useState(user?.email ?? '');
   const [name, setName] = useState(user?.name ?? '');
   const [gender, setGender] = useState(user?.gender ?? 'male');
+
   const [selectedFile, setSelectedFile] = useState(null);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -114,7 +117,7 @@ const SettingsModal = () => {
                 <img
                   src={URL.createObjectURL(selectedFile)}
                   className="imageModal"
-                  alt="Avatart"
+                  alt="Avatar"
                 />
               </div>
             ) : (

@@ -5,8 +5,10 @@ export const FormWrapper = styled.div`
   max-width: 300px;
   margin: auto;
   padding: 20px;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 6px 10px 0px rgba(64, 123, 255, 0.44);
+  border: 2px solid white;
   border-radius: 8px;
+  background-color: var(--secondary-blue);
 `;
 
 export const Form = styled.form`
@@ -24,7 +26,7 @@ export const Input = styled.input`
 
 export const Button = styled.button`
   padding: 10px;
-  background-color: blue;
+  background-color: var(--blue);
   color: white;
   border: none;
   border-radius: 4px;

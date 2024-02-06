@@ -21,7 +21,13 @@ const DailyNorma = () => {
       <div className="content">
         <p className="volume">{waterData?.dailyNorma ?? '2'} L</p>
         <button className="edit" onClick={toggleModal}>
-          Edit
+          <span
+            className={`edit-text text ${
+              isDarkMode ? 'dark-mode' : 'light-mode'
+            }`}
+          >
+            Edit
+          </span>
         </button>
       </div>
       {showModal && (

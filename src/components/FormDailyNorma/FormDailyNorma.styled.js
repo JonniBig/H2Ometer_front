@@ -139,6 +139,12 @@ export const StyledFormDailyNorma = styled.form`
     gap: 6px;
     margin-bottom: 24px;
   }
+  .req-amount-text {
+    width: 200px;
+    @media only screen and (min-width: 768px) {
+      width: 100%;
+    }
+  }
   .volume {
     color: var(--blue);
     font-size: 18px;
