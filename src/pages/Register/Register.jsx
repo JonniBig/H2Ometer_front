@@ -33,7 +33,7 @@ const Register = () => {
         )
         .required('Type your email please'),
       password: Yup.string()
-        .min(6, 'Password must be at least 6 characters')
+        .min(8, 'Password must be at least 8 characters')
         .max(64, 'Password must be at most 64 characters')
         .required('Type your password please'),
 
@@ -45,7 +45,7 @@ const Register = () => {
     onSubmit: async (data, { resetForm }) => {
       try {
         const formData = { email: data.email, password: data.password };
-        await dispatch(registerThunk(formData));
+        await dispatch(registerThunk(formData)).unwrap();
         resetForm();
         navigate(LOGIN_ROUTE);
         toast.success('Registration successful!');
