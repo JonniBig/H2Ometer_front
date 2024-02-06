@@ -14,7 +14,6 @@ export const clearToken = () => {
 
 export const requestRegister = async formData => {
   const { data } = await waterTrackerInstance.post('/users/signup', formData);
-  setToken(data.token);
   return data;
 };
 

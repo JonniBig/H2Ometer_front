@@ -1,7 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import { StyledFormDailyNorma } from './FormDailyNorma.styled';
-import { useSelector } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
+import { updateUserSettingsThunk } from '../../redux/auth/authSlice';
 
 const initialValues = {
   gender: 'female',
@@ -11,10 +12,10 @@ const initialValues = {
   calculatedQuantity: '',
 };
 
-const FormDailyNorma = ({ onSave }) => {
+const FormDailyNorma = ({ onClose }) => {
   const [formData, setFormData] = useState(initialValues);
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
-
+  const dispatch = useDispatch();
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
@@ -23,12 +24,10 @@ const FormDailyNorma = ({ onSave }) => {
     if (gender && weight && activityTime) {
       const M = parseFloat(weight);
       const T = parseFloat(activityTime);
-      let calculatedValue;
-      if (gender === 'female') {
-        calculatedValue = M * 0.03 + T * 0.4;
-      } else {
-        calculatedValue = M * 0.04 + T * 0.6;
-      }
+
+      const calculatedValue =
+        gender === 'female' ? M * 0.03 + T * 0.4 : M * 0.04 + T * 0.6;
+
       setCalculatedQuantity(calculatedValue.toFixed(2));
     }
   }, [formData]);
@@ -41,41 +40,29 @@ const FormDailyNorma = ({ onSave }) => {
     });
   };
 
-  const saveCalcQuantity = async () => {
+  const saveCalcQuantity = async e => {
+    e.preventDefault();
     try {
-      let bodyData;
-      if (formData.personalAmount) {
-        bodyData = { personalAmount: formData.personalAmount };
-      } else {
-        bodyData = { calculatedQuantity };
-      }
+      const bodyData = formData.personalAmount
+        ? { waterRate: Number.parseFloat(formData.personalAmount) }
+        : { waterRate: Number.parseFloat(calculatedQuantity) };
 
-      const response = await fetch(
-        'https://h2ometer.onrender.com/users/update',
-        {
-          method: 'PATCH',
-          headers: {
-            'Content-Type': 'application/json',
-          },
-          body: JSON.stringify({ waterRate: bodyData }),
-        }
-      );
-      if (!response.ok) {
-        throw new Error('Failed to save data to the backend');
-      }
+      await dispatch(updateUserSettingsThunk(bodyData)).unwrap();
 
       toast.success('Data saved successfully');
     } catch (error) {
       console.error('Error saving data to backend:', error.message);
       toast.error('Failed to save data to backend');
+    } finally {
+      onClose();
     }
   };
 
   return (
     <StyledFormDailyNorma
       className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
+      onSubmit={saveCalcQuantity}
     >
-      <ToastContainer />
       <div className="formulas-container">
         <div className="formulas-string">
           <div className="formula-box">
@@ -100,7 +87,7 @@ const FormDailyNorma = ({ onSave }) => {
         <div className="to-calc">Calculate your rate</div>
         <div className="gender-container">
           <div className="genderBtn">
-            <label htmlFor="Woman" className="genderLabel">
+            <label className="genderLabel">
               <input
                 className="genderInput"
                 type="radio"
@@ -113,7 +100,7 @@ const FormDailyNorma = ({ onSave }) => {
             </label>
           </div>
           <div className="genderBtn">
-            <label htmlFor="Man" className="genderLabel">
+            <label className="genderLabel">
               <input
                 className="genderInput"
                 type="radio"
@@ -170,7 +157,7 @@ const FormDailyNorma = ({ onSave }) => {
         />
       </div>
       <div className="save-btn-container">
-        <button className="save-btn" type="button" onClick={saveCalcQuantity}>
+        <button className="save-btn" type="submit">
           Save
         </button>
       </div>

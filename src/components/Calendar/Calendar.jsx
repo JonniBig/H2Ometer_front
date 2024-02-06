@@ -7,9 +7,11 @@ import { useDispatch, useSelector } from 'react-redux';
 import { selectWaterData } from '../../redux/calendar/calendarSlice.selectors';
 import { getWaterDataThunk } from '../../redux/calendar/calendarSlice';
 import { DailyInfoModal } from 'components';
+import { selectUser } from '../../redux/auth/authSelectors';
 const Calendar = () => {
   const dispatch = useDispatch();
   const waterData = useSelector(selectWaterData);
+  const user = useSelector(selectUser);
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isHovering, setIsHovering] = useState(false);
   const [selectedDayData, setSelectedDayData] = useState(null);
@@ -26,7 +28,7 @@ const Calendar = () => {
 
   useEffect(() => {
     dispatch(getWaterDataThunk({ day: 10, month: format(selectedDate, 'LL') }));
-  }, [dispatch, selectedDate]);
+  }, [dispatch, selectedDate, user]);
 
   const openDailyInfoModal = (
     dayNumber,

@@ -7,16 +7,18 @@ import { selectWaterProgressData } from '../../redux/calendar/calendarSlice.sele
 import { format } from 'date-fns';
 import { getWaterProgressThunk } from '../../redux/calendar/calendarSlice';
 import { GeneralModal } from 'components';
+import { selectUser } from '../../redux/auth/authSelectors';
 const DailyProgress = () => {
   const dispatch = useDispatch();
   const waterData = useSelector(selectWaterProgressData);
+  const user = useSelector(selectUser);
   const dailyNorma = waterData?.dailyNorma * 1000;
   // const dailyPercents = 33; // 0-100
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {
     dispatch(getWaterProgressThunk());
-  }, [dispatch]);
+  }, [dispatch, user]);
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -25,11 +27,11 @@ const DailyProgress = () => {
     new Date(),
     'L'
   )}/${new Date().getFullYear()}`;
-  const currentDateData = waterData?.drunkedWater?.find(
-    date => date.day === currentDate
-  )?.waterIntake;
+  const currentDateData =
+    waterData?.drunkedWater?.find(date => date.day === currentDate)
+      ?.waterIntake ?? [];
   const drunkedWaterAmount = currentDateData?.reduce(
-    (acc, curr) => curr.amount + acc,
+    (acc, curr) => (curr?.amount ?? 0) + acc,
     0
   );
 

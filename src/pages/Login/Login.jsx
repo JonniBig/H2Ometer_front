@@ -9,7 +9,7 @@ import { Link } from 'react-router-dom';
 import { FORGOT_PASSWORD_ROUTE, REGISTER_ROUTE } from 'constants/routes';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Login = () => {
@@ -35,7 +35,7 @@ const Login = () => {
 
     onSubmit: async data => {
       try {
-        await dispatch(loginThunk(data));
+        await dispatch(loginThunk(data)).unwrap();
         dispatch(refreshThunk());
         formik.resetForm();
 
@@ -137,7 +137,6 @@ const Login = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-right" style={{ marginTop: '60px' }} />
     </StyledLoginPage>
   );
 };
