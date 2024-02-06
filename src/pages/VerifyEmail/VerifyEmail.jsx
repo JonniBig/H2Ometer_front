@@ -6,6 +6,7 @@ import { useNavigate, useSearchParams } from 'react-router-dom/dist';
 import { verifyEmailThunk } from '../../redux/auth/authSlice';
 import { MessageWrapper } from './VerifyEmail.styled';
 import Loader from '../../components/Loader/Loader';
+import { PageContainer } from 'pages/ForgotPasswordPage/ForgotPasswordPage.styled';
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
@@ -30,10 +31,13 @@ const VerifyEmail = () => {
   }, [dispatch, token, navigate]);
 
   return (
-    <MessageWrapper>
-      <h2>hi</h2>
-      {isLoading ? <Loader /> : message}
-    </MessageWrapper>
+    <PageContainer>
+      <MessageWrapper>
+    {isLoading ? <Loader /> : message}
+  </MessageWrapper>
+
+
+    </PageContainer>
   );
 };
 export default VerifyEmail;
