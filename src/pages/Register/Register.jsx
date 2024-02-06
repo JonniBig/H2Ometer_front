@@ -48,7 +48,13 @@ const Register = () => {
         await dispatch(registerThunk(formData)).unwrap();
         resetForm();
         navigate(LOGIN_ROUTE);
-        toast.success('Registration successful!');
+        toast.success(
+          'Registration successful! Please check your email to verify your account.',
+          {
+            autoClose: false,
+            closeOnClick: true,
+          }
+        );
       } catch (error) {
         console.error('Registration Error:', error);
         toast.error('Registration failed. Please try again.');
