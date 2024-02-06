@@ -3,14 +3,13 @@ import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
   max-width: 320px;
+  height: 145px;
   padding: 20px;
   box-shadow: 0px 6px 10px 0px rgba(64, 123, 255, 0.44);
   border: 2px solid white;
   display: flex;
   border-radius: 8px;
   background-color: var(--secondary-blue);
-  
-
 `;
 
 export const Form = styled.form`
@@ -18,10 +17,10 @@ export const Form = styled.form`
   flex-direction: column;
   align-items: center;
   gap: 10px;
-
 `;
 
 export const Input = styled.input`
+  width: 100%;
   padding: 10px;
   border: 1px solid #ccc;
   border-radius: 4px;
@@ -29,6 +28,8 @@ export const Input = styled.input`
 `;
 
 export const Button = styled.button`
+  width: 100%;
+  margin-top: 20px;
   padding: 10px;
   background-color: var(--blue);
   color: white;
