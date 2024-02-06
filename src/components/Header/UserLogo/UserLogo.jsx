@@ -51,11 +51,11 @@ const UserLogo = () => {
         <div className="user">
           <span className="name">
             {isAuthenticated
-              ? user.name || user.email?.charAt(0).toUpperCase()
-              : user.email?.charAt(0).toUpperCase()}
+              ? user?.name || user?.email?.charAt(0)?.toUpperCase()
+              : user?.email?.charAt(0)?.toUpperCase()}
           </span>
           <img
-            src={isAuthenticated && user.avatar ? user.avatar : userAva}
+            src={isAuthenticated && user?.avatar ? user?.avatar : userAva}
             alt="User avatar"
             width="28px"
             height="28px"

@@ -5,7 +5,7 @@ import { useDispatch } from 'react-redux';
 import { useNavigate, useParams } from 'react-router-dom/dist';
 import { verifyEmailThunk } from '../../redux/auth/authSlice';
 import { MessageWrapper } from './VerifyEmail.styled';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
@@ -27,6 +27,11 @@ const VerifyEmail = () => {
     });
   }, [dispatch, token, navigate]);
 
-  return <MessageWrapper>{isLoading ? <Loader /> : message}</MessageWrapper>;
+  return (
+    <MessageWrapper>
+      <h2>hi</h2>
+      {isLoading ? <Loader /> : message}
+    </MessageWrapper>
+  );
 };
 export default VerifyEmail;

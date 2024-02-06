@@ -44,7 +44,7 @@ export const StyledDailyProgress = styled.div`
   }
   .progressContainer {
     position: relative;
-    padding: 0 15px;
+    /* padding: 0 15px; */
   }
   .progressBar {
     position: relative;
@@ -74,7 +74,7 @@ export const StyledDailyProgress = styled.div`
     z-index: 1;
     position: absolute;
     top: 0;
-    width: ${({ $dailyPercents }) => `${$dailyPercents - 5}%`};
+    width: ${({ $dailyPercents }) => `${$dailyPercents}%`};
     background-color: var(--blue);
     height: 8px;
     border-radius: 4px;
@@ -141,7 +141,7 @@ export const StyledDailyProgress = styled.div`
     height: 18px;
   }
   .p-0 {
-    left: 15px;
+    left: 0;
     transform: translateX(-30%);
   }
   .p-50 {
@@ -153,7 +153,7 @@ export const StyledDailyProgress = styled.div`
     background-color: transparent;
   }
   .p-100 {
-    right: 15px;
+    right: 0;
     transform: translateX(40%);
   }
 `;

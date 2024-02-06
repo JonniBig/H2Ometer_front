@@ -12,13 +12,15 @@ import {
   uploadAvatarThunk,
 } from '../../redux/auth/authSlice';
 import { selectUser } from '../../redux/auth/authSelectors';
+import userAva from '../../assets/images/icons/user.svg';
 
 const SettingsModal = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  const [email, setEmail] = useState('');
-  const [name, setName] = useState('');
-  const [gender, setGender] = useState('');
+  console.log('user: ', user);
+  const [email, setEmail] = useState(user?.email ?? '');
+  const [name, setName] = useState(user?.name ?? '');
+  const [gender, setGender] = useState(user?.gender ?? 'male');
   const [selectedFile, setSelectedFile] = useState(null);
   const [oldPassword, setOldPassword] = useState('');
   const [newPassword, setNewPassword] = useState('');
@@ -51,20 +53,24 @@ const SettingsModal = () => {
   const handleGenderChange = e => setGender(e.target.value);
 
   const saveDetails = () => {
-    const settingsFormData = {};
+    const settingsFormData = {
+      gender,
+    };
 
     if (email.length > 0) settingsFormData['email'] = email;
     if (name.length > 0) settingsFormData['name'] = name;
     if (
+      oldPassword.length > 0 &&
       newPassword.length > 0 &&
       repeatPassword.length > 0 &&
       newPassword === repeatPassword
-    )
+    ) {
       settingsFormData['password'] = newPassword;
-    dispatch(updateUserSettingsThunk(settingsFormData));
-    // const passwordFormData = {};
-
-    // if (oldPassword.length > 0) passwordFormData['oldPassword'] = email;
+      settingsFormData['oldPassword'] = oldPassword;
+    }
+    dispatch(updateUserSettingsThunk(settingsFormData))
+      .unwrap()
+      .then(() => handleCloseModal());
   };
 
   const handleCloseModal = () => {
@@ -113,7 +119,11 @@ const SettingsModal = () => {
               </div>
             ) : (
               <div className="photoDiv">
-                <img src={user.avatar} className="imageModal" alt="Avatart" />
+                <img
+                  src={user.avatar ? user.avatar : userAva}
+                  className="imageModal"
+                  alt="Avatart"
+                />
               </div>
             )}
           </li>
@@ -149,10 +159,10 @@ const SettingsModal = () => {
                 <input
                   type="radio"
                   className="genderInput"
-                  value="woman"
+                  value="female"
                   id="Woman"
                   name="gender"
-                  checked={gender === 'woman'}
+                  checked={gender === 'female'}
                   onChange={handleGenderChange}
                 />
                 <label htmlFor="Woman" className="genderLabel">
@@ -161,10 +171,10 @@ const SettingsModal = () => {
                 <input
                   type="radio"
                   className="genderInput"
-                  value="man"
+                  value="male"
                   id="Man"
                   name="gender"
-                  checked={gender === 'man'}
+                  checked={gender === 'male'}
                   onChange={handleGenderChange}
                 />
                 <label htmlFor="Man" className="genderLabel">
