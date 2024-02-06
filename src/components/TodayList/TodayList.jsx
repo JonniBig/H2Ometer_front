@@ -90,7 +90,6 @@ const TodayList = () => {
                     type="button"
                     className="deleteBtn"
                     onClick={() => {
-                      // dispatch(deleteWaterIntakeThunk(_id));
                       setShowDeleteModal({ portionId: _id, isOpen: true });
                     }}
                   >

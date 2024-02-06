@@ -1,9 +1,4 @@
 import { createAsyncThunk, createSlice, isAnyOf } from '@reduxjs/toolkit';
-// import { format } from 'date-fns';
-// import {
-//   getWaterDataThunk,
-//   getWaterProgressThunk,
-// } from 'redux/calendar/calendarSlice';
 import {
   requestLogin,
   requestLogout,
@@ -135,10 +130,7 @@ export const updateUserSettingsThunk = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const response = await requestUpdateUserSettings(formData);
-      // thunkAPI.dispatch(getWaterProgressThunk());
-      // thunkAPI.dispatch(
-      //   getWaterDataThunk({ day: 10, month: format(new Date(), 'LL') })
-      // );
+
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);

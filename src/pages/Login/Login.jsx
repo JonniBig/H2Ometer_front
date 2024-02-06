@@ -40,20 +40,12 @@ const Login = () => {
         formik.resetForm();
 
         localStorage.setItem('userEmail', formik.values.email);
-        console.log('Login successful!');
         toast.success('Login successful!');
       } catch (error) {
         console.error('Login error:', error);
         toast.error('Login failed. Please try again.');
       }
     },
-
-    // onSubmit: data => {
-    //   dispatch(loginThunk(data));
-    //   formik.resetForm();
-
-    //   localStorage.setItem('userEmail', formik.values.email);
-    // },
   });
 
   return (

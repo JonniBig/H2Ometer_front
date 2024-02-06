@@ -13,7 +13,6 @@ const DailyProgress = () => {
   const waterData = useSelector(selectWaterProgressData);
   const user = useSelector(selectUser);
   const dailyNorma = waterData?.dailyNorma * 1000;
-  // const dailyPercents = 33; // 0-100
   const [showModal, setShowModal] = useState(false);
 
   useEffect(() => {

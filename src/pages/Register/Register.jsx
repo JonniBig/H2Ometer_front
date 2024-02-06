@@ -35,7 +35,6 @@ const Register = () => {
       password: Yup.string()
         .min(6, 'Password must be at least 6 characters')
         .max(64, 'Password must be at most 64 characters')
-        // .matches(/[a-zA-Z]/, 'Must contain at least one letter')
         .required('Type your password please'),
 
       confirmPassword: Yup.string()
@@ -55,12 +54,6 @@ const Register = () => {
         toast.error('Registration failed. Please try again.');
       }
     },
-
-    // onSubmit: data => {
-    //   const formData = { email: data.email, password: data.password };
-    //   dispatch(registerThunk(formData));
-    //   formik.resetForm();
-    // },
   });
 
   return (

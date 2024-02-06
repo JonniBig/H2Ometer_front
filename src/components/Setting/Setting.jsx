@@ -19,7 +19,6 @@ import userAva from '../../assets/images/icons/user.svg';
 const SettingsModal = () => {
   const dispatch = useDispatch();
   const user = useSelector(selectUser);
-  console.log('user: ', user);
   const [email, setEmail] = useState(user?.email ?? '');
   const [name, setName] = useState(user?.name ?? '');
   const [gender, setGender] = useState(user?.gender ?? 'male');

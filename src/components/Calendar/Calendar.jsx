@@ -36,12 +36,10 @@ const Calendar = () => {
     dayPercentage,
     portionsCount
   ) => {
-    // setShowDailyInfoModal(true);
     setSelectedDayData({ dayNumber, date, dayPercentage, portionsCount });
   };
 
   const closeDailyInfoModal = () => {
-    // setShowDailyInfoModal(false);
     setSelectedDayData(null);
   };
 

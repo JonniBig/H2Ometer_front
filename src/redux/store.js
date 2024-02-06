@@ -18,8 +18,6 @@ import { authReducer } from './auth/authSlice';
 import { calendarReducer } from './calendar/calendarSlice';
 import themeReducer from './redusers/themeReducer';
 
-// import { userReducer } from './user/userSlice';
-
 const modalExampleConfig = {
   key: 'modalExample',
   storage,

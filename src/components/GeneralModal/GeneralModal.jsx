@@ -32,7 +32,6 @@ const GeneralModal = ({ renderContent, onClose, title }) => {
           </span>
         </div>
         {renderContent(onClose)}
-        {/* <FormWater onSave={toggleModal} /> */}
       </div>
     </StyledGeneralModal>,
     document.querySelector('#portal')
