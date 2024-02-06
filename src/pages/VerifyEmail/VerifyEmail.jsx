@@ -2,14 +2,16 @@ import { LOGIN_ROUTE } from 'constants/routes';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom/dist';
+import { useNavigate, useParams, useSearchParams } from 'react-router-dom/dist';
 import { verifyEmailThunk } from '../../redux/auth/authSlice';
 import { MessageWrapper } from './VerifyEmail.styled';
 import Loader from '../../components/Loader/Loader';
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
-  const { token } = useParams();
+  // const { token } = useParams();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
