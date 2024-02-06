@@ -6,7 +6,7 @@ import closeModal from '../../assets/images/icons/close-x.svg';
 import Eye from '../../assets/images/icons/eye-slash.svg';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import ArrowUp from '../../assets/images/icons/arrow-up-tray.svg';
-import placeholderAvatar from '../../assets/images/icons/user.svg';
+
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserSettingsThunk,
@@ -121,13 +121,6 @@ const SettingsModal = () => {
                 />
               </div>
             ) : (
-              // <<<<<<< HEAD
-              //               <div className="photoDiv placeholder-avatar">
-              //                 <img
-              //                   src={placeholderAvatar}
-              //                   className="imageModal"
-              //                   alt="Avatar Placeholder"
-              // =======
               <div className="photoDiv">
                 <img
                   src={user.avatar ? user.avatar : userAva}
