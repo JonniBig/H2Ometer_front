@@ -1,62 +1,11 @@
 import styled from 'styled-components';
 
-export const Conteiner = styled.div`
-      position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: rgba(0, 0, 0, 0.8);
-  display: flex;
-  justify-content: center;
-  align-items: center;  
-}
-`;
-
 export const DeleteStyled = styled.div`
-  width: 280px;
-  height: 260px;
-  border-radius: 10px;
-  background: var(--white);
-  padding: 32px 24px;
-  position: absolute;
-  top: 10%;
-  left: 50%;
-  transform: translateX(-50%);
-
-  @media only screen and (min-width: 768px) {
-    width: 592px;
-    height: 208px;
-    top: 20%;
-  }
-  @media only screen and (min-width: 1440px) {
-    top: 30%;
-  }
-
-  .deleteTitle {
-    margin-bottom: 24px;
-    font-size: 26px;
-    font-weight: 500;
-    line-height: 1.11;
-  }
-
   .deleteQuest {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 24px;
-  }
-
-  .closeModal {
-    position: absolute;
-    right: 24px;
-    top: 36px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    border: none;
-    background-color: transparent;
-    padding: 0;
   }
 
   .deleteBtns {
@@ -78,7 +27,7 @@ export const DeleteStyled = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 232px;
+    width: 100%;
     height: 36px;
     font-size: 16px;
     font-weight: 500;
@@ -108,7 +57,7 @@ export const DeleteStyled = styled.div`
     align-items: center;
     font-size: 16px;
     font-weight: 500;
-    width: 232px;
+    width: 100%;
     height: 36px;
     border-radius: 10px;
     border: none;

@@ -6,16 +6,17 @@ import closeModal from '../../assets/images/icons/close-x.svg';
 import Eye from '../../assets/images/icons/eye-slash.svg';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import ArrowUp from '../../assets/images/icons/arrow-up-tray.svg';
+import placeholderAvatar from '../../assets/images/icons/user.svg';
 import { useDispatch, useSelector } from 'react-redux';
 import {
   updateUserSettingsThunk,
   uploadAvatarThunk,
 } from '../../redux/auth/authSlice';
-import { selectUser } from '../../redux/auth/authSelectors';
+// import { selectUser } from '../../redux/auth/authSelectors';
 
 const SettingsModal = () => {
   const dispatch = useDispatch();
-  const user = useSelector(selectUser);
+  // const user = useSelector(selectUser);
   const [email, setEmail] = useState('');
   const [name, setName] = useState('');
   const [gender, setGender] = useState('');
@@ -113,12 +114,16 @@ const SettingsModal = () => {
                 <img
                   src={URL.createObjectURL(selectedFile)}
                   className="imageModal"
-                  alt="Avatart"
+                  alt="Avatar"
                 />
               </div>
             ) : (
-              <div className="photoDiv">
-                <img src={user.avatar} className="imageModal" alt="Avatart" />
+              <div className="photoDiv placeholder-avatar">
+                <img
+                  src={placeholderAvatar}
+                  className="imageModal"
+                  alt="Avatar Placeholder"
+                />
               </div>
             )}
           </li>

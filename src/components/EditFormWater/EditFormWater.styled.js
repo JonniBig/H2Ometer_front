@@ -1,7 +1,8 @@
 import styled from 'styled-components';
 
 export const StyledFormWater = styled.form`
-  max-width: 256px;   
+  max-width: 256px;  
+  // height: 512px; 
   @media screen and (min-width: 768px) {
     max-width: 656px;    
   }
@@ -12,8 +13,25 @@ export const StyledFormWater = styled.form`
   .edit {
   display: flex;
   flex-direction: column;
-  width: 194px;
-  height: 112px;
+  // width: 194px;
+  // height: 112px;
+}
+.value-time {
+    max-width: 256px;
+    display: flex;
+    align-items: center;
+    padding: 8px 24px;
+    background-color: var(--secondary-white);
+    border-radius: 10px;
+    gap: 14px;
+    margin-bottom: 24px;
+
+  @media screen and (min-width: 768px) {
+    max-width: 254px;    
+  }
+  @media only screen and (min-width: 1440px) {
+   
+  }
 }
 
 .editTitle {
@@ -28,7 +46,7 @@ export const StyledFormWater = styled.form`
 .editText {
   color:var(--black);
   font-family: Roboto;
-  font-size: 18px;
+  font-size: 16px;
   font-weight: 400;
   line-height: 1.25;
   margin-bottom: 12px;
@@ -105,6 +123,7 @@ export const StyledFormWater = styled.form`
 
   border: 1px solid var(--secondary-skiblue);
   border-radius: 6px;
+  padding: 12px 10px;
   width: 120px;
   height: 44px;
   color: var(--blue);

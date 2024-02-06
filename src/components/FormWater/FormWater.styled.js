@@ -105,6 +105,7 @@ export const StyledFormWater = styled.form`
 
   border: 1px solid var(--secondary-skiblue);
   border-radius: 6px;
+  padding: 12px 10px;
   width: 120px;
   height: 44px;
   color: var(--blue);

@@ -35,11 +35,10 @@ export const SettingStyled = styled.div`
   .imageModal {
     width: 80px;
     height: 80px;
-    border-radius: 80px;
+
     object-position: center;
     object-fit: cover;
     border-radius: 50%;
-    border: 1px solid black;
     margin-right: 10px;
   }
   .modalSetting {
@@ -87,7 +86,7 @@ export const SettingStyled = styled.div`
     font-size: 14px;
 
     font-weight: 500;
-    line-height: 18px; /* 128.571% */
+    line-height: 18px;
     font-size: 14px;
   }
   .uploadIcon {
@@ -166,6 +165,7 @@ export const SettingStyled = styled.div`
     line-height: 20px;
     margin-left: 8px;
   }
+
   .genderLabel:first-of-type {
     margin-right: 24px;
   }
@@ -183,6 +183,10 @@ export const SettingStyled = styled.div`
       box-shadow: 0 0 5px #d7e3ff;
     }
   }
+  ::placeholder {
+    color: #9ebbff;
+  }
+
   .inputError {
     color: #ef5050;
     border-color: #ef5050;
@@ -225,6 +229,9 @@ export const SettingStyled = styled.div`
   .label {
     display: block;
     margin-bottom: 8px;
+    font-size: 18px;
+    font-style: normal;
+    font-weight: 500;
   }
   .modalSubmit {
     color: white;
@@ -274,7 +281,7 @@ export const SettingStyled = styled.div`
     display: flex;
     align-items: center;
     justify-content: center;
-    background-color: #fff;
+    background: transparent;
     border: none;
     width: 24px;
     height: 24px;

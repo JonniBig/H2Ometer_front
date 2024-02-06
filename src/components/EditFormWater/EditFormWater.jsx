@@ -7,6 +7,7 @@ import { format } from 'date-fns';
 
 import { ReactComponent as IconPlus } from 'assets/images/icons/plus-small.svg';
 import { ReactComponent as IconMinus } from 'assets/images/icons/minus-small.svg';
+import { ReactComponent as IconCup } from 'assets/images/icons/cup.svg';
 
 import { StyledFormWater } from './EditFormWater.styled';
 import { editWaterIntakeThunk } from '../../redux/calendar/calendarSlice';
@@ -95,13 +96,14 @@ const EditFormWater = ({ onSave }) => {
   return (
     <StyledFormWater onSubmit={handleSubmit}>
       <div className="edit">
-        <div>
-          <p>value: {currentEditingPortion.amount}ml</p>
+        <div className="value-time">
+          <IconCup />
+          <p>{currentEditingPortion.amount}ml</p>
           <p>
-            time: {currentEditingPortion.time} {amPm}
+            {currentEditingPortion.time} {amPm}
           </p>
         </div>
-        <h3 className="editTitle">Choose a value</h3>
+        <h3 className="editTitle">Correct entered data:</h3>
         <p className="editText">Amount of water</p>
         <div className="editBtnDiv">
           <button

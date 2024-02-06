@@ -153,7 +153,9 @@ const FormDailyNorma = ({ onSave }) => {
           />
         </div>
         <div className="req-amount-container">
-          <p>The required amount of water in liters per day:</p>
+          <p className="req-amount-text">
+            The required amount of water in liters per day:
+          </p>
           <span className="volume">{calculatedQuantity + 'L'}</span>
         </div>
       </div>

@@ -1,7 +1,6 @@
 import styled from 'styled-components';
 
 export const StyledTodayDiv = styled.div`
-  // background-color: var(--secondary-white);
   font-family: Roboto;
   width: 264px;
   height: 258px;
@@ -36,7 +35,7 @@ export const StyledTodayDiv = styled.div`
     height: 212px;
     @media screen and (min-width: 768px) {
       height: 260px;
-      width: 565px;
+      width: 656px;
     }
     @media only screen and (min-width: 1440px) {
       width: 100%;
@@ -165,10 +164,11 @@ export const StyledTodayDiv = styled.div`
   .editBtn {
     background: transparent;
     border: none;
+    padding: 0;
   }
   .deleteBtn {
     background: transparent;
-
+    padding: 0;
     border: none;
   }
   .rightBtn {

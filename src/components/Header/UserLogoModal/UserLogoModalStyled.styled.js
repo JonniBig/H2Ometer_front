@@ -13,7 +13,7 @@ export const Overlay = styled.div`
 
 export const UserLogoModalStyled = styled.div`
   position: absolute;
-  top: 32px;
+  top: 40px;
   right: 0;
   z-index: 3000;
 

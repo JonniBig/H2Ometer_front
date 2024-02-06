@@ -134,3 +134,7 @@ p {
   background-color: var(--secondary-blue);
   color: black;
 }
+
+.text.dark-mode {
+  background-color: var(--secondary-skiblue);
+}

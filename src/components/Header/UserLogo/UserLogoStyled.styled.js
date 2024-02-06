@@ -14,10 +14,18 @@ export const UserLogoStyled = styled.div`
   color: black;
 
   .user {
-    display:flex;
+   display:flex;
    align-items: center;
    gap: 8px;
-
+  }
+  
+  .userMenu {   
+    display: flex;
+    gap: 4px;
+  }
+  .imgAvatar {
+    border-radius: 50%;
+    border: 1px solid var(--blue);
   }
 
   .name {
@@ -28,6 +36,8 @@ export const UserLogoStyled = styled.div`
     font-size: 18px;
 
   }
+
+  
 `;
 
 export const ButtonMenuStyled = styled.button`
@@ -38,9 +48,9 @@ export const ButtonMenuStyled = styled.button`
   background-color: transparent;
   padding: 0;
 
-  &:hover,
-  &:focus {
-    border-radius: 50%;
-    box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
-  }
+  // &:hover,
+  // &:focus {
+  //   border-radius: 50%;
+  //   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.8);
+  // }
 `;

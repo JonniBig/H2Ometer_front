@@ -33,17 +33,24 @@ export const StyledDailyNorma = styled.div`
   .edit {
     background: none;
     border: none;
-    color: var(--secondary-blue);
+    // color: var(--secondary-blue);
     cursor: pointer;
     padding: 0;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
+    // &:hover {
+    //   color: var(--secondary-orange);
+    // }
+  }
+  .edit-text {
+    color: var(--secondary-blue);
+    padding: 4px;
+    border-radius: 8px;
     &:hover {
       color: var(--secondary-orange);
     }
   }
-
   .volume {
     margin: 0;
     color: var(--blue);
