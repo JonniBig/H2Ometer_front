@@ -2,19 +2,23 @@ import { Link } from 'react-router-dom';
 import styled from 'styled-components';
 
 export const FormWrapper = styled.div`
-  max-width: 300px;
-  margin: auto;
+  max-width: 320px;
   padding: 20px;
   box-shadow: 0px 6px 10px 0px rgba(64, 123, 255, 0.44);
   border: 2px solid white;
+  display: flex;
   border-radius: 8px;
   background-color: var(--secondary-blue);
+  
+
 `;
 
 export const Form = styled.form`
   display: flex;
   flex-direction: column;
+  align-items: center;
   gap: 10px;
+
 `;
 
 export const Input = styled.input`

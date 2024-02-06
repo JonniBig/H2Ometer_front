@@ -3,6 +3,7 @@ import { useDispatch, useSelector } from 'react-redux';
 import { forgotPasswordThunk } from '../../redux/auth/authSlice';
 import {
   FormWrapper,
+  Form,
   Input,
   Button,
   Message,
@@ -40,7 +41,8 @@ const ForgotPasswordForm = () => {
       {forgotPasswordStatus === 'loading' ? (
         <Loader />
       ) : (
-        <form onSubmit={handleSubmit}>
+        <Form onSubmit={handleSubmit}>
+          <div className='forgot-form container'>
           <Input
             type="email"
             placeholder="Enter your email"
@@ -52,6 +54,7 @@ const ForgotPasswordForm = () => {
           <Button type="submit" disabled={forgotPasswordStatus === 'loading'}>
             Send
           </Button>
+          </div>
           {forgotPasswordStatus === 'failed' && (
             <Message type="error">
               {forgotPasswordError || 'Error occurred'}
@@ -61,7 +64,7 @@ const ForgotPasswordForm = () => {
             <Message>Email sent successfully!</Message>
           )}
           {emailError && <Message type="error">Invalid email format.</Message>}
-        </form>
+        </Form>
       )}
     </FormWrapper>
   );
