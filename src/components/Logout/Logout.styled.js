@@ -9,8 +9,7 @@ export const Conteiner = styled.div`
   background-color: rgba(0, 0, 0, 0.8);
   display: flex;
   justify-content: center;
-  align-items: center;  
-}
+  align-items: center;
 `;
 
 export const StyledLogout = styled.div`
@@ -23,7 +22,6 @@ export const StyledLogout = styled.div`
   top: 10%;
   left: 50%;
   transform: translateX(-50%);
-
   @media only screen and (min-width: 768px) {
     width: 592px;
     height: 208px;
@@ -32,14 +30,12 @@ export const StyledLogout = styled.div`
   @media only screen and (min-width: 1440px) {
     top: 30%;
   }
-
   .logoutQuest {
     font-size: 18px;
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 24px;
   }
-
   .closeModal {
     position: absolute;
     right: 24px;
@@ -51,29 +47,24 @@ export const StyledLogout = styled.div`
     background-color: transparent;
     padding: 0;
   }
-
   .logoutBtns {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 24px;
-
     @media only screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: flex-end;
     }
-
     @media only screen and (min-width: 1440px) {
       justify-content: flex-start;
     }
   }
-
   .logoutTitle {
     margin-bottom: 24px;
     font-size: 26px;
     font-weight: 500;
     line-height: 1.11;
   }
-
   .btnCan {
     display: flex;
     justify-content: center;
@@ -86,22 +77,18 @@ export const StyledLogout = styled.div`
     border: none;
     color: var(--blue);
     background-color: var(--secondary-skiblue);
-
     &:hover,
     &:focus {
       box-shadow: 0px 6px 10px 0px rgba(64, 123, 255, 0.44);
     }
-
     &:active {
       cursor: inherit;
     }
-
     @media screen and (min-width: 768px) {
       width: 160px;
       height: 44px;
     }
   }
-
   .btnLog {
     display: flex;
     justify-content: center;
@@ -115,7 +102,6 @@ export const StyledLogout = styled.div`
     color: var(--white);
     background-color: var(--secondary-red);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-
     &:hover,
     &:focus {
       box-shadow: 0px 8px 10px 0px rgba(64, 123, 255, 0.44);
@@ -123,7 +109,6 @@ export const StyledLogout = styled.div`
     &:active {
       cursor: inherit;
     }
-
     @media screen and (min-width: 768px) {
       width: 160px;
       height: 44px;

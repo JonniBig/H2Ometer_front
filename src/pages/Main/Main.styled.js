@@ -9,7 +9,6 @@ export const StyledMainPageBackgroun = styled.div`
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 60px;

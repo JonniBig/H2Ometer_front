@@ -23,13 +23,11 @@ export const WelcomeStyled = styled.div`
   justify-content: center;
   align-items: center;
   gap: 40px;
-
   @media screen and (min-width: 768px) {
     max-width: 707px;
     align-items: flex-start;
     gap: 60px;
   }
-
   @media screen and (min-width: 1440px) {
     max-width: 1404px;
     max-height: 582px;

@@ -31,11 +31,9 @@ export const SettingStyled = styled.div`
     width: 1008px;
     height: 592px;
   }
-
   .imageModal {
     width: 80px;
     height: 80px;
-
     object-position: center;
     object-fit: cover;
     border-radius: 50%;
@@ -57,6 +55,7 @@ export const SettingStyled = styled.div`
   }
   .modalPhotoList {
     margin-bottom: 24px;
+    margin-top: 0;
     display: flex;
     align-items: center;
     padding: 0;
@@ -100,7 +99,6 @@ export const SettingStyled = styled.div`
     border-radius: 80px;
     width: 80px;
     height: 80px;
-
     margin-right: 8px;
   }
   .modalForm {
@@ -112,7 +110,6 @@ export const SettingStyled = styled.div`
   }
   .modalGenderText {
     font-size: 18px;
-
     font-weight: 500;
     line-height: 20px;
     margin-bottom: 12px;
@@ -137,6 +134,7 @@ export const SettingStyled = styled.div`
     transform: translate(-50%, -50%);
     background-color: white;
     border: 2px solid dodgerblue;
+    cursor: pointer;
   }
   .genderInput:checked::after {
     content: '';
@@ -149,14 +147,12 @@ export const SettingStyled = styled.div`
     background-color: dodgerblue;
     transform: translate(-53%, -54%);
     visibility: visible;
+    cursor: pointer;
   }
-
   .modalGenderBlock {
     margin-bottom: 12px;
-  }
-  @media screen and (min-width: 1280px) {
-    .modalGenderBlock {
-      margin-bottom: 52px;
+    @media screen and (min-width: 1440px) {
+      margin-bottom: 48px;
     }
   }
   .genderLabel {
@@ -164,14 +160,13 @@ export const SettingStyled = styled.div`
     font-weight: 400;
     line-height: 20px;
     margin-left: 8px;
+    cursor: pointer;
   }
-
   .genderLabel:first-of-type {
     margin-right: 24px;
   }
   .modalInput {
     width: 256px;
-
     padding: 12px 10px;
     display: block;
     border-radius: 6px;
@@ -186,7 +181,6 @@ export const SettingStyled = styled.div`
   ::placeholder {
     color: #9ebbff;
   }
-
   .inputError {
     color: #ef5050;
     border-color: #ef5050;
@@ -211,15 +205,19 @@ export const SettingStyled = styled.div`
   .modalInputData {
     margin-bottom: 24px;
   }
+  .passwordConteiner {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
   .modalPasswordText {
     font-size: 18px;
     font-style: normal;
     font-weight: 500;
     line-height: 20px;
-    margin-bottom: 12px;
   }
   .modalInput_password {
-    margin-bottom: 12px;
+    /* margin-bottom: 12px; */
   }
 
   .passwordLabel {
@@ -248,13 +246,11 @@ export const SettingStyled = styled.div`
     background: rgba(64, 123, 255, 1);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
   }
-
   @media screen and (min-width: 768px) {
     .modalSubmit {
       width: 160px;
       height: 44px;
       font-size: 18px;
-
       line-height: 24px;
       padding: 10px 30px;
       margin: 0;
@@ -262,7 +258,6 @@ export const SettingStyled = styled.div`
       text-align: center;
     }
   }
-
   .togglePasswordIcon {
     position: absolute;
     top: 58%;
@@ -276,7 +271,6 @@ export const SettingStyled = styled.div`
   .passwordInputContainer {
     position: relative;
   }
-
   .closeBtn {
     display: flex;
     align-items: center;
@@ -291,12 +285,10 @@ export const SettingStyled = styled.div`
     right: 12px;
     cursor: pointer;
   }
-
   .closeBtn svg {
     width: 100%;
     height: 100%;
   }
-
   @media screen and (min-width: 768px) {
     .closeBtn {
       right: 24px;

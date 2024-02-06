@@ -1,5 +1,5 @@
 import React, { useEffect } from 'react';
-import { StyledGeneralModal } from './styled';
+import { StyledGeneralModal } from './GeneralModalStyled';
 import { createPortal } from 'react-dom';
 import { useSelector } from 'react-redux';
 

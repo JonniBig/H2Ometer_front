@@ -11,20 +11,16 @@ export const StyledFormDailyNorma = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    // gap: 12px;
   }
-
   @media screen and (min-width: 768px) {
     .formulas-container {
       gap: 12px;
     }
   }
-
   .formulas-string {
     display: block;
     gap: 24px;
   }
-
   @media screen and (min-width: 768px) {
     .formulas-string {
       display: flex;
@@ -32,27 +28,22 @@ export const StyledFormDailyNorma = styled.form`
       gap: 24px;
     }
   }
-
   .formula-box {
     display: flex;
     align-items: center;
-    // gap: 4px;
     margin-bottom: 24px;
   }
-
   @media screen and (min-width: 768px) {
     .formula-box {
       margin-bottom: 0px;
     }
   }
-
   .formula {
     color: var(--blue);
     font-size: 18px;
     font-weight: 400;
     line-height: 24px;
   }
-
   .coment-container {
     display: flex;
     padding: 10px;
@@ -68,7 +59,6 @@ export const StyledFormDailyNorma = styled.form`
     font-weight: 400;
     line-height: 16px;
   }
-
   .values-container {
     display: flex;
     flex-direction: column;
@@ -81,13 +71,11 @@ export const StyledFormDailyNorma = styled.form`
     font-weight: 500;
     line-height: 20px;
   }
-
   .gender-container {
     display: flex;
     align-items: center;
     gap: 24px;
   }
-
   .genderBtn {
     display: flex;
     gap: 3px;
@@ -97,8 +85,8 @@ export const StyledFormDailyNorma = styled.form`
     color: #2f2f2f;
     font-size: 16px;
     line-height: 20px;
+    cursor: pointer;
   }
-
   .genderInput {
     position: relative;
     height: 14px;
@@ -108,6 +96,7 @@ export const StyledFormDailyNorma = styled.form`
     appearance: none;
     outline: none;
     margin-right: 6px;
+    cursor: pointer;
   }
   .genderInput::before {
     content: '';
@@ -169,7 +158,6 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   input[type='number'] {
-    -webkit-appearance: none;
     margin: 0;
     display: flex;
     padding: 12px 10px;
@@ -180,18 +168,13 @@ export const StyledFormDailyNorma = styled.form`
     border-radius: 6px;
     border: 1px solid var(--secondary-skiblue);
   }
-
   input[type='number']::-webkit-inner-spin-button,
   input[type='number']::-webkit-outer-spin-button,
   input[type='number']::-webkit-clear-button {
     -webkit-appearance: none;
     margin: 0;
   }
-  input[type='number'] {
-    -moz-appearance: textfield; /* Firefox */
-  }
 
-  //Inactive
   input[type='number']::placeholder {
     color: var(--secondary-blue);
   }
@@ -224,44 +207,10 @@ export const StyledFormDailyNorma = styled.form`
     font-weight: 400;
     line-height: 18px;
   }
-
-  // input[type='radio'] {
-  //   appearance: none;
-  //   -webkit-appearance: none;
-  //   -moz-appearance: none;
-  //   outline: none;
-  //   cursor: pointer;
-  //   width: 14px;
-  //   height: 14px;
-  //   border-radius: 50%;
-  //   border: 1px solid var(--blue);
-  //   background-color: var(--white);
-  //   margin-right: 8px;
-  // }
-
-  // input[type='radio']:checked {
-  //   background-color: var(--white);
-  // }
-
-  // input[type='radio']::before {
-  //   content: '';
-  //   display: block;
-  //   width: 7px;
-  //   height: 7px;
-  //   margin: 3px;
-  //   border-radius: 50%;
-  //   background-color: var(--blue);
-  // }
-
-  // input[type='radio']:checked::before {
-  //   background-color: var(--white);
-  // }
-
   .save-btn-container {
     display: flex;
     justify-content: flex-end;
   }
-
   .save-btn {
     display: flex;
     padding: 10px 30px;
@@ -273,12 +222,10 @@ export const StyledFormDailyNorma = styled.form`
     background: var(--blue);
     color: var(--white);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-
     &:hover {
       box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
     }
   }
-
   .Toastify__toast-container {
     width: 30%;
     padding: 20px;
@@ -288,11 +235,9 @@ export const StyledFormDailyNorma = styled.form`
     left: 0;
     z-index: 9999;
   }
-
   .Toastify__toast--success {
     background-color: #28a745;
   }
-
   .Toastify__toast--error {
     background-color: #dc3545;
   }

@@ -8,6 +8,10 @@
   --secondary-orange: #ff9d43;
   --secondary-skiblue: #d7e3ff;
 
+  --toastify-color-success: #407bff;
+  --toastify-color-warning: #f1c40f;
+  --toastify-color-error: #e74c3c;
+
   --anim: 250ms cubic-bezier(0.4, 0, 0.2, 1);
   --anim-slow: 1000ms ease-in-out;
 }
@@ -33,7 +37,6 @@ code {
 ul {
   list-style: none;
 }
-
 a {
   color: currentColor;
   text-decoration: none;
@@ -69,7 +72,6 @@ p {
   background-color: rgba(0, 0, 0, 0.5);
   overflow: auto;
 }
-
 .modal-content {
   position: relative;
   top: 50%;
@@ -79,6 +81,7 @@ p {
   border: 1px solid rgb(136, 136, 136);
   border-radius: 10px;
   max-width: 280px;
+
   @media screen and (min-width: 768px) {
     max-width: 704px;
     top: 15%;
@@ -94,14 +97,12 @@ p {
     padding: 32px 24px;
   }
 }
-
 .modal-header {
   display: flex;
   justify-content: space-between;
   align-items: center;
   margin-bottom: 24px;
 }
-
 .close {
   color: var(--blue);
   float: right;
@@ -113,27 +114,22 @@ p {
     text-decoration: none;
   }
 }
-
 .light-mode {
   color: var(--black);
   background-color: var(--white);
 }
-
 .dark-mode {
   color: var(--white);
   background-color: #001f3f;
 }
-
 .dark-modal.dark-mode {
   color: var(--white);
   background-color: #407bff;
 }
-
 .secondary-blue.dark-mode {
   background-color: var(--secondary-blue);
   color: black;
 }
-
 .text.dark-mode {
   background-color: var(--secondary-skiblue);
 }

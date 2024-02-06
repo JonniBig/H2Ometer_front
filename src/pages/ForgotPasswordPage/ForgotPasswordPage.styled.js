@@ -13,12 +13,10 @@ export const PageContainer = styled.div`
   min-height: 100vh;
   padding-top: 100px;
   box-sizing: border-box;
-
   background-image: url(${backgroundMPMob});
   background-size: cover;
   background-position: bottom;
   background-repeat: no-repeat;
-
   @media screen and (min-width: 768px) {
     position: absolute;
     top: 60px;

@@ -22,7 +22,6 @@ export const StyledGeneralModal = styled.div`
     border: 1px solid rgb(136, 136, 136);
     border-radius: 10px;
     width: 100%;
-
     @media screen and (min-width: 768px) {
       width: 704px;
       top: 40%;
@@ -32,18 +31,15 @@ export const StyledGeneralModal = styled.div`
       max-width: 592px;
       top: 50%;
       left: 50%;
-      // translate: -30% -30%;
       padding: 32px 24px;
     }
   }
-
   .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
   }
-
   .close {
     color: var(--blue);
     float: right;

@@ -16,7 +16,6 @@ export const UserLogoModalStyled = styled.div`
   top: 40px;
   right: 0;
   z-index: 3000;
-
   display: flex;
   flex-direction: column;
   gap: 16px;
@@ -27,11 +26,9 @@ export const UserLogoModalStyled = styled.div`
   border-radius: 10px;
   border: 1px solid white;
   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.2);
-
   @media screen and (min-width: 1440px) {
     top: 35px;
   }
-
   .btn {
     display: flex;
     align-items: center;
@@ -41,15 +38,13 @@ export const UserLogoModalStyled = styled.div`
     color: var(--blue);
     background: transparent;
     border: none;
-    cursor: pointer;
     transition: color 0.3s ease;
-
-      &:hover,
-      &:focus {
-    color: var(--secondary-orange);
-    text-decoration: underline;
+    &:hover,
+    &:focus {
+      color: var(--secondary-orange);
+      text-decoration: underline;
+    }
   }
-
   .image {
     width: 16px;
     height: 16px;
