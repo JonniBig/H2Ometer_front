@@ -154,6 +154,7 @@ const FormDailyNorma = ({ onClose }) => {
           id="personalAmount"
           name="personalAmount"
           placeholder="0"
+          max="15"
           value={formData.personalAmount}
           onChange={handleChange}
         />
