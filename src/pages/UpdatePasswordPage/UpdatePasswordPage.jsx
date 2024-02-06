@@ -1,5 +1,5 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useSearchParams } from 'react-router-dom';
 import { UpdatePasswordForm } from '../../components/UpdatePasswordForm/UpdatePasswordForm';
 import {
   PageContainer,
@@ -8,7 +8,8 @@ import {
 } from './UpdatePasswordPage.styled';
 
 const UpdatePasswordPage = () => {
-  const { token } = useParams();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
 
   return (
     <PageContainer>

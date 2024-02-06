@@ -9,7 +9,7 @@ import { Link, useNavigate } from 'react-router-dom';
 import { LOGIN_ROUTE } from 'constants/routes';
 import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
-import { ToastContainer, toast } from 'react-toastify';
+import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 const Register = () => {
@@ -190,7 +190,6 @@ const Register = () => {
           </div>
         </div>
       </div>
-      <ToastContainer position="top-right" style={{ marginTop: '60px' }} />
     </StyledRegisterPage>
   );
 };

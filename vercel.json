@@ -1,16 +1,3 @@
 {
-  "rewrites": [
-    {
-      "source": "/users/verify/:slug*",
-      "destination": "/users/verify/:slug*"
-    },
-    {
-      "source": "/users/reset-password/:token*",
-      "destination": "/users/reset-password/:token*"
-    },
-    {
-      "source": "/(.*)",
-      "destination": "/"
-    }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }

@@ -49,15 +49,15 @@ const TodayList = () => {
     new Date(),
     'L'
   )}/${new Date().getFullYear()}`;
-  const currentDateData = waterData?.drunkedWater?.find(
-    date => date.day === currentDate
-  )?.waterIntake;
+  const currentDateData =
+    waterData?.drunkedWater?.find(date => date.day === currentDate)
+      ?.waterIntake ?? [];
   return (
     <StyledTodayDiv>
       <h3 className="title">Today</h3>
       <div className="addWater">
         <p className="emptyText">
-          {currentDateData && currentDateData.length === 0
+          {currentDateData?.length === 0
             ? "You haven't drank any water today"
             : ''}
         </p>

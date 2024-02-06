@@ -1,6 +1,6 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
-import { Layout, PrivateRoute, RestrictedRoute, VerifyEmail } from 'components';
+import { Layout, PrivateRoute, RestrictedRoute } from 'components';
 import {
   Home,
   Login,
@@ -8,6 +8,7 @@ import {
   Register,
   UpdatePasswordPage,
   ForgotPasswordPage,
+  VerifyEmail,
 } from 'pages';
 
 import {
@@ -56,6 +57,18 @@ const appRoutes = [
       </RestrictedRoute>
     ),
   },
+  {
+    path: VERIFY_EMAIL_ROUTE,
+    element: <VerifyEmail />,
+  },
+  {
+    path: FORGOT_PASSWORD_ROUTE,
+    element: <ForgotPasswordPage />,
+  },
+  {
+    path: UPDATE_PASSWORD_ROUTE,
+    element: <UpdatePasswordPage />,
+  },
 ];
 
 export const App = () => {
@@ -72,9 +85,7 @@ export const App = () => {
         {appRoutes.map(({ path, element }) => (
           <Route key={path} path={path} element={element} />
         ))}
-        <Route path={VERIFY_EMAIL_ROUTE} element={<VerifyEmail />} />
-        <Route path={FORGOT_PASSWORD_ROUTE} element={<ForgotPasswordPage />} />
-        <Route path={UPDATE_PASSWORD_ROUTE} element={<UpdatePasswordPage />} />
+        <Route path="*" element={<Navigate to={WELCOME_ROUTE} />} />
       </Routes>
     </Layout>
   );

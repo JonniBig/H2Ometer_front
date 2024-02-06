@@ -2,14 +2,16 @@ import { LOGIN_ROUTE } from 'constants/routes';
 import { useEffect } from 'react';
 import { useState } from 'react';
 import { useDispatch } from 'react-redux';
-import { useNavigate, useParams } from 'react-router-dom/dist';
+import { useNavigate, useSearchParams } from 'react-router-dom/dist';
 import { verifyEmailThunk } from '../../redux/auth/authSlice';
 import { MessageWrapper } from './VerifyEmail.styled';
-import Loader from '../Loader/Loader';
+import Loader from '../../components/Loader/Loader';
 
 const VerifyEmail = () => {
   const dispatch = useDispatch();
-  const { token } = useParams();
+  // const { token } = useParams();
+  const [searchParams] = useSearchParams();
+  const token = searchParams.get('token');
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
@@ -27,6 +29,11 @@ const VerifyEmail = () => {
     });
   }, [dispatch, token, navigate]);
 
-  return <MessageWrapper>{isLoading ? <Loader /> : message}</MessageWrapper>;
+  return (
+    <MessageWrapper>
+      <h2>hi</h2>
+      {isLoading ? <Loader /> : message}
+    </MessageWrapper>
+  );
 };
 export default VerifyEmail;
