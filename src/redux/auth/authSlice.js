@@ -5,6 +5,7 @@ import {
   requestPasswordReset,
   requestRefreshUser,
   requestRegister,
+  requestResetPassword,
   requestUpdateAvatar,
   requestUpdateUserSettings,
   requestVerifyEmail,
@@ -66,6 +67,18 @@ export const forgotPasswordThunk = createAsyncThunk(
   async (email, thunkAPI) => {
     try {
       const response = await requestPasswordReset(email);
+      return response;
+    } catch (error) {
+      return thunkAPI.rejectWithValue(error.message);
+    }
+  }
+);
+
+export const resetPasswordThunk = createAsyncThunk(
+  'auth/resetPassword',
+  async ({ newPassword, token }, thunkAPI) => {
+    try {
+      const response = await requestResetPassword({ newPassword, token });
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
@@ -138,6 +151,10 @@ const INITIAL_STATE = {
   isEmailVerified: false,
   forgotPasswordStatus: 'idle',
   forgotPasswordError: null,
+  resetPasswordStatus: 'idle',
+  resetPasswordError: null,
+  resetPasswordSuccess: false,
+  resetPasswordSuccessMessage: '',
 };
 
 const authSlice = createSlice({
@@ -158,6 +175,15 @@ const authSlice = createSlice({
         state.verificationMessage =
           'Your email has been successfully verified.';
         state.isEmailVerified = true;
+      })
+
+      .addCase(resetPasswordThunk.fulfilled, (state, action) => {
+        state.isLoading = false;
+        state.resetPasswordSuccess = true;
+        state.resetPasswordSuccessMessage =
+          action.payload.message ||
+          'Your password has been successfully reset.';
+        state.error = null;
       })
 
       .addCase(loginThunk.fulfilled, (state, action) => {
@@ -207,6 +233,7 @@ const authSlice = createSlice({
           refreshThunk.pending,
           logoutThunk.pending,
           verifyEmailThunk.pending,
+          resetPasswordThunk.pending,
           uploadAvatarThunk.pending,
           updateUserSettingsThunk.pending
         ),
@@ -221,6 +248,7 @@ const authSlice = createSlice({
           loginThunk.rejected,
           logoutThunk.rejected,
           verifyEmailThunk.rejected,
+          resetPasswordThunk.rejected,
           uploadAvatarThunk.rejected,
           updateUserSettingsThunk.rejected
         ),

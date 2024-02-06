@@ -19,3 +19,4 @@ export { default as Setting } from './Setting/Setting';
 export { default as DeleteModal } from './DeleteModal/DeleteModal';
 export { default as DailyInfoModal } from './DailyInfoModal/DailyInfoModal';
 export { default as ForgotPasswordForm } from './ForgotPasswordForm/ForgotPasswordForm';
+export { default as UpdatePasswordForm } from './UpdatePasswordForm/UpdatePasswordForm';

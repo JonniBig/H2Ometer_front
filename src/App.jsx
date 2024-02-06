@@ -1,7 +1,14 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
 
 import { Layout, PrivateRoute, RestrictedRoute, VerifyEmail } from 'components';
-import { Home, Login, Main, Register } from 'pages';
+import {
+  Home,
+  Login,
+  Main,
+  Register,
+  UpdatePasswordPage,
+  ForgotPasswordPage,
+} from 'pages';
 
 import {
   HOME_ROUTE,
@@ -10,11 +17,11 @@ import {
   WELCOME_ROUTE,
   VERIFY_EMAIL_ROUTE,
   FORGOT_PASSWORD_ROUTE,
+  UPDATE_PASSWORD_ROUTE,
 } from 'constants/routes';
 import { useDispatch } from 'react-redux';
 import { useEffect } from 'react';
 import { refreshThunk } from './redux/auth/authSlice';
-import ForgotPasswordPage from 'pages/ForgotPasswordPage/ForgotPasswordPage';
 
 const appRoutes = [
   {
@@ -67,6 +74,7 @@ export const App = () => {
         ))}
         <Route path={VERIFY_EMAIL_ROUTE} element={<VerifyEmail />} />
         <Route path={FORGOT_PASSWORD_ROUTE} element={<ForgotPasswordPage />} />
+        <Route path={UPDATE_PASSWORD_ROUTE} element={<UpdatePasswordPage />} />
       </Routes>
     </Layout>
   );
