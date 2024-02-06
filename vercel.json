@@ -1,7 +1,3 @@
 {
-  "rewrites": [
-    { "source": "/users/verify/:token*", "destination": "/index.html" },
-    { "source": "/users/reset-password/:token*", "destination": "/index.html" },
-    { "source": "/(.*)", "destination": "/index.html" }
-  ]
+  "rewrites": [{ "source": "/(.*)", "destination": "/" }]
 }
