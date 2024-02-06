@@ -27,7 +27,6 @@ export const StyledHeader = styled.header`
   height: 48px;
   z-index: 10;
   position: relative;
-
   .btnTema {
     border: var(--blue);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
@@ -37,7 +36,6 @@ export const StyledHeader = styled.header`
     width: 58px;
     height: 24px;
     border-radius: 25px;
-    cursor: pointer;
     transition: background-color 0.25s ease-in-out;
     display: flex;
     justify-content: center;
@@ -56,8 +54,6 @@ export const LinkStyled = styled(Link)`
   display: flex;
   align-items: center;
   gap: 8px;
-  cursor: pointer;
-
   &:hover,
   &:focus {
     color: var(--secondary-orange);
@@ -66,13 +62,11 @@ export const LinkStyled = styled(Link)`
     font-size: 16px;
     font-weight: 400;
     line-height: 1.25;
-
     @media screen and (min-width: 768px) {
       font-size: 18px;
       line-height: 1.33;
     }
   }
-
   .icon {
     background: white;
     border-radius: 50%;

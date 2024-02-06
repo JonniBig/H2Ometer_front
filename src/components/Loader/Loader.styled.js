@@ -28,7 +28,6 @@ export const StyledLoader = styled.div`
     animation: rotationBack 0.5s linear infinite;
     transform-origin: center center;
   }
-
   @keyframes rotation {
     0% {
       transform: rotate(0deg);
@@ -37,7 +36,6 @@ export const StyledLoader = styled.div`
       transform: rotate(360deg);
     }
   }
-
   @keyframes rotationBack {
     0% {
       transform: rotate(0deg);

@@ -8,10 +8,8 @@ import element from '../../assets/images/main/backgroundElementMP.png';
 
 export const StyledHomePage = styled.section`
   background-image: url(${backgroundHomeMob});
-
   background-position: bottom;
   background-repeat: no-repeat;
-
   @media screen and (min-width: 768px) {
     background-image: url(${backgroundHomeTabl});
   }
@@ -24,48 +22,38 @@ export const StyledHomePage = styled.section`
     background-image: url(${element});
     background-size: contain;
   }
-
   .conteiner {
     margin: 0 auto;
     max-width: 320px;
-    // max-height: 836px;
     padding: 24px 20px;
-
     @media screen and (min-width: 768px) {
       max-width: 768px;
       padding: 24px 32px;
     }
-
     @media screen and (min-width: 1440px) {
       max-width: 1440px;
       padding: 40px 112px;
       display: flex;
       justify-content: space-between;
     }
-
     .div1 {
       display: flex;
       flex-direction: column;
       justify-content: space-between;
       height: 438px;
       margin-bottom: 40px;
-
       @media screen and (min-width: 768px) {
         background-image: url(${bottledHomeTabl});
         background-repeat: no-repeat;
-
         background-position: top;
         height: 502px;
       }
-
       @media screen and (min-width: 1440px) {
         background-image: url(${bottleHomeDesk});
-        // margin-top: 52px;
         margin: 0;
         width: 592px;
         height: 680px;
       }
-
       @media only screen and (max-width: 767px) {
         .bottle-image {
           background-image: url(${bottledHomeMob});
@@ -78,18 +66,15 @@ export const StyledHomePage = styled.section`
       }
     }
   }
-
   .div2 {
     padding: 24px 8px;
     background-color: var(--secondary-white);
     border-radius: 10px;
     box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
-
     @media screen and (min-width: 768px) {
       margin-bottom: 44px;
       padding: 32px 24px;
     }
-
     @media screen and (min-width: 1440px) {
       width: 592px;
       height: 680px;

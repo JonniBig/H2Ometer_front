@@ -3,7 +3,6 @@ import styled from 'styled-components';
 export const StyledDailyProgress = styled.div`
   display: flex;
   flex-direction: column;
-  // margin-bottom: 50px;
 
   .bottomContainer {
     display: flex;
@@ -44,7 +43,6 @@ export const StyledDailyProgress = styled.div`
   }
   .progressContainer {
     position: relative;
-    /* padding: 0 15px; */
   }
   .progressBar {
     position: relative;
@@ -55,8 +53,6 @@ export const StyledDailyProgress = styled.div`
     margin-bottom: 7px;
     display: flex;
     align-items: center;
-    &::before {
-    }
   }
   .progressPointer {
     width: 14px;
@@ -119,7 +115,6 @@ export const StyledDailyProgress = styled.div`
 
     &:hover,
     &:focus {
-      // color: var(--secondary-orange);
       box-shadow: 0 4px 14px 0 rgba(64, 123, 255, 0.54);
     }
 
@@ -128,7 +123,6 @@ export const StyledDailyProgress = styled.div`
       height: 44px;
       margin-top: 0;
     }
-
     @media screen and (min-width: 1440px) {
       width: 178px;
     }

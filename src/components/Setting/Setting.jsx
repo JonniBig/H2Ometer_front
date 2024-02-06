@@ -108,7 +108,7 @@ const SettingsModal = () => {
             <img src={closeModal} alt="Close" />
           </button>
         </div>
-        <p className="modalPhotoText">Your Photo</p>
+        <p className="modalPhotoText">Your photo</p>
         <ul className="modalPhotoList">
           <li className="modalListPhoto">
             {selectedFile ? (
@@ -184,33 +184,35 @@ const SettingsModal = () => {
                 </label>
               </div>
             </div>
-            <label htmlFor="nameInput" className="label">
-              Your name
-            </label>
-            <input
-              type="text"
-              placeholder="Name"
-              id="nameInput"
-              name="name"
-              className="modalInput modalInputData"
-              value={name}
-              onChange={handleNameChange}
-            />
-            <label htmlFor="emailInp" className="label">
-              E-mail
-            </label>
-            <input
-              type="text"
-              name="email"
-              placeholder="your-email@gmail.com"
-              id="emailInp"
-              className="modalInput modalInputData"
-              value={email}
-              onChange={handleEmailChange}
-            />
+            <div>
+              <label htmlFor="nameInput" className="label">
+                Your name
+              </label>
+              <input
+                type="text"
+                placeholder="Name"
+                id="nameInput"
+                name="name"
+                className="modalInput modalInputData"
+                value={name}
+                onChange={handleNameChange}
+              />
+              <label htmlFor="emailInp" className="label">
+                E-mail
+              </label>
+              <input
+                type="text"
+                name="email"
+                placeholder="your-email@gmail.com"
+                id="emailInp"
+                className="modalInput modalInputData"
+                value={email}
+                onChange={handleEmailChange}
+              />
+            </div>
           </div>
 
-          <div>
+          <div className="passwordConteiner">
             <p className="modalPasswordText">Password</p>
             <div className="passwordInputContainer">
               <label htmlFor="oldPassword" className="passwordLabel">
