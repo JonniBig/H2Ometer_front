@@ -51,11 +51,6 @@ const SettingsModal = () => {
   const handleGenderChange = e => setGender(e.target.value);
 
   const saveDetails = () => {
-    console.log('Email:', email);
-    console.log('Name:', name);
-    console.log('Gender:', gender);
-    console.log('Selected File:', selectedFile);
-    console.log('Змінено пароль:', newPassword);
     const settingsFormData = {};
 
     if (email.length > 0) settingsFormData['email'] = email;

@@ -130,7 +130,6 @@ export const updateUserSettingsThunk = createAsyncThunk(
   async (formData, thunkAPI) => {
     try {
       const response = await requestUpdateUserSettings(formData);
-      console.log('response: ', response);
       return response;
     } catch (error) {
       return thunkAPI.rejectWithValue(error.message);
