@@ -4,7 +4,7 @@ export const StyledDailyNorma = styled.div`
   background-color: var(--white);
   border: 1px solid var(--secondary-white);
   width: 166px;
-  height: 74px;
+  /* height: 74px; */
   padding: 8px 20px;
   border-radius: 10px;
   display: flex;
@@ -13,7 +13,7 @@ export const StyledDailyNorma = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    height: 76px;
+    /* height: 76px; */
   }
 
   .title {

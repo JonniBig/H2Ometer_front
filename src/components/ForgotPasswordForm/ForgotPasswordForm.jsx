@@ -9,11 +9,13 @@ import {
   Message,
 } from './ForgotPasswordForm.styled';
 import Loader from '../Loader/Loader';
+import { useTranslation } from 'react-i18next';
 
 const ForgotPasswordForm = () => {
   const [email, setEmail] = useState('');
   const [emailError, setEmailError] = useState(false);
   const dispatch = useDispatch();
+  const { t } = useTranslation();
   const { forgotPasswordStatus, forgotPasswordError } = useSelector(
     state => state.auth
   );
@@ -42,28 +44,30 @@ const ForgotPasswordForm = () => {
         <Loader />
       ) : (
         <Form onSubmit={handleSubmit}>
-          <div className='forgot-form container'>
-          <Input
-            type="email"
-            placeholder="Enter your email"
-            value={email}
-            onChange={e => setEmail(e.target.value)}
-            required
-            $error={emailError || forgotPasswordStatus === 'failed'}
-          />
-          <Button type="submit" disabled={forgotPasswordStatus === 'loading'}>
-            Send
-          </Button>
+          <div className="forgot-form container">
+            <Input
+              type="email"
+              placeholder={t('resetPassword.enterEmail')}
+              value={email}
+              onChange={e => setEmail(e.target.value)}
+              required
+              $error={emailError || forgotPasswordStatus === 'failed'}
+            />
+            <Button type="submit" disabled={forgotPasswordStatus === 'loading'}>
+              {t('resetPassword.sendButton')}
+            </Button>
           </div>
           {forgotPasswordStatus === 'failed' && (
             <Message type="error">
-              {forgotPasswordError || 'Error occurred'}
+              {forgotPasswordError || t('resetPassword.errorOccurred')}
             </Message>
           )}
           {forgotPasswordStatus === 'succeeded' && (
-            <Message>Email sent successfully!</Message>
+            <Message>{t('resetPassword.emailSent')}</Message>
           )}
-          {emailError && <Message type="error">Invalid email format.</Message>}
+          {emailError && (
+            <Message type="error">{t('resetPassword.invalidEmail')}</Message>
+          )}
         </Form>
       )}
     </FormWrapper>
