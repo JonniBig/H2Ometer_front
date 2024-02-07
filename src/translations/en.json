@@ -29,6 +29,7 @@
     }
   },
 
+  "ml": " ml",
   "signIn": "Sign In",
   "emailLabel": "Email Address",
   "emailPlaceholder": "E-mail",
@@ -71,7 +72,8 @@
 
   "dailyNorm": {
     "title": "My daily norm",
-    "edit": "Edit"
+    "edit": "Edit",
+    "l": " L"
   },
 
   "dailyInfo": {

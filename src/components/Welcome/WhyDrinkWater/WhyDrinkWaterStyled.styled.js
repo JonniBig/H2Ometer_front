@@ -18,7 +18,6 @@ export const WhyDrinkWaterStyled = styled.div`
   @media screen and (min-width: 1440px) {
     width: 494px;
     height: 332px;
-    /* height: 332px; */
     padding: 32px 24px;
   }
 

@@ -6,12 +6,20 @@ export const UserLogoWrapper = styled.div`
 
 export const UserLogoStyled = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4px;
   background-color: white;
   border-radius: 10px;
-  padding: 4px 10px;
+  padding: 6px 10px;
   color: black;
+  flex-direction: column;
+  align-items: flex-end;
+
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    flex-direction: row;
+  }
   .user {
     display: flex;
     align-items: center;

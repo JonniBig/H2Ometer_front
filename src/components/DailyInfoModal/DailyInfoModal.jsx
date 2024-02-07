@@ -9,7 +9,9 @@ const DailyInfoModal = ({ date, dailyNorma, dayPercentage, portionsCount }) => {
       <p className="date">{date}</p>
       <p>
         {t('dailyInfo.dailyNorm')}&nbsp;
-        <span className="value">{dailyNorma} L</span>
+        <span className="value">
+          {dailyNorma} {t('l')}
+        </span>
       </p>
       <p>
         {t('dailyInfo.fulfillment')}:&nbsp;

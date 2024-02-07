@@ -23,9 +23,12 @@ export const StyledHeader = styled.header`
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  height: 48px;
+  height: 60px;
   z-index: 10;
   position: relative;
+  @media screen and (min-width: 768px) {
+    height: 48px;
+  }
   .btnTema {
     border: var(--blue);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
