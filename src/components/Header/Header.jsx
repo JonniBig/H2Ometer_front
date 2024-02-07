@@ -4,13 +4,12 @@ import { Outlet } from 'react-router-dom';
 
 import Logo from './Logo/Logo';
 import UserLogo from './UserLogo/UserLogo';
-
+import UserAuth from './UserAuth/UserAuth';
 import { selectAuthAuthenticated } from '../../redux/auth/authSelectors';
 import { setDarkMode, setLightMode } from '../../redux/actions/themeActions';
 
 import { Conteiner, StyledHeader } from './Header.styled';
 import MaterialUISwitch from './ButtonToggle';
-import UserAuth from './UserAuth/UserAuth';
 
 const Header = () => {
   const authenticated = useSelector(selectAuthAuthenticated);
