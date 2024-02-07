@@ -5,17 +5,20 @@ import presentationCharBar from '../../../assets/images/icons/presentation-chart
 import wrenchScrewdriver from '../../../assets/images/icons/wrench-screwdriver.svg';
 
 import { WaterConsTrackerStyled } from './WaterСonsTrackerStyled.styled';
+import { useTranslation } from 'react-i18next';
 
 export const WaterConsumptionTracker = () => {
+  const { t } = useTranslation();
   return (
     <WaterConsTrackerStyled>
-      <h1>Water consumption tracker</h1>
-      <p>Record daily water intake and track</p>
-      <h2>Tracker Benefits</h2>
+      <h1>{t('description.part1')}</h1>
+
+      <p>{t('description.part2')}</p>
+      <h2>{t('trackerBenefits.title')}</h2>
       <ul>
         <li>
           <img src={calendarDays} width={40} height={40} alt="Habit drive" />
-          Habit drive
+          {t('trackerBenefits.habitDrive')}
         </li>
         <li>
           <img
@@ -24,7 +27,7 @@ export const WaterConsumptionTracker = () => {
             height={40}
             alt="View statistics"
           />
-          View statistics
+          {t('trackerBenefits.viewStatistics')}
         </li>
         <li>
           <img
@@ -33,11 +36,11 @@ export const WaterConsumptionTracker = () => {
             height={40}
             alt="Personal rate setting"
           />
-          Personal rate setting
+          {t('trackerBenefits.personalRateSetting')}
         </li>
       </ul>
       <Link to="/signup">
-        <button>Try tracker</button>
+        <button>{t('tryTrackerButton')}</button>
       </Link>
     </WaterConsTrackerStyled>
   );

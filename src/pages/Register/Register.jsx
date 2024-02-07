@@ -11,12 +11,14 @@ import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
   const navigate = useNavigate();
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
+  const { t } = useTranslation();
 
   const formik = useFormik({
     initialValues: {
@@ -68,15 +70,15 @@ const Register = () => {
         <div className="backgr-elem-decktop"></div>
         <div className="content">
           <div className="register-form-container">
-            <h1>Sign Up</h1>
+            <h1>{t('registerPage.signUp')}</h1>
             <form onSubmit={formik.handleSubmit}>
               <div>
-                <label htmlFor="email">Email Address</label>
+                <label htmlFor="email">{t('emailLabel')}</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder="E-mail"
+                  placeholder={t('emailPlaceholder')}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
@@ -93,7 +95,7 @@ const Register = () => {
 
               <div className="password-container">
                 <label htmlFor="password">
-                  Password
+                  {t('passwordLabel')}
                   <div
                     className="show-psw-btn"
                     onClick={() => setShowPassword(!showPassword)}
@@ -103,14 +105,14 @@ const Register = () => {
                         src={eyeOpened}
                         width={18}
                         height={18}
-                        alt="Hide Password"
+                        alt={t('hidePassword')}
                       />
                     ) : (
                       <img
                         src={eyeSlash}
                         width={18}
                         height={18}
-                        alt="Show Password"
+                        alt={t('showPassword')}
                       />
                     )}
                   </div>
@@ -119,7 +121,7 @@ const Register = () => {
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Password"
+                  placeholder={t('passwordPlaceholder')}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
@@ -136,7 +138,7 @@ const Register = () => {
 
               <div className="password-container">
                 <label htmlFor="confirmPassword">
-                  Confirm Password
+                  {t('registerPage.confirmPasswordLabel')}
                   <div
                     className="show-psw-btn"
                     onClick={() => setShowPassword(!showPassword)}
@@ -146,14 +148,14 @@ const Register = () => {
                         src={eyeOpened}
                         width={18}
                         height={18}
-                        alt="Hide Password"
+                        alt={t('hidePassword')}
                       />
                     ) : (
                       <img
                         src={eyeSlash}
                         width={18}
                         height={18}
-                        alt="Show Password"
+                        alt={t('showPassword')}
                       />
                     )}
                   </div>
@@ -162,7 +164,7 @@ const Register = () => {
                   id="confirmPassword"
                   name="confirmPassword"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder="Repeat password"
+                  placeholder={t('registerPage.confirmPasswordPlaceholder')}
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.confirmPassword}
@@ -181,10 +183,10 @@ const Register = () => {
                 ) : null}
               </div>
 
-              <button type="submit">Submit</button>
+              <button type="submit">{t('registerPage.submitButton')}</button>
             </form>
             <div>
-              <Link to={LOGIN_ROUTE}>Sign In</Link>
+              <Link to={LOGIN_ROUTE}>{t('signIn')}</Link>
             </div>
           </div>
         </div>

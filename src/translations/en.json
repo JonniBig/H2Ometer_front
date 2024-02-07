@@ -1,0 +1,201 @@
+{
+  "description": {
+    "part1": "Water consumption tracker",
+    "part2": "Record daily water intake and track"
+  },
+  "trackerBenefits": {
+    "title": "Tracker Benefits",
+    "habitDrive": "Habit drive",
+    "viewStatistics": "View statistics",
+    "personalRateSetting": "Personal rate setting"
+  },
+  "tryTrackerButton": "Try tracker",
+  "whyDrinkWater": {
+    "title": "Why Drink Water",
+    "list": {
+      "item1": "Supply of nutrients to all organs",
+      "item2": "Providing oxygen to the lungs",
+      "item3": "Maintaining the work of the heart",
+      "item4": "Release of processed substances",
+      "item5": "Ensuring the stability of the internal environment",
+      "item6": "Maintaining within the normal temperature",
+      "item7": "Maintaining an immune system capable of resisting disease"
+    }
+  },
+  "navigation": {
+    "signIn": {
+      "text": "Sign in",
+      "alt": "Sign in"
+    }
+  },
+
+  "signIn": "Sign In",
+  "emailLabel": "Email Address",
+  "emailPlaceholder": "E-mail",
+  "passwordLabel": "Password",
+  "passwordPlaceholder": "Password",
+  "hidePassword": "Hide Password",
+  "showPassword": "Show Password",
+  "signUp": "Sign Up",
+  "forgotPassword": "Forgot Password?",
+
+  "registerPage": {
+    "signUp": "Sign Up",
+    "emailLabel": "Email Address",
+    "emailPlaceholder": "E-mail",
+    "passwordLabel": "Password",
+    "passwordPlaceholder": "Password",
+    "confirmPasswordLabel": "Confirm Password",
+    "confirmPasswordPlaceholder": "Repeat password",
+    "submitButton": "Submit"
+  },
+
+  "resetPassword": {
+    "enterEmail": "Enter your email",
+    "sendButton": "Send",
+    "errorOccurred": "Error occurred",
+    "emailSent": "Email sent successfully!",
+    "invalidEmail": "Invalid email format."
+  },
+
+  "userInterface": {
+    "setting": {
+      "text": "Setting",
+      "alt": "Setting"
+    },
+    "logout": {
+      "text": "Log out",
+      "alt": "Log out"
+    }
+  },
+
+  "dailyNorm": {
+    "title": "My daily norm",
+    "edit": "Edit"
+  },
+
+  "dailyInfo": {
+    "dailyNorm": "Daily norma",
+    "fulfillment": "Fulfillment of the daily norm",
+    "waterServings": "How many servings of water"
+  },
+
+  "calendar": {
+    "monthTitle": "Month"
+  },
+
+  "user": {
+    "title": "User",
+    "dailyProgress": {
+      "today": "Today",
+      "addWater": "Add water"
+    }
+  },
+
+  "delete": {
+    "deleteQuest": "Are you sure you want to delete the entry?",
+    "cancel": "Cancel",
+    "delete": "Delete"
+  },
+
+  "dailyProgress": {
+    "today": "Today",
+    "addWater": "Add water"
+  },
+
+  "edit": {
+    "correctDataTitle": "Correct entered data:",
+    "amountWaterText": "Amount of water",
+    "saveButton": "Save"
+  },
+  "timeDiv": {
+    "label": "Recording time:"
+  },
+  "enterDiv": {
+    "label": "Enter the value of the water used:"
+  },
+
+  "formulas": {
+    "forGirl": "For girl:",
+    "girlFormula": "V=(M0.03) + (T0.4)",
+    "forMan": "For man:",
+    "manFormula": "V=(M0.04) + (T0.6)",
+    "comment": "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)."
+  },
+  "values": {
+    "calculateRate": "Calculate your rate",
+    "forWoman": "For woman",
+    "forMan": "For man",
+    "weightLabel": "Your weight in kilograms:",
+    "activityTimeLabel": "The time of active participation in sports or other activities with a high physical load in hours:",
+    "requiredAmountLabel": "The required amount of water in liters per day:",
+    "personalAmountLabel": "Write down how much water you will drink:",
+    "saveButton": "Save"
+  },
+
+  "editSection": {
+    "title": "Choose a value",
+    "amountLabelText": "Amount of water",
+    "timeInputLabel": "Recording time:",
+    "waterInputLabel": "Enter the value of the water used:",
+    "saveButtonText": "Save"
+  },
+
+  "formWater": {
+    "title": "Choose a value",
+    "amountLabelText": "Amount of water",
+    "timeInputLabel": "Recording time:",
+    "waterInputLabel": "Enter the value of the water used:",
+    "saveButtonText": "Save"
+  },
+
+  "logoutModal": {
+    "title": "Log out",
+    "closeButtonAlt": "Close",
+    "question": "Do you really want to leave?",
+    "cancelButton": "Cancel",
+    "logoutButton": "Log out"
+  },
+
+  "settingsModal": {
+    "title": "Setting",
+    "closeButtonAlt": "Close",
+    "photoText": "Your photo",
+    "uploadText": "Upload a photo",
+    "genderIdentityText": "Your gender identity",
+    "womanLabel": "Woman",
+    "manLabel": "Man",
+    "nameLabel": "Your name",
+    "emailLabel": "E-mail",
+    "passwordText": "Password",
+    "oldPasswordLabel": "Outdated password:",
+    "newPasswordLabel": "New password:",
+    "repeatPasswordLabel": "Repeat new password:",
+    "saveButton": "Save"
+  },
+
+  "todaySection": {
+    "title": "Today",
+    "noWaterText": "You haven't drank any water today",
+    "addWaterButton": "+ Add water",
+    "modalTitles": {
+      "addWater": "Add water",
+      "editWaterAmount": "Edit the entered amount of water",
+      "deleteEntry": "Delete entry"
+    }
+  },
+
+  "form": {
+    "placeholders": {
+      "newPassword": "Enter your new password",
+      "confirmPassword": "Confirm your new password"
+    },
+    "buttons": {
+      "submit": "Reset Password"
+    },
+    "messages": {
+      "success": "Password reset successful",
+      "error": "An error occurred while resetting the password"
+    }
+  }
+}
