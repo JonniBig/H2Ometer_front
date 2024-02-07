@@ -1,0 +1,192 @@
+{
+  "description": {
+    "part1": "Відстеження споживання води",
+    "part2": "Записуйте щоденний прийом води та відстежуйте його"
+  },
+  "trackerBenefits": {
+    "title": "Переваги відстежувача",
+    "habitDrive": "Звичка",
+    "viewStatistics": "Перегляд статистики",
+    "personalRateSetting": "Персональна настройка швидкості"
+  },
+  "tryTrackerButton": "Спробуй трекер",
+  "whyDrinkWater": {
+    "title": "Чому пити воду",
+    "list": {
+      "item1": "Постачання поживних речовин усім органам",
+      "item2": "Надання кисню легеням",
+      "item3": "Підтримка роботи серця",
+      "item4": "Вивільнення оброблених речовин",
+      "item5": "Забезпечення стабільності внутрішнього середовища",
+      "item6": "Підтримка нормальної температури",
+      "item7": "Підтримка імунної системи, здатної протистояти захворюванням"
+    }
+  },
+  "navigation": {
+    "signIn": {
+      "text": "Увійти",
+      "alt": "Увійти"
+    }
+  },
+
+  "signIn": "Увійти",
+  "emailLabel": "Адреса електронної пошти",
+  "emailPlaceholder": "Електронна пошта",
+  "passwordLabel": "Пароль",
+  "passwordPlaceholder": "Пароль",
+  "hidePassword": "Приховати пароль",
+  "showPassword": "Показати пароль",
+  "signUp": "Зареєструватися",
+  "forgotPassword": "Забули пароль?",
+
+  "registerPage": {
+    "signUp": "Зареєструватися",
+    "emailLabel": "Адреса електронної пошти",
+    "emailPlaceholder": "Електронна пошта",
+    "passwordLabel": "Пароль",
+    "passwordPlaceholder": "Пароль",
+    "confirmPasswordLabel": "Підтвердити пароль",
+    "confirmPasswordPlaceholder": "Повторіть пароль",
+    "submitButton": "Надіслати"
+  },
+
+  "resetPassword": {
+    "enterEmail": "Введіть вашу електронну пошту",
+    "sendButton": "Надіслати",
+    "errorOccurred": "Виникла помилка",
+    "emailSent": "Електронний лист успішно відправлено!",
+    "invalidEmail": "Недійсний формат електронної пошти."
+  },
+  "userInterface": {
+    "setting": {
+      "text": "Налаштування",
+      "alt": "Налаштування"
+    },
+    "logout": {
+      "text": "Вийти",
+      "alt": "Вийти"
+    }
+  },
+
+  "dailyNorm": {
+    "title": "Моя щоденна норма",
+    "edit": "Редагувати"
+  },
+
+  "dailyInfo": {
+    "dailyNorm": "Щоденна норма",
+    "fulfillment": "Виконання щоденної норми",
+    "waterServings": "Скільки порцій води"
+  },
+
+  "calendar": {
+    "monthTitle": "Місяць"
+  },
+
+  "user": {
+    "title": "Користувач",
+    "dailyProgress": {
+      "today": "Сьогодні",
+      "addWater": "Додати воду"
+    }
+  },
+
+  "delete": {
+    "deleteQuest": "Ви впевнені, що хочете видалити запис?",
+    "cancel": "Скасувати",
+    "delete": "Видалити"
+  },
+
+  "dailyProgress": {
+    "today": "Сьогодні",
+    "addWater": "Додати воду"
+  },
+
+  "edit": {
+    "correctDataTitle": "Виправлення введених даних:",
+    "amountWaterText": "Кількість води",
+    "saveButton": "Зберегти"
+  },
+  "timeDiv": {
+    "label": "Час запису:"
+  },
+  "enterDiv": {
+    "label": "Введіть значення використаної води:"
+  },
+
+  "formulas": {
+    "forGirl": "Для дівчинки:",
+    "girlFormula": "V=(M0.03) + (T0.4)",
+    "forMan": "Для хлопця:",
+    "manFormula": "V=(M0.04) + (T0.6)",
+    "comment": "* V - це об'єм норми води в літрах на день, M - ваша вага тіла, T - час активних спортивних занять або іншої діяльності з високим фізичним навантаженням (у відсутності цього слід встановити 0)."
+  },
+  "values": {
+    "calculateRate": "Розрахуйте свій рівень",
+    "forWoman": "Для жінки",
+    "forMan": "Для чоловіка",
+    "weightLabel": "Ваша вага в кілограмах:",
+    "activityTimeLabel": "Час активного участі в спорті або інших занять з високим фізичним навантаженням у годинах:",
+    "requiredAmountLabel": "Необхідний обсяг води в літрах на день:",
+    "personalAmountLabel": "Запишіть, скільки води ви будете пити:",
+    "saveButton": "Зберегти"
+  },
+
+  "formWater": {
+    "title": "Виберіть значення",
+    "amountLabelText": "Об'єм води",
+    "timeInputLabel": "Час запису:",
+    "waterInputLabel": "Введіть об'єм використаної води:",
+    "saveButtonText": "Зберегти"
+  },
+
+  "logoutModal": {
+    "title": "Вийти",
+    "closeButtonAlt": "Закрити",
+    "question": "Ви дійсно хочете вийти?",
+    "cancelButton": "Скасувати",
+    "logoutButton": "Вийти"
+  },
+
+  "settingsModal": {
+    "title": "Налаштування",
+    "closeButtonAlt": "Закрити",
+    "photoText": "Ваше фото",
+    "uploadText": "Завантажте фото",
+    "genderIdentityText": "Ваша гендерна ідентичність",
+    "womanLabel": "Жінка",
+    "manLabel": "Чоловік",
+    "nameLabel": "Ваше ім'я",
+    "emailLabel": "Електронна пошта",
+    "passwordText": "Пароль",
+    "oldPasswordLabel": "Старий пароль",
+    "newPasswordLabel": "Новий пароль",
+    "repeatPasswordLabel": "Повторіть новий пароль",
+    "saveButton": "Зберегти"
+  },
+
+  "todaySection": {
+    "title": "Сьогодні",
+    "noWaterText": "Сьогодні ви ще не пили води",
+    "addWaterButton": "+ Додати води",
+    "modalTitles": {
+      "addWater": "Додати води",
+      "editWaterAmount": "Редагувати кількість води",
+      "deleteEntry": "Видалити запис"
+    }
+  },
+
+  "form": {
+    "placeholders": {
+      "newPassword": "Введіть ваш новий пароль",
+      "confirmPassword": "Підтвердіть ваш новий пароль"
+    },
+    "buttons": {
+      "submit": "Скинути пароль"
+    },
+    "messages": {
+      "success": "Пароль успішно скинуто",
+      "error": "Виникла помилка під час скидання пароля"
+    }
+  }
+}
