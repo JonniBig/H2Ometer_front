@@ -185,6 +185,7 @@ const Register = () => {
             </form>
             <div>
               <Link to={LOGIN_ROUTE}>Sign In</Link>
+              <a href="http://localhost:3001/users/google">google auth</a>
             </div>
           </div>
         </div>

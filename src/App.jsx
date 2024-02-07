@@ -1,5 +1,5 @@
 import { Navigate, Route, Routes } from 'react-router-dom';
-
+import GoogleCallbackPage from './components/GoogleCallbackPage'
 import { Layout, PrivateRoute, RestrictedRoute } from 'components';
 import {
   Home,
@@ -86,6 +86,7 @@ export const App = () => {
           <Route key={path} path={path} element={element} />
         ))}
         <Route path="*" element={<Navigate to={WELCOME_ROUTE} />} />
+        <Route path="/google-callback" component={GoogleCallbackPage} />
       </Routes>
     </Layout>
   );
