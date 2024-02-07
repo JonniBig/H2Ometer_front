@@ -8,7 +8,6 @@ import { selectWaterData } from '../../redux/calendar/calendarSlice.selectors';
 import { getWaterDataThunk } from '../../redux/calendar/calendarSlice';
 import { DailyInfoModal } from 'components';
 import { selectUser } from '../../redux/auth/authSelectors';
-import { useTranslation } from 'react-i18next';
 const Calendar = () => {
   const dispatch = useDispatch();
   const waterData = useSelector(selectWaterData);
@@ -16,7 +15,6 @@ const Calendar = () => {
   const [selectedDate, setSelectedDate] = useState(new Date());
   const [isHovering, setIsHovering] = useState(false);
   const [selectedDayData, setSelectedDayData] = useState(null);
-  const { t } = useTranslation();
 
   const dailyNorma = waterData?.dailyNorma * 1000;
 
@@ -52,7 +50,7 @@ const Calendar = () => {
     <div>
       <StyledCalendar>
         <div className="header">
-          <h3 className="title">{t('calendar.monthTitle')}</h3>
+          <h3 className="title">Month</h3>
           <div className="changeMonth">
             <button onClick={onPrevMonth} className="navBtn" type="button">
               <IconLeft />

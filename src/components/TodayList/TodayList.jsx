@@ -19,7 +19,6 @@ import {
   deleteWaterIntakeThunk,
   setEditingPortionId,
 } from '../../redux/calendar/calendarSlice';
-import { useTranslation } from 'react-i18next';
 
 const TodayList = () => {
   const dispatch = useDispatch();
@@ -30,7 +29,6 @@ const TodayList = () => {
     isOpen: false,
   });
   const waterData = useSelector(selectWaterProgressData);
-  const { t } = useTranslation();
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -56,10 +54,12 @@ const TodayList = () => {
       ?.waterIntake ?? [];
   return (
     <StyledTodayDiv>
-      <h3 className="title">{t('todaySection.title')}</h3>
+      <h3 className="title">Today</h3>
       <div className="addWater">
         <p className="emptyText">
-          {currentDateData?.length === 0 ? t('todaySection.noWaterText') : ''}
+          {currentDateData?.length === 0
+            ? "You haven't drank any water today"
+            : ''}
         </p>
 
         <ul className="list">
@@ -100,26 +100,26 @@ const TodayList = () => {
             );
           })}
           <button className="addBtn" type="button" onClick={toggleModal}>
-            {t('todaySection.addWaterButton')}
+            + Add water
           </button>
         </ul>
         {showModal && (
           <GeneralModal
-            title={t('todaySection.modalTitles.addWater')}
+            title="Add water"
             onClose={toggleModal}
             renderContent={onClose => <FormWater onSave={onClose} />}
           />
         )}
         {showEditModal && (
           <GeneralModal
-            title={t('todaySection.modalTitles.editWaterAmount')}
+            title="Edit the entered amount of water"
             onClose={toggleEditModal}
             renderContent={onClose => <EditFormWater onSave={onClose} />}
           />
         )}
         {showDeleteModal.isOpen && (
           <GeneralModal
-            title={t('todaySection.modalTitles.deleteEntry')}
+            title="Delete entry"
             onClose={toggleDeleteModal}
             renderContent={onClose => (
               <DeleteModal onDelete={onDelete} onClose={onClose} />

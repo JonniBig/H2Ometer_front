@@ -4,13 +4,11 @@ import { logoutThunk } from '../../redux/auth/authSlice';
 
 import closeModal from '../../assets/images/icons/close-x.svg';
 import { Conteiner, StyledLogout } from './Logout.styled';
-import { useTranslation } from 'react-i18next';
 
 const Logout = () => {
   const dispatch = useDispatch();
   const [isModalOpen, setIsModalOpen] = useState(true);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  const { t } = useTranslation();
 
   const handleLogout = () => {
     dispatch(logoutThunk());
@@ -31,15 +29,15 @@ const Logout = () => {
             }`}
           >
             <div className="logoutTitleDiv">
-              <h4 className="logoutTitle">{t('logoutModal.title')}</h4>
+              <h4 className="logoutTitle">Log out</h4>
               <button
                 type="button"
                 className="closeModal"
                 onClick={handleCloseModal}
               >
-                <img src={closeModal} alt={t('logoutModal.closeButtonAlt')} />
+                <img src={closeModal} alt="Close" />
               </button>
-              <p className="logoutQuest">{t('logoutModal.question')}</p>
+              <p className="logoutQuest">Do you really want to leave?</p>
             </div>
             <div className="logoutBtns">
               <button
@@ -47,10 +45,10 @@ const Logout = () => {
                 className="btnCan"
                 onClick={handleCloseModal}
               >
-                {t('logoutModal.cancelButton')}
+                Cancel
               </button>
               <button type="button" className="btnLog" onClick={handleLogout}>
-                {t('logoutModal.logoutButton')}
+                Log out
               </button>
             </div>
           </StyledLogout>
