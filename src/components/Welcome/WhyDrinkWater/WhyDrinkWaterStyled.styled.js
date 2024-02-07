@@ -18,8 +18,10 @@ export const WhyDrinkWaterStyled = styled.div`
   @media screen and (min-width: 1440px) {
     width: 494px;
     height: 332px;
+    /* height: 332px; */
     padding: 32px 24px;
   }
+
   h2 {
     font-size: 18px;
     font-style: normal;
@@ -27,6 +29,7 @@ export const WhyDrinkWaterStyled = styled.div`
     line-height: 1.11;
     margin: 0 0 12px;
   }
+
   ul {
     list-style: none;
     display: flex;
