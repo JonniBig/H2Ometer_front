@@ -1,7 +1,7 @@
 import { LOGIN_ROUTE } from 'constants/routes';
 import { useEffect } from 'react';
 import { useState } from 'react';
-import { useDispatch } from 'react-redux';
+import { useDispatch, useSelector } from 'react-redux';
 import { useNavigate, useSearchParams } from 'react-router-dom/dist';
 import { verifyEmailThunk } from '../../redux/auth/authSlice';
 import { MessageWrapper } from './VerifyEmail.styled';
@@ -16,6 +16,7 @@ const VerifyEmail = () => {
   const navigate = useNavigate();
   const [message, setMessage] = useState('');
   const [isLoading, setIsLoading] = useState(false);
+  const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
     setIsLoading(true);
@@ -31,12 +32,8 @@ const VerifyEmail = () => {
   }, [dispatch, token, navigate]);
 
   return (
-    <PageContainer>
-      <MessageWrapper>
-    {isLoading ? <Loader /> : message}
-  </MessageWrapper>
-
-
+    <PageContainer className={isDarkMode ? 'dark-mode' : 'light-mode'}>
+      <MessageWrapper>{isLoading ? <Loader /> : message}</MessageWrapper>
     </PageContainer>
   );
 };
