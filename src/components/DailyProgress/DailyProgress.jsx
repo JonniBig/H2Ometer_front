@@ -8,14 +8,12 @@ import { format } from 'date-fns';
 import { getWaterProgressThunk } from '../../redux/calendar/calendarSlice';
 import { GeneralModal } from 'components';
 import { selectUser } from '../../redux/auth/authSelectors';
-import { useTranslation } from 'react-i18next';
 const DailyProgress = () => {
   const dispatch = useDispatch();
   const waterData = useSelector(selectWaterProgressData);
   const user = useSelector(selectUser);
   const dailyNorma = waterData?.dailyNorma * 1000;
   const [showModal, setShowModal] = useState(false);
-  const { t } = useTranslation();
 
   useEffect(() => {
     dispatch(getWaterProgressThunk());
@@ -40,7 +38,7 @@ const DailyProgress = () => {
   const limitedDailyPercents = dailyPercents >= 100 ? 100 : dailyPercents;
   return (
     <StyledDailyProgress $dailyPercents={limitedDailyPercents}>
-      <h3 className="title">{t('dailyProgress.today')}</h3>
+      <h3 className="title">Today</h3>
       <div className="bottomContainer">
         <div className="blockLeft">
           <div className="progressContainer">
@@ -48,23 +46,23 @@ const DailyProgress = () => {
             <div className="progressBarBg"></div>
             <div className="progressPointer" />
             {limitedDailyPercents < 15 ? null : (
-              <span className="progressBreakPoint p-0">0%</span>
+              <span className="progressBreakPoint p-0">0&#37;</span>
             )}
             <span className="progressBreakPoint p-50">
-              {limitedDailyPercents || 0}%
+              {limitedDailyPercents || 0}&#37;
             </span>
             {limitedDailyPercents > 85 ? null : (
-              <span className="progressBreakPoint p-100">100%</span>
+              <span className="progressBreakPoint p-100">100&#37;</span>
             )}
           </div>
         </div>
         <button className="addWaterBtn" type="button" onClick={toggleModal}>
           <IconPlus className="plus" />
-          <span className="textBtn">{t('dailyProgress.addWater')}</span>
+          <span className="textBtn">Add water</span>
         </button>
         {showModal && (
           <GeneralModal
-            title={t('dailyProgress.addWater')}
+            title="Add water"
             onClose={toggleModal}
             renderContent={onClose => <FormWater onSave={onClose} />}
           />

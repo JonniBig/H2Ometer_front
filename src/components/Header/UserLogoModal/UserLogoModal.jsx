@@ -8,13 +8,11 @@ import logoutIcon from '../../../assets/images/icons/outline.svg';
 
 import { Overlay, UserLogoModalStyled } from './UserLogoModalStyled.styled';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 const UserLogoModal = ({ onClose }) => {
   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
   const [isLogoutModalOpen, setIsLogoutModalOpen] = useState(false);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  const { t } = useTranslation();
 
   const handleSettingClick = () => {
     setIsSettingModalOpen(true);
@@ -35,20 +33,12 @@ const UserLogoModal = ({ onClose }) => {
         className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
       >
         <button className="btn" onClick={handleSettingClick}>
-          <img
-            className="image"
-            src={settingIcon}
-            alt={t('userInterface.setting.alt')}
-          />
-          {t('userInterface.setting.text')}
+          <img className="image" src={settingIcon} alt="Setting" />
+          Setting
         </button>
         <button className="btn" onClick={handleLogoutClick}>
-          <img
-            className="image"
-            src={logoutIcon}
-            alt={t('userInterface.logout.alt')}
-          />
-          {t('userInterface.logout.text')}
+          <img className="image" src={logoutIcon} alt="Log out" />
+          Log out
         </button>
 
         {isSettingModalOpen && <UserInfoModal onClose={handleCloseModal} />}

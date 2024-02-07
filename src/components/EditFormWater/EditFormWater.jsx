@@ -16,7 +16,6 @@ import {
   selectWaterEditingPortionId,
   selectWaterProgressData,
 } from '../../redux/calendar/calendarSlice.selectors';
-import { useTranslation } from 'react-i18next';
 
 const addWaterSchema = Yup.object({
   amount: Yup.string()
@@ -43,8 +42,6 @@ const EditFormWater = ({ onSave }) => {
   const waterData = useSelector(selectWaterProgressData);
   const selectedEditingPortionId = useSelector(selectWaterEditingPortionId);
   const [localWaterAmount, setLocalWaterAmount] = useState(250);
-  const { t } = useTranslation();
-
   const {
     handleChange,
     handleSubmit,
@@ -106,8 +103,8 @@ const EditFormWater = ({ onSave }) => {
             {currentEditingPortion.time} {amPm}
           </p>
         </div>
-        <h3 className="editTitle">{t('edit.correctDataTitle')}</h3>
-        <p className="editText">{t('edit.amountWaterText')}</p>
+        <h3 className="editTitle">Correct entered data:</h3>
+        <p className="editText">Amount of water</p>
         <div className="editBtnDiv">
           <button
             onClick={handleReduceWaterAmount}
@@ -130,7 +127,7 @@ const EditFormWater = ({ onSave }) => {
       </div>
 
       <div className="timeDiv">
-        <label htmlFor="time">{t('timeDiv.label')}</label>
+        <label htmlFor="time">Recording time:</label>
         <input
           type="text"
           id="time"
@@ -144,7 +141,7 @@ const EditFormWater = ({ onSave }) => {
       </div>
 
       <div className="enterDiv">
-        <label htmlFor="water">{t('enterDiv.label')}</label>
+        <label htmlFor="water">Enter the value of the water used:</label>
         <input
           type="number"
           id="water"
@@ -165,7 +162,7 @@ const EditFormWater = ({ onSave }) => {
           <span>{amount}ml</span>
         </div>
         <button className="saveBtn" type="submit">
-          {t('edit.saveButton')}
+          Save
         </button>
       </div>
     </StyledFormWater>

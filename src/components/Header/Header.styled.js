@@ -1,4 +1,5 @@
 import styled from 'styled-components';
+import { Link } from 'react-router-dom';
 
 export const Conteiner = styled.div`
   margin: 0 auto;
@@ -44,4 +45,30 @@ export const StyledHeader = styled.header`
 export const StyledLogo = styled.div`
   font-weight: 700;
   margin: 0;
+`;
+
+export const LinkStyled = styled(Link)`
+  color: var(--blue);
+  text-decoration: none;
+  padding: 12px 0;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  &:hover,
+  &:focus {
+    color: var(--secondary-orange);
+  }
+  .text {
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.25;
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+      line-height: 1.33;
+    }
+  }
+  .icon {
+    background: white;
+    border-radius: 50%;
+  }
 `;

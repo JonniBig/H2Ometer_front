@@ -3,7 +3,6 @@ import { toast } from 'react-toastify';
 import { StyledFormDailyNorma } from './FormDailyNorma.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettingsThunk } from '../../redux/auth/authSlice';
-import { useTranslation } from 'react-i18next';
 
 const initialValues = {
   gender: 'female',
@@ -18,7 +17,6 @@ const FormDailyNorma = ({ onClose }) => {
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
   const dispatch = useDispatch();
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  const { t } = useTranslation();
 
   useEffect(() => {
     const { gender, weight, activityTime } = formData;
@@ -68,20 +66,25 @@ const FormDailyNorma = ({ onClose }) => {
       <div className="formulas-container">
         <div className="formulas-string">
           <div className="formula-box">
-            <span className="formula-gender">{t('formulas.forGirl')}</span>
-            <span className="formula">{t('formulas.girlFormula')}</span>
+            <span className="formula-gender">For girl:</span>
+            <span className="formula">V=(M*0,03) + (T*0,4)</span>
           </div>
           <div className="formula-box">
-            <span className="formula-gender">{t('formulas.forMan')}</span>
-            <span className="formula">{t('formulas.manFormula')}</span>
+            <span className="formula-gender">For man:</span>
+            <span className="formula"> V=(M*0,04) + (T*0,6)</span>
           </div>
         </div>
         <div className="coment-container">
-          <span className="coment">{t('formulas.comment')}</span>
+          <span className="coment">
+            * V is the volume of the water norm in liters per day, M is your
+            body weight, T is the time of active sports, or another type of
+            activity commensurate in terms of loads (in the absence of these,
+            you must set 0).
+          </span>
         </div>
       </div>
       <div className="values-container">
-        <div className="to-calc">{t('values.calculateRate')}</div>
+        <div className="to-calc">Calculate your rate</div>
         <div className="gender-container">
           <div className="genderBtn">
             <label className="genderLabel">
@@ -93,7 +96,7 @@ const FormDailyNorma = ({ onClose }) => {
                 checked={formData.gender === 'female'}
                 onChange={handleChange}
               />
-              {t('values.forWoman')}
+              For woman
             </label>
           </div>
           <div className="genderBtn">
@@ -106,12 +109,12 @@ const FormDailyNorma = ({ onClose }) => {
                 checked={formData.gender === 'male'}
                 onChange={handleChange}
               />
-              {t('values.forMan')}
+              For man
             </label>
           </div>
         </div>
         <div>
-          <label htmlFor="weight">{t('values.weightLabel')}</label>
+          <label htmlFor="weight">Your weight in kilograms: </label>
           <input
             type="number"
             id="weight"
@@ -122,7 +125,10 @@ const FormDailyNorma = ({ onClose }) => {
           />
         </div>
         <div>
-          <label htmlFor="activityTime">{t('values.activityTimeLabel')}</label>
+          <label htmlFor="activityTime">
+            The time of active participation in sports or other activities with
+            a high physical load in hours:
+          </label>
           <input
             type="number"
             id="activityTime"
@@ -133,13 +139,15 @@ const FormDailyNorma = ({ onClose }) => {
           />
         </div>
         <div className="req-amount-container">
-          <p className="req-amount-text">{t('values.requiredAmountLabel')}</p>
+          <p className="req-amount-text">
+            The required amount of water in liters per day:
+          </p>
           <span className="volume">{calculatedQuantity + 'L'}</span>
         </div>
       </div>
       <div className="personal-amount-container">
         <label htmlFor="personalAmount">
-          {t('values.personalAmountLabel')}
+          Write down how much water you will drink:
         </label>
         <input
           type="number"
@@ -153,7 +161,7 @@ const FormDailyNorma = ({ onClose }) => {
       </div>
       <div className="save-btn-container">
         <button className="save-btn" type="submit">
-          {t('values.saveButton')}
+          Save
         </button>
       </div>
     </StyledFormDailyNorma>

@@ -6,18 +6,16 @@ import {
   FormContainer,
   SignInLink,
 } from './UpdatePasswordPage.styled';
-import { useTranslation } from 'react-i18next';
 
 const UpdatePasswordPage = () => {
   const [searchParams] = useSearchParams();
   const token = searchParams.get('token');
-  const { t } = useTranslation();
 
   return (
     <PageContainer>
       <FormContainer>
         <UpdatePasswordForm token={token} />
-        <SignInLink to="/signin">{t('signIn')}</SignInLink>
+        <SignInLink to="/signin">Sign in</SignInLink>
       </FormContainer>
     </PageContainer>
   );
