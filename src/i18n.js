@@ -29,7 +29,6 @@ i18n
   });
 
 i18n.on('languageChanged', lang => {
-  console.log(`Language changed to: ${lang}`);
   window.location.reload();
 });
 
