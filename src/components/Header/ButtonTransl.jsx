@@ -1,7 +1,8 @@
 import React, { useState } from 'react';
 import { useTranslation } from 'react-i18next';
-import Uk from '../../assets/images/flags/ukraine.svg';
 import En from '../../assets/images/flags/britain_england.svg';
+import Uk from '../../assets/images/flags/ukraine.svg';
+
 import { Button, Menu, MenuItem } from '@mui/material';
 
 const ButtonTransl = () => {
@@ -35,10 +36,11 @@ const ButtonTransl = () => {
         onClick={handleClick}
       >
         <img
-          src={lngs[i18n.language].flag}
+          src={i18n.language === 'en' ? En : Uk}
           alt={i18n.language.toUpperCase()}
           style={{ width: '20px', height: '20px', marginRight: '5px' }}
         />
+
         {i18n.language.toUpperCase()}
       </Button>
       <Menu

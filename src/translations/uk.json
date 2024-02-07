@@ -1,6 +1,6 @@
 {
   "description": {
-    "part1": "Відстежувач споживання води",
+    "part1": "Відстеження споживання води",
     "part2": "Записуйте щоденний прийом води та відстежуйте його"
   },
   "trackerBenefits": {
@@ -9,7 +9,7 @@
     "viewStatistics": "Перегляд статистики",
     "personalRateSetting": "Персональна настройка швидкості"
   },
-  "tryTrackerButton": "Спробуйте відстежувач",
+  "tryTrackerButton": "Спробуй трекер",
   "whyDrinkWater": {
     "title": "Чому пити воду",
     "list": {
