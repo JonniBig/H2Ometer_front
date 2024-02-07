@@ -21,7 +21,10 @@ const DailyNorma = () => {
     >
       <p className="title">{t('dailyNorm.title')}</p>
       <div className="content">
-        <p className="volume">{waterData?.dailyNorma ?? '2'} L</p>
+        <p className="volume">
+          {waterData?.dailyNorma ?? '2'}
+          {t('dailyNorm.l')}
+        </p>
         <button className="edit" onClick={toggleModal}>
           <span
             className={`edit-text text ${

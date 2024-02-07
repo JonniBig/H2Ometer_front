@@ -117,7 +117,10 @@ const EditFormWater = ({ onSave }) => {
             <IconMinus stroke={'var(--blue)'} />
           </button>
           <div className="amountDiv">
-            <span>{amount}ml</span>
+            <span>
+              {amount}
+              {t('ml')}
+            </span>
           </div>
           <button
             onClick={handleAddWaterAmount}
@@ -162,7 +165,10 @@ const EditFormWater = ({ onSave }) => {
 
       <div className="footerDiv">
         <div className="saveDiv">
-          <span>{amount}ml</span>
+          <span>
+            {amount}
+            {t('ml')}
+          </span>
         </div>
         <button className="saveBtn" type="submit">
           {t('edit.saveButton')}

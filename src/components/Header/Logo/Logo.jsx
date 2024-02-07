@@ -12,7 +12,7 @@ const Logo = ({ authenticated }) => {
   return (
     <StyledLogo>
       <Link to={homepageLink}>
-        <img src={loginIcon} alt="Logo" />
+        <img src={loginIcon} alt="Logo" width="102px" height="48px" />
       </Link>
     </StyledLogo>
   );

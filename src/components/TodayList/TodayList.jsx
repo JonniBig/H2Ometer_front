@@ -70,7 +70,9 @@ const TodayList = () => {
               <li key={_id} className="string">
                 <div className="left">
                   <IconCup />
-                  <span className="amount">{amount} ml</span>
+                  <span className="amount">
+                    {amount} {t('ml')}
+                  </span>
                   <span className="time">
                     {time}&nbsp; {amPm}
                   </span>
