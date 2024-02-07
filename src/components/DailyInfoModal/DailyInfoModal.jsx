@@ -1,24 +1,21 @@
 import React from 'react';
 import { StyledDailyInfoModal } from './DailyInfoModal.styled';
-import { useTranslation } from 'react-i18next';
 
 const DailyInfoModal = ({ date, dailyNorma, dayPercentage, portionsCount }) => {
-  const { t } = useTranslation();
   return (
     <StyledDailyInfoModal>
       <p className="date">{date}</p>
       <p>
-        {t('dailyInfo.dailyNorm')}&nbsp;
-        <span className="value">{dailyNorma} L</span>
+        Daily norma:&nbsp;<span className="value">{dailyNorma} L</span>
       </p>
       <p>
-        {t('dailyInfo.fulfillment')}:&nbsp;
+        Fulfillment of the daily norm:&nbsp;
         <span className="value">
           {Number.isNaN(dayPercentage) ? 0 : dayPercentage}%
         </span>
       </p>
       <p>
-        {t('dailyInfo.waterServings')}&nbsp;
+        How many servings of water:&nbsp;
         <span className="value">{portionsCount}</span>
       </p>
     </StyledDailyInfoModal>

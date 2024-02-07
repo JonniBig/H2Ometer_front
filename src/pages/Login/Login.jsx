@@ -11,12 +11,10 @@ import eyeOpened from '../../assets/images/icons/eye.svg';
 import eyeSlash from '../../assets/images/icons/eye-slash.svg';
 import { toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import { useTranslation } from 'react-i18next';
 
 const Login = () => {
   const dispatch = useDispatch();
   const [showPassword, setShowPassword] = useState(false);
-  const { t } = useTranslation();
 
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
@@ -56,15 +54,15 @@ const Login = () => {
         <div className="backgr-elem-decktop"></div>
         <div className="content">
           <div className="login-form-container">
-            <h1>{t('signIn')}</h1>
+            <h1>Sign In</h1>
             <form onSubmit={formik.handleSubmit}>
               <div>
-                <label htmlFor="email">{t('emailLabel')}</label>
+                <label htmlFor="email">Email Address</label>
                 <input
                   id="email"
                   name="email"
                   type="email"
-                  placeholder={t('emailPlaceholder')}
+                  placeholder="E-mail"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.email}
@@ -81,7 +79,7 @@ const Login = () => {
 
               <div className="password-container">
                 <label htmlFor="password">
-                  {t('passwordLabel')}
+                  Password
                   <div
                     className="show-psw-btn"
                     onClick={() => setShowPassword(!showPassword)}
@@ -91,14 +89,14 @@ const Login = () => {
                         src={eyeOpened}
                         width={18}
                         height={18}
-                        alt={t('hidePassword')}
+                        alt="Hide Password"
                       />
                     ) : (
                       <img
                         src={eyeSlash}
                         width={18}
                         height={18}
-                        alt={t('showPassword')}
+                        alt="Show Password"
                       />
                     )}
                   </div>
@@ -107,7 +105,7 @@ const Login = () => {
                   id="password"
                   name="password"
                   type={showPassword ? 'text' : 'password'}
-                  placeholder={t('passwordPlaceholder')}
+                  placeholder="Password"
                   onChange={formik.handleChange}
                   onBlur={formik.handleBlur}
                   value={formik.values.password}
@@ -122,11 +120,11 @@ const Login = () => {
                 ) : null}
               </div>
 
-              <button type="submit">{t('signIn')}</button>
+              <button type="submit">Sign In</button>
             </form>
             <div className="links-container">
-              <Link to={REGISTER_ROUTE}>{t('signUp')}</Link>
-              <Link to={FORGOT_PASSWORD_ROUTE}>{t('forgotPassword')}</Link>
+              <Link to={REGISTER_ROUTE}>Sign Up</Link>
+              <Link to={FORGOT_PASSWORD_ROUTE}>Forgot Password?</Link>
             </div>
           </div>
         </div>

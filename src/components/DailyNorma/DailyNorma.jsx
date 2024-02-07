@@ -3,13 +3,11 @@ import { StyledDailyNorma } from './DailyNorma.styled';
 import { FormDailyNorma, GeneralModal } from 'components';
 import { useSelector } from 'react-redux';
 import { selectWaterData } from '../../redux/calendar/calendarSlice.selectors';
-import { useTranslation } from 'react-i18next';
 
 const DailyNorma = () => {
   const [showModal, setShowModal] = useState(false);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
   const waterData = useSelector(selectWaterData);
-  const { t } = useTranslation();
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -19,7 +17,7 @@ const DailyNorma = () => {
     <StyledDailyNorma
       className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
     >
-      <p className="title">{t('dailyNorm.title')}</p>
+      <p className="title">My daily norma</p>
       <div className="content">
         <p className="volume">{waterData?.dailyNorma ?? '2'} L</p>
         <button className="edit" onClick={toggleModal}>
@@ -28,14 +26,13 @@ const DailyNorma = () => {
               isDarkMode ? 'dark-mode' : 'light-mode'
             }`}
           >
-            {t('dailyNorm.edit')}
+            Edit
           </span>
         </button>
       </div>
-
       {showModal && (
         <GeneralModal
-          title={t('dailyNorm.title')}
+          title="My daily norma"
           className="formDailiNorma"
           onClose={toggleModal}
           renderContent={onClose => <FormDailyNorma onClose={onClose} />}

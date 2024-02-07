@@ -5,7 +5,6 @@ import { resetPasswordThunk } from '../../redux/auth/authSlice';
 import { Form, Input, Button, Message } from './UpdatePasswordForm.styled';
 import Loader from '../Loader/Loader';
 import { LOGIN_ROUTE } from 'constants/routes';
-import { useTranslation } from 'react-i18next';
 
 export const UpdatePasswordForm = ({ token }) => {
   const dispatch = useDispatch();
@@ -13,7 +12,6 @@ export const UpdatePasswordForm = ({ token }) => {
   const [isLoading, setIsLoading] = useState(false);
   const [newPassword, setNewPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
-  const { t } = useTranslation();
   const {
     resetPasswordSuccess,
     resetPasswordSuccessMessage,
@@ -49,20 +47,20 @@ export const UpdatePasswordForm = ({ token }) => {
       {isLoading && <Loader />}
       <Input
         type="password"
-        placeholder={t('form.placeholders.newPassword')}
+        placeholder="Enter your new password"
         value={newPassword}
         onChange={e => setNewPassword(e.target.value)}
         required
       />
       <Input
         type="password"
-        placeholder={t('form.placeholders.confirmPassword')}
+        placeholder="Confirm your new password"
         value={confirmPassword}
         onChange={e => setConfirmPassword(e.target.value)}
         required
       />
       <Button type="submit" disabled={isLoading}>
-        {t('form.buttons.submit')}
+        Reset Password
       </Button>
       <Message
         className={

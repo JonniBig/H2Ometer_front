@@ -6,17 +6,15 @@ import {
   SignInLink,
 } from './ForgotPasswordPage.styled';
 import { useSelector } from 'react-redux';
-import { useTranslation } from 'react-i18next';
 
 const ForgotPasswordPage = () => {
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
-  const { t } = useTranslation();
 
   return (
     <PageContainer className={isDarkMode ? 'dark-mode' : 'light-mode'}>
       <FormContainer>
         <ForgotPasswordForm />
-        <SignInLink to="/signin">{t('signIn')}</SignInLink>
+        <SignInLink to="/signin">Sign in</SignInLink>
       </FormContainer>
     </PageContainer>
   );

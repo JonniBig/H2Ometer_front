@@ -15,7 +15,6 @@ import {
 
 import { selectUser } from '../../redux/auth/authSelectors';
 import userAva from '../../assets/images/icons/user.svg';
-import { useTranslation } from 'react-i18next';
 
 const SettingsModal = () => {
   const dispatch = useDispatch();
@@ -32,7 +31,6 @@ const SettingsModal = () => {
   const [showPassword, setShowPassword] = useState(false);
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
-  const { t } = useTranslation();
   const togglePasswordVisibility = () => setShowPassword(!showPassword);
 
   const handleFileChange = e => {
@@ -105,12 +103,12 @@ const SettingsModal = () => {
         className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
       >
         <div>
-          <b className="modalSetting">{t('settingsModal.title')}</b>
+          <b className="modalSetting">Setting</b>
           <button type="button" className="closeBtn" onClick={handleCloseModal}>
-            <img src={closeModal} alt={t('settingsModal.closeButtonAlt')} />
+            <img src={closeModal} alt="Close" />
           </button>
         </div>
-        <p className="modalPhotoText">{t('settingsModal.photoText')}</p>
+        <p className="modalPhotoText">Your photo</p>
         <ul className="modalPhotoList">
           <li className="modalListPhoto">
             {selectedFile ? (
@@ -126,7 +124,7 @@ const SettingsModal = () => {
                 <img
                   src={user.avatar ? user.avatar : userAva}
                   className="imageModal"
-                  alt="Avatar"
+                  alt="Avatart"
                 />
               </div>
             )}
@@ -134,10 +132,8 @@ const SettingsModal = () => {
           <li className="modalListUpload">
             <label htmlFor="fileInput">
               <div className="upload_container">
-                <img src={ArrowUp} alt="Upload" />
-                <span className="uploadText">
-                  {t('settingsModal.uploadText')}
-                </span>
+                <img src={ArrowUp} alt="Close" />
+                <span className="uploadText">Upload a photo</span>
               </div>
             </label>
             <input
@@ -161,9 +157,7 @@ const SettingsModal = () => {
           <div>
             <div>
               <div className="modalGenderBlock">
-                <p className="modalGenderText">
-                  {t('settingsModal.genderIdentityText')}
-                </p>
+                <p className="modalGenderText">Your gender identity</p>
                 <input
                   type="radio"
                   className="genderInput"
@@ -174,7 +168,7 @@ const SettingsModal = () => {
                   onChange={handleGenderChange}
                 />
                 <label htmlFor="Woman" className="genderLabel">
-                  {t('settingsModal.womanLabel')}
+                  Woman
                 </label>
                 <input
                   type="radio"
@@ -186,17 +180,17 @@ const SettingsModal = () => {
                   onChange={handleGenderChange}
                 />
                 <label htmlFor="Man" className="genderLabel">
-                  {t('settingsModal.manLabel')}
+                  Man
                 </label>
               </div>
             </div>
             <div>
               <label htmlFor="nameInput" className="label">
-                {t('settingsModal.nameLabel')}
+                Your name
               </label>
               <input
                 type="text"
-                placeholder={t('settingsModal.nameLabel')}
+                placeholder="Name"
                 id="nameInput"
                 name="name"
                 className="modalInput modalInputData"
@@ -204,12 +198,12 @@ const SettingsModal = () => {
                 onChange={handleNameChange}
               />
               <label htmlFor="emailInp" className="label">
-                {t('settingsModal.emailLabel')}
+                E-mail
               </label>
               <input
                 type="text"
                 name="email"
-                placeholder={t('settingsModal.emailLabel')}
+                placeholder="your-email@gmail.com"
                 id="emailInp"
                 className="modalInput modalInputData"
                 value={email}
@@ -219,17 +213,15 @@ const SettingsModal = () => {
           </div>
 
           <div className="passwordConteiner">
-            <p className="modalPasswordText">
-              {t('settingsModal.passwordText')}
-            </p>
+            <p className="modalPasswordText">Password</p>
             <div className="passwordInputContainer">
               <label htmlFor="oldPassword" className="passwordLabel">
-                {t('settingsModal.oldPasswordLabel')}
+                Outdated password:
               </label>
               <div className="inputContainer">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder={t('settingsModal.oldPasswordLabel')}
+                  placeholder="Outdated password"
                   id="oldPassword"
                   className="modalInput modalInput_password"
                   value={oldPassword}
@@ -254,12 +246,12 @@ const SettingsModal = () => {
             </div>
             <div className="passwordInputContainer">
               <label htmlFor="newPassword" className="passwordLabel">
-                {t('settingsModal.newPasswordLabel')}
+                New password:
               </label>
               <div className="inputContainer">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder={t('settingsModal.newPasswordLabel')}
+                  placeholder="New password"
                   id="newPassword"
                   className="modalInput modalInput_password"
                   value={newPassword}
@@ -284,12 +276,12 @@ const SettingsModal = () => {
             </div>
             <div className="passwordInputContainer">
               <label htmlFor="repeatPassword" className="passwordLabel">
-                {t('settingsModal.repeatPasswordLabel')}
+                Repeat new password:
               </label>
               <div className="inputContainer">
                 <input
                   type={showPassword ? 'text' : 'password'}
-                  placeholder={t('settingsModal.repeatPasswordLabel')}
+                  placeholder="Repeat new password"
                   id="repeatPassword"
                   className="modalInput modalInput_password"
                   value={repeatPassword}
@@ -315,7 +307,7 @@ const SettingsModal = () => {
           </div>
 
           <button type="submit" className="modalSubmit">
-            {t('settingsModal.saveButton')}
+            Save
           </button>
         </form>
       </SettingStyled>

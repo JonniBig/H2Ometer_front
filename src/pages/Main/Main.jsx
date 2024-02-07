@@ -5,6 +5,7 @@ import { useSelector } from 'react-redux';
 
 const Main = () => {
   const [showLoader, setShowLoader] = useState(true);
+
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
 
   useEffect(() => {
