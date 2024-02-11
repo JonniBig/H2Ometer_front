@@ -7,14 +7,11 @@ import { StyledFormDailyNorma } from './FormDailyNorma.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettingsThunk } from '../../redux/auth/authSlice';
 
-
-
 const FormDailyNorma = ({ onClose }) => {
-  
   const dispatch = useDispatch();
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
   const [calculatedQuantity, setCalculatedQuantity] = useState('');
-  
+
   const formik = useFormik({
     initialValues: {
       gender: 'female',
@@ -25,14 +22,20 @@ const FormDailyNorma = ({ onClose }) => {
     validationSchema: Yup.object().shape({
       gender: Yup.string().required('Gender is required'),
       weight: Yup.number()
+        .integer('Only integer number')
+        .lessThan(400, 'You have a lot hard weigth')
         .positive('Weight must be a positive number')
-        .required('Weight is required'),
+        .required('Type your weight please'),
       activityTime: Yup.number()
+        .integer('Only integer number')
+        .lessThan(24, 'You cannot be active more than 24 hours')
         .positive('Activity time must be a positive number')
-        .required('Activity time is required'),
-      personalAmount: Yup.number().positive('Personal amount must be a positive number'),
+        .required('Type your activity hours please'),
+      personalAmount: Yup.number()
+        .positive('Personal amount must be a positive number')
+        .lessThan(15, 'You can drown in that much water'),
     }),
-    onSubmit: async (values) => {
+    onSubmit: async values => {
       try {
         const bodyData = values.personalAmount
           ? { waterRate: parseFloat(values.personalAmount) }
@@ -129,15 +132,12 @@ const FormDailyNorma = ({ onClose }) => {
             value={formik.values.weight}
             onChange={formik.handleChange}
             className={
-              formik.touched.weight && formik.errors.weight
-                ? 'errorInput'
-                : ''
+              formik.touched.weight && formik.errors.weight ? 'errorInput' : ''
             }
           />
           {formik.touched.weight && formik.errors.weight ? (
             <div className="errorMsg">{formik.errors.weight}</div>
           ) : null}
-          
         </div>
         <div>
           <label htmlFor="activityTime">
@@ -160,10 +160,9 @@ const FormDailyNorma = ({ onClose }) => {
           {formik.touched.activityTime && formik.errors.activityTime ? (
             <div className="errorMsg">{formik.errors.activityTime}</div>
           ) : null}
-        
         </div>
         <div className="req-amount-container">
-          <p className="req-amount-text">
+          <p className="req-amount-text" >
             The required amount of water in liters per day:
           </p>
           <span className="volume">{calculatedQuantity + 'L'}</span>
@@ -178,7 +177,6 @@ const FormDailyNorma = ({ onClose }) => {
           id="personalAmount"
           name="personalAmount"
           placeholder="0"
-          max="15"
           value={formik.values.personalAmount}
           onChange={formik.handleChange}
           className={

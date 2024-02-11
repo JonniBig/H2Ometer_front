@@ -156,8 +156,7 @@ export const StyledFormDailyNorma = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
   label {
     display: block;
@@ -179,6 +178,7 @@ export const StyledFormDailyNorma = styled.form`
     gap: 10px;
     box-sizing: border-box;
     border-radius: 6px;
+    color: var(--blue);
     border: 1px solid var(--secondary-skiblue);
   }
 
@@ -227,37 +227,6 @@ export const StyledFormDailyNorma = styled.form`
     line-height: 18px;
   }
 
-  // input[type='radio'] {
-  //   appearance: none;
-  //   -webkit-appearance: none;
-  //   -moz-appearance: none;
-  //   outline: none;
-  //   cursor: pointer;
-  //   width: 14px;
-  //   height: 14px;
-  //   border-radius: 50%;
-  //   border: 1px solid var(--blue);
-  //   background-color: var(--white);
-  //   margin-right: 8px;
-  // }
-
-  // input[type='radio']:checked {
-  //   background-color: var(--white);
-  // }
-
-  // input[type='radio']::before {
-  //   content: '';
-  //   display: block;
-  //   width: 7px;
-  //   height: 7px;
-  //   margin: 3px;
-  //   border-radius: 50%;
-  //   background-color: var(--blue);
-  // }
-
-  // input[type='radio']:checked::before {
-  //   background-color: var(--white);
-  // }
 
   .save-btn-container {
     display: flex;
@@ -281,21 +250,4 @@ export const StyledFormDailyNorma = styled.form`
     }
   }
 
-  .Toastify__toast-container {
-    width: 30%;
-    padding: 20px;
-    box-sizing: border-box;
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    z-index: 9999;
-  }
-
-  .Toastify__toast--success {
-    background-color: #28a745;
-  }
-
-  .Toastify__toast--error {
-    background-color: #dc3545;
-  }
-`;
+ `;
