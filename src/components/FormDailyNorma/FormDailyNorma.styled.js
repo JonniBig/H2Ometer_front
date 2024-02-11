@@ -170,13 +170,14 @@ export const StyledFormDailyNorma = styled.form`
 
   input[type='number'] {
     -webkit-appearance: none;
-    margin: 0;
+    margin: 0 ;
+    margin-bottom: 6px;
     display: flex;
     padding: 12px 10px;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
     gap: 10px;
+    box-sizing: border-box;
     border-radius: 6px;
     border: 1px solid var(--secondary-skiblue);
   }
@@ -202,7 +203,7 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   //Placeholder error
-  .input-error input[type='number']::placeholder {
+  .errorInput input[type='number']::placeholder {
     color: var(--secondary-red);
   }
 
@@ -212,13 +213,14 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   //Input  error
-  .input-error input[type='number'] {
-    border-color: (--secondary-red);
+  .errorInput {
+    border: 1px solid var(--secondary-red);
+    color: var(--secondary-red)
   }
 
   //Error message
-  .error-message {
-    color: (--secondary-red);
+  .errorMsg {
+    color: var(--secondary-red);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
