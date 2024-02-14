@@ -9,14 +9,10 @@ export const StyledTodayDiv = styled.div`
   @media screen and (min-width: 768px) {
     width: 656px;
     height: 276px;
-    /* margin: 32px 24px 24px 24px; */
   }
   @media only screen and (min-width: 1440px) {
     width: 100%;
-    /* width: 544px;
-    height: 260px; */
   }
-
   .title {
     color: var(--black);
     font-family: Roboto;
@@ -28,7 +24,6 @@ export const StyledTodayDiv = styled.div`
       line-height: 1.23;
     }
   }
-
   .addWater {
     margin-right: auto;
     width: 264px;
@@ -41,28 +36,6 @@ export const StyledTodayDiv = styled.div`
       width: 100%;
     }
   }
-
-  /* .waterList {
-    height: 212px;
-    padding-left: 0px;
-    &::-webkit-scrollbar {
-      width: 4px;
-    }
-    &::-webkit-scrollbar-track {
-      margin-block: 5px;
-      background: var(--secondary-blue);
-      border-radius: 50px;
-      border: 1px solid var(--secondary-white);
-    }
-    &::-webkit-scrollbar-thumb {
-      background: var(--secondary-blue);
-      border-radius: 50px;
-    }
-    &::-webkit-scrollbar-thumb:hover {
-      background: var(--primary-blue);
-    }
-  } */
-
   .emptyText {
     color: var(--blue);
     font-family: Roboto;
@@ -70,7 +43,6 @@ export const StyledTodayDiv = styled.div`
     text-align: center;
     line-height: 1.25;
   }
-
   .addBtn {
     display: flex;
     gap: 8px;
@@ -93,20 +65,17 @@ export const StyledTodayDiv = styled.div`
       color: var(--secondary-orange);
     }
   }
-
   .title {
     font-size: 26px;
     font-weight: 500;
     line-height: 1.23;
   }
-
   .content {
     display: flex;
     align-items: center;
     margin: 0px;
     gap: 12px;
   }
-
   .edit {
     background: none;
     border: none;
@@ -120,7 +89,6 @@ export const StyledTodayDiv = styled.div`
       color: var(--secondary-orange);
     }
   }
-
   .volume {
     margin: 0;
     color: var(--blue);
@@ -144,13 +112,11 @@ export const StyledTodayDiv = styled.div`
   ::-webkit-scrollbar {
     width: 2px;
   }
-
   ::-webkit-scrollbar-thumb {
     background-color: var(--blue);
     border-radius: 2px;
     width: 4px;
   }
-
   ::-webkit-scrollbar-track {
     background-color: var(--secondary-skiblue);
     border-radius: 2px;

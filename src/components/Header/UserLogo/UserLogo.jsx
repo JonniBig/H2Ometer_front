@@ -15,6 +15,7 @@ import {
   UserLogoStyled,
   UserLogoWrapper,
 } from './UserLogoStyled.styled';
+import ButtonTransl from '../ButtonTransl';
 
 const UserLogo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -48,26 +49,29 @@ const UserLogo = () => {
       <UserLogoStyled
         className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
       >
-        <div className="userMenu" onClick={handleToggleModal}>
-          <div className="user">
-            <span className="name">
-              {isAuthenticated
-                ? user.name || user.email?.charAt(0).toUpperCase()
-                : user.email?.charAt(0).toUpperCase()}
-            </span>
-            <img
-              src={isAuthenticated && user.avatar ? user.avatar : userAva}
-              className="imgAvatar"
-              alt="User avatar"
-              width="28px"
-              height="28px"
-              border-radius="50%"
-            />
+        <>
+          <div className="userMenu" onClick={handleToggleModal}>
+            <div className="user">
+              <span className="name">
+                {isAuthenticated
+                  ? user.name || user.email?.charAt(0).toUpperCase()
+                  : user.email?.charAt(0).toUpperCase()}
+              </span>
+              <img
+                src={isAuthenticated && user.avatar ? user.avatar : userAva}
+                className="imgAvatar"
+                alt="User avatar"
+                width="28px"
+                height="28px"
+                border-radius="50%"
+              />
+            </div>
+            <ButtonMenuStyled>
+              <img src={openIcon} alt="Open menu" />
+            </ButtonMenuStyled>
           </div>
-          <ButtonMenuStyled>
-            <img src={openIcon} alt="Open menu" />
-          </ButtonMenuStyled>
-        </div>
+          <ButtonTransl />
+        </>
 
         {isModalOpen && <UserLogoModal onClose={handleCloseModal} />}
       </UserLogoStyled>

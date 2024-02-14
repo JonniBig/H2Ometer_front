@@ -6,23 +6,21 @@ export const DeleteStyled = styled.div`
     font-weight: 500;
     line-height: 1.1;
     margin-bottom: 24px;
+    width: 200px;
+    @media only screen and (min-width: 768px) {
+      width: 100%;
+    }
   }
-
   .deleteBtns {
     display: flex;
-    flex-direction: column;
+    flex-direction: column-reverse;
     gap: 24px;
 
     @media only screen and (min-width: 768px) {
       flex-direction: row;
       justify-content: flex-end;
     }
-
-    @media only screen and (min-width: 1440px) {
-      justify-content: flex-start;
-    }
   }
-
   .btnCan {
     display: flex;
     justify-content: center;
@@ -35,22 +33,18 @@ export const DeleteStyled = styled.div`
     border: none;
     color: var(--blue);
     background-color: var(--secondary-skiblue);
-
     &:hover,
     &:focus {
       box-shadow: 0px 6px 10px 0px rgba(64, 123, 255, 0.44);
     }
-
     &:active {
       cursor: inherit;
     }
-
     @media screen and (min-width: 768px) {
       width: 160px;
       height: 44px;
     }
   }
-
   .btnDelete {
     display: flex;
     justify-content: center;
@@ -64,7 +58,6 @@ export const DeleteStyled = styled.div`
     color: var(--white);
     background-color: var(--secondary-red);
     box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.34);
-
     &:hover,
     &:focus {
       box-shadow: 0px 8px 10px 0px rgba(64, 123, 255, 0.44);
@@ -72,7 +65,6 @@ export const DeleteStyled = styled.div`
     &:active {
       cursor: inherit;
     }
-
     @media screen and (min-width: 768px) {
       width: 160px;
       height: 44px;

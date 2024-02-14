@@ -10,6 +10,7 @@ import { StyledFormWater } from './FormWater.styled';
 import { addWaterIntakeThunk } from '../../redux/calendar/calendarSlice';
 import { toast } from 'react-toastify';
 import { format } from 'date-fns';
+import { useTranslation } from 'react-i18next';
 
 const addWaterSchema = Yup.object({
   amount: Yup.string()
@@ -34,6 +35,8 @@ const initialValues = {
 const FormWater = ({ onSave }) => {
   const dispatch = useDispatch();
   const [localWaterAmount, setLocalWaterAmount] = useState(250);
+  const { t } = useTranslation();
+
   const {
     handleChange,
     handleSubmit,
@@ -72,8 +75,8 @@ const FormWater = ({ onSave }) => {
   return (
     <StyledFormWater onSubmit={handleSubmit}>
       <div className="edit">
-        <h3 className="editTitle">Choose a value</h3>
-        <p className="editText">Amount of water</p>
+        <h3 className="editTitle">{t('formWater.title')}</h3>
+        <p className="editText">{t('formWater.amountLabelText')}</p>
         <div className="editBtnDiv">
           <button
             onClick={handleReduceWaterAmount}
@@ -83,7 +86,10 @@ const FormWater = ({ onSave }) => {
             <IconMinus stroke={'var(--blue)'} />
           </button>
           <div className="amountDiv">
-            <span>{amount}ml</span>
+            <span>
+              {amount}
+              {t('ml')}
+            </span>
           </div>
           <button
             onClick={handleAddWaterAmount}
@@ -96,7 +102,7 @@ const FormWater = ({ onSave }) => {
       </div>
 
       <div className="timeDiv">
-        <label htmlFor="time">Recording time:</label>
+        <label htmlFor="time">{t('formWater.timeInputLabel')}</label>
         <input
           type="text"
           id="time"
@@ -110,7 +116,7 @@ const FormWater = ({ onSave }) => {
       </div>
 
       <div className="enterDiv">
-        <label htmlFor="water">Enter the value of the water used:</label>
+        <label htmlFor="water">{t('formWater.waterInputLabel')}</label>
         <input
           type="number"
           id="water"
@@ -128,10 +134,13 @@ const FormWater = ({ onSave }) => {
 
       <div className="footerDiv">
         <div className="saveDiv">
-          <span>{amount}ml</span>
+          <span>
+            {amount}
+            {t('ml')}
+          </span>
         </div>
         <button className="saveBtn" type="submit">
-          Save
+          {t('formWater.saveButtonText')}
         </button>
       </div>
     </StyledFormWater>

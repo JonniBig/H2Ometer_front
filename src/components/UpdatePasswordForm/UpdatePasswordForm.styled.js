@@ -23,7 +23,6 @@ export const Button = styled.button`
   border: none;
   border-radius: 5px;
   cursor: pointer;
-
   &:hover {
     background-color: #0056b3;
   }
@@ -33,7 +32,6 @@ export const Message = styled.div`
   &.success {
     color: green;
   }
-
   &.error {
     color: red;
   }

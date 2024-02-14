@@ -6,20 +6,26 @@ export const UserLogoWrapper = styled.div`
 
 export const UserLogoStyled = styled.div`
   display: flex;
-  align-items: center;
-  gap: 4px;
   background-color: white;
   border-radius: 10px;
-  padding: 4px 10px;
+  padding: 6px 10px;
   color: black;
+  flex-direction: column;
+  align-items: flex-end;
 
-  .user {
-   display:flex;
-   align-items: center;
-   gap: 8px;
+  @media screen and (min-width: 768px) {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    padding: 4px 10px;
+    flex-direction: row;
   }
-  
-  .userMenu {   
+  .user {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+  .userMenu {
     display: flex;
     gap: 4px;
   }
@@ -27,30 +33,19 @@ export const UserLogoStyled = styled.div`
     border-radius: 50%;
     border: 1px solid var(--blue);
   }
-
   .name {
     font-size: 16px;
     line-height: 1.33;
-
-  @media screen and (min-width: 768px) {
-    font-size: 18px;
-
+    @media screen and (min-width: 768px) {
+      font-size: 18px;
+    }
   }
-
-  
 `;
 
 export const ButtonMenuStyled = styled.button`
   display: flex;
   align-items: center;
-  cursor: pointer;
   border: none;
   background-color: transparent;
   padding: 0;
-
-  // &:hover,
-  // &:focus {
-  //   border-radius: 50%;
-  //   box-shadow: 0px 4px 8px 0px rgba(64, 123, 255, 0.8);
-  // }
 `;

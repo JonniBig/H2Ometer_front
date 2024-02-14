@@ -1,9 +1,10 @@
 import styled from 'styled-components';
+
 export const StyledDailyNorma = styled.div`
   background-color: var(--white);
   border: 1px solid var(--secondary-white);
   width: 166px;
-  height: 74px;
+  /* height: 74px; */
   padding: 8px 20px;
   border-radius: 10px;
   display: flex;
@@ -12,7 +13,7 @@ export const StyledDailyNorma = styled.div`
   align-items: center;
 
   @media screen and (min-width: 768px) {
-    height: 76px;
+    /* height: 76px; */
   }
 
   .title {
@@ -21,7 +22,6 @@ export const StyledDailyNorma = styled.div`
     line-height: 24px;
     color: var(--black);
   }
-
   .content {
     display: flex;
     align-items: center;
@@ -29,25 +29,21 @@ export const StyledDailyNorma = styled.div`
     margin: 0px;
     gap: 12px;
   }
-
   .edit {
     background: none;
     border: none;
-    // color: var(--secondary-blue);
     cursor: pointer;
     padding: 0;
     font-size: 16px;
     font-weight: 400;
     line-height: 20px;
-    // &:hover {
-    //   color: var(--secondary-orange);
-    // }
   }
   .edit-text {
     color: var(--secondary-blue);
     padding: 4px;
     border-radius: 8px;
-    &:hover {
+    &:hover,
+    &:focus {
       color: var(--secondary-orange);
     }
   }
@@ -68,22 +64,17 @@ export const StyledDailyNorma = styled.div`
     background-color: rgba(0, 0, 0, 0.5);
     overflow: auto;
   }
-
   .modal {
-    // background-color: var(--white);
     position: absolute;
     left: 50%;
     top: 50%;
     transform: translate(-50%, -50%);
-    // translate: -297px -375px;
     padding: 32px 24px;
     border: 1px solid #888;
     border-radius: 8px;
-    // max-width: 592px;
     width: calc(100% - 30px);
     height: 100hw;
   }
-
   @media screen and (min-width: 768px) {
     .modal {
       max-width: 704px;
@@ -94,14 +85,12 @@ export const StyledDailyNorma = styled.div`
       height: auto;
     }
   }
-
   .modal-header {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 24px;
   }
-
   .close {
     color: var(--blue);
     float: right;

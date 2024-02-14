@@ -19,6 +19,7 @@ import {
   deleteWaterIntakeThunk,
   setEditingPortionId,
 } from '../../redux/calendar/calendarSlice';
+import { useTranslation } from 'react-i18next';
 
 const TodayList = () => {
   const dispatch = useDispatch();
@@ -29,6 +30,7 @@ const TodayList = () => {
     isOpen: false,
   });
   const waterData = useSelector(selectWaterProgressData);
+  const { t } = useTranslation();
 
   const toggleModal = () => {
     setShowModal(!showModal);
@@ -54,12 +56,10 @@ const TodayList = () => {
       ?.waterIntake ?? [];
   return (
     <StyledTodayDiv>
-      <h3 className="title">Today</h3>
+      <h3 className="title">{t('todaySection.title')}</h3>
       <div className="addWater">
         <p className="emptyText">
-          {currentDateData?.length === 0
-            ? "You haven't drank any water today"
-            : ''}
+          {currentDateData?.length === 0 ? t('todaySection.noWaterText') : ''}
         </p>
 
         <ul className="list">
@@ -70,7 +70,9 @@ const TodayList = () => {
               <li key={_id} className="string">
                 <div className="left">
                   <IconCup />
-                  <span className="amount">{amount} ml</span>
+                  <span className="amount">
+                    {amount} {t('ml')}
+                  </span>
                   <span className="time">
                     {time}&nbsp; {amPm}
                   </span>
@@ -100,26 +102,26 @@ const TodayList = () => {
             );
           })}
           <button className="addBtn" type="button" onClick={toggleModal}>
-            + Add water
+            {t('todaySection.addWaterButton')}
           </button>
         </ul>
         {showModal && (
           <GeneralModal
-            title="Add water"
+            title={t('todaySection.modalTitles.addWater')}
             onClose={toggleModal}
             renderContent={onClose => <FormWater onSave={onClose} />}
           />
         )}
         {showEditModal && (
           <GeneralModal
-            title="Edit the entered amount of water"
+            title={t('todaySection.modalTitles.editWaterAmount')}
             onClose={toggleEditModal}
             renderContent={onClose => <EditFormWater onSave={onClose} />}
           />
         )}
         {showDeleteModal.isOpen && (
           <GeneralModal
-            title="Delete entry"
+            title={t('todaySection.modalTitles.deleteEntry')}
             onClose={toggleDeleteModal}
             renderContent={onClose => (
               <DeleteModal onDelete={onDelete} onClose={onClose} />
