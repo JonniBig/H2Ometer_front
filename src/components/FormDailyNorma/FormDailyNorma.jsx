@@ -1,27 +1,65 @@
 import React, { useEffect, useState } from 'react';
 import { toast } from 'react-toastify';
+
+import { useFormik } from 'formik';
+import * as Yup from 'yup';
 import { StyledFormDailyNorma } from './FormDailyNorma.styled';
 import { useDispatch, useSelector } from 'react-redux';
 import { updateUserSettingsThunk } from '../../redux/auth/authSlice';
 import { useTranslation } from 'react-i18next';
 
-const initialValues = {
-  gender: 'female',
-  weight: '',
-  activityTime: '',
-  personalAmount: '',
-  calculatedQuantity: '',
-};
-
 const FormDailyNorma = ({ onClose }) => {
-  const [formData, setFormData] = useState(initialValues);
-  const [calculatedQuantity, setCalculatedQuantity] = useState('');
   const dispatch = useDispatch();
   const isDarkMode = useSelector(state => state.theme.isDarkMode);
+
+  const [calculatedQuantity, setCalculatedQuantity] = useState('');
+
+  const formik = useFormik({
+    initialValues: {
+      gender: 'female',
+      weight: '',
+      activityTime: '',
+      personalAmount: '',
+    },
+    validationSchema: Yup.object().shape({
+      gender: Yup.string().required('Gender is required'),
+      weight: Yup.number()
+        .integer('Only integer number')
+        .lessThan(400, 'You have a lot hard weigth')
+        .positive('Weight must be a positive number')
+        .required('Type your weight please'),
+      activityTime: Yup.number()
+        .integer('Only integer number')
+        .lessThan(24, 'You cannot be active more than 24 hours')
+        .positive('Activity time must be a positive number')
+        .required('Type your activity hours please'),
+      personalAmount: Yup.number()
+        .positive('Personal amount must be a positive number')
+        .lessThan(15, 'You can drown in that much water'),
+    }),
+    onSubmit: async values => {
+      try {
+        const bodyData = values.personalAmount
+          ? { waterRate: parseFloat(values.personalAmount) }
+          : { waterRate: parseFloat(calculatedQuantity) };
+
+        await dispatch(updateUserSettingsThunk(bodyData)).unwrap();
+
+        toast.success('Data saved successfully');
+      } catch (error) {
+        console.error('Error saving data to backend:', error.message);
+        toast.error('Failed to save data to backend');
+      } finally {
+        onClose();
+      }
+    },
+  });
+
   const { t } = useTranslation();
 
+
   useEffect(() => {
-    const { gender, weight, activityTime } = formData;
+    const { gender, weight, activityTime } = formik.values;
 
     if (gender && weight && activityTime) {
       const M = parseFloat(weight);
@@ -32,38 +70,12 @@ const FormDailyNorma = ({ onClose }) => {
 
       setCalculatedQuantity(calculatedValue.toFixed(2));
     }
-  }, [formData]);
-
-  const handleChange = e => {
-    const { name, value } = e.currentTarget;
-    setFormData({
-      ...formData,
-      [name]: value,
-    });
-  };
-
-  const saveCalcQuantity = async e => {
-    e.preventDefault();
-    try {
-      const bodyData = formData.personalAmount
-        ? { waterRate: Number.parseFloat(formData.personalAmount) }
-        : { waterRate: Number.parseFloat(calculatedQuantity) };
-
-      await dispatch(updateUserSettingsThunk(bodyData)).unwrap();
-
-      toast.success('Data saved successfully');
-    } catch (error) {
-      console.error('Error saving data to backend:', error.message);
-      toast.error('Failed to save data to backend');
-    } finally {
-      onClose();
-    }
-  };
+  }, [formik.values]);
 
   return (
     <StyledFormDailyNorma
       className={`secondary-blue ${isDarkMode ? 'dark-mode' : 'light-mode'}`}
-      onSubmit={saveCalcQuantity}
+      onSubmit={formik.handleSubmit}
     >
       <div className="formulas-container">
         <div className="formulas-string">
@@ -90,8 +102,8 @@ const FormDailyNorma = ({ onClose }) => {
                 type="radio"
                 name="gender"
                 value="female"
-                checked={formData.gender === 'female'}
-                onChange={handleChange}
+                checked={formik.values.gender === 'female'}
+                onChange={formik.handleChange}
               />
               {t('values.forWoman')}
             </label>
@@ -103,8 +115,8 @@ const FormDailyNorma = ({ onClose }) => {
                 type="radio"
                 name="gender"
                 value="male"
-                checked={formData.gender === 'male'}
-                onChange={handleChange}
+                checked={formik.values.gender === 'male'}
+                onChange={formik.handleChange}
               />
               {t('values.forMan')}
             </label>
@@ -117,9 +129,15 @@ const FormDailyNorma = ({ onClose }) => {
             id="weight"
             name="weight"
             placeholder="0"
-            value={formData.weight}
-            onChange={handleChange}
+            value={formik.values.weight}
+            onChange={formik.handleChange}
+            className={
+              formik.touched.weight && formik.errors.weight ? 'errorInput' : ''
+            }
           />
+          {formik.touched.weight && formik.errors.weight ? (
+            <div className="errorMsg">{formik.errors.weight}</div>
+          ) : null}
         </div>
         <div>
           <label htmlFor="activityTime">{t('values.activityTimeLabel')}</label>
@@ -128,12 +146,22 @@ const FormDailyNorma = ({ onClose }) => {
             id="activityTime"
             name="activityTime"
             placeholder="0"
-            value={formData.activityTime}
-            onChange={handleChange}
+            value={formik.values.activityTime}
+            onChange={formik.handleChange}
+            className={
+              formik.touched.activityTime && formik.errors.activityTime
+                ? 'errorInput'
+                : ''
+            }
           />
+          {formik.touched.activityTime && formik.errors.activityTime ? (
+            <div className="errorMsg">{formik.errors.activityTime}</div>
+          ) : null}
         </div>
         <div className="req-amount-container">
+
           <p className="req-amount-text">{t('values.requiredAmountLabel')}</p>
+
           <span className="volume">{calculatedQuantity + 'L'}</span>
         </div>
       </div>
@@ -146,10 +174,17 @@ const FormDailyNorma = ({ onClose }) => {
           id="personalAmount"
           name="personalAmount"
           placeholder="0"
-          max="15"
-          value={formData.personalAmount}
-          onChange={handleChange}
+          value={formik.values.personalAmount}
+          onChange={formik.handleChange}
+          className={
+            formik.touched.personalAmount && formik.errors.personalAmount
+              ? 'errorInput'
+              : ''
+          }
         />
+        {formik.touched.personalAmount && formik.errors.personalAmount ? (
+          <div className="errorMsg">{formik.errors.personalAmount}</div>
+        ) : null}
       </div>
       <div className="save-btn-container">
         <button className="save-btn" type="submit">

@@ -145,8 +145,7 @@ export const StyledFormDailyNorma = styled.form`
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    gap: 16px;
-    margin-bottom: 24px;
+    margin-bottom: 8px;
   }
   label {
     display: block;
@@ -158,14 +157,18 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   input[type='number'] {
-    margin: 0;
+    -webkit-appearance: none;
+    margin: 0 ;
+    margin-bottom: 6px;
+
     display: flex;
     padding: 12px 10px;
     width: 100%;
     flex-direction: column;
-    align-items: flex-start;
     gap: 10px;
+    box-sizing: border-box;
     border-radius: 6px;
+    color: var(--blue);
     border: 1px solid var(--secondary-skiblue);
   }
   input[type='number']::-webkit-inner-spin-button,
@@ -185,7 +188,7 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   //Placeholder error
-  .input-error input[type='number']::placeholder {
+  .errorInput input[type='number']::placeholder {
     color: var(--secondary-red);
   }
 
@@ -195,18 +198,20 @@ export const StyledFormDailyNorma = styled.form`
   }
 
   //Input  error
-  .input-error input[type='number'] {
-    border-color: (--secondary-red);
+  .errorInput {
+    border: 1px solid var(--secondary-red);
+    color: var(--secondary-red)
   }
 
   //Error message
-  .error-message {
-    color: (--secondary-red);
+  .errorMsg {
+    color: var(--secondary-red);
     font-size: 14px;
     font-style: normal;
     font-weight: 400;
     line-height: 18px;
   }
+
   .save-btn-container {
     display: flex;
     justify-content: flex-end;
@@ -226,19 +231,22 @@ export const StyledFormDailyNorma = styled.form`
       box-shadow: 0px 4px 14px 0px rgba(64, 123, 255, 0.54);
     }
   }
-  .Toastify__toast-container {
-    width: 30%;
-    padding: 20px;
-    box-sizing: border-box;
-    position: fixed;
-    bottom: 20px;
-    left: 0;
-    z-index: 9999;
-  }
-  .Toastify__toast--success {
-    background-color: #28a745;
-  }
-  .Toastify__toast--error {
-    background-color: #dc3545;
-  }
-`;
+ `;
+
+//   .Toastify__toast-container {
+//     width: 30%;
+//     padding: 20px;
+//     box-sizing: border-box;
+//     position: fixed;
+//     bottom: 20px;
+//     left: 0;
+//     z-index: 9999;
+//   }
+//   .Toastify__toast--success {
+//     background-color: #28a745;
+//   }
+//   .Toastify__toast--error {
+//     background-color: #dc3545;
+//   }
+// `;
+
