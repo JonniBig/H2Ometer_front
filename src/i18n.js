@@ -28,8 +28,8 @@ i18n
     },
   });
 
-i18n.on('languageChanged', lang => {
-  window.location.reload();
-});
+// i18n.on('languageChanged', lang => {
+//   window.location.reload();
+// });
 
 export default i18n;

@@ -77,9 +77,9 @@
   },
 
   "dailyInfo": {
-    "dailyNorm": "Daily norma",
+    "dailyNorm": "Daily norma:",
     "fulfillment": "Fulfillment of the daily norm",
-    "waterServings": "How many servings of water"
+    "waterServings": "How many servings of water:"
   },
 
   "calendar": {
@@ -118,10 +118,10 @@
   },
 
   "formulas": {
-    "forGirl": "For girl:",
-    "girlFormula": "V=(M0.03) + (T0.4)",
-    "forMan": "For man:",
-    "manFormula": "V=(M0.04) + (T0.6)",
+    "forGirl": "For girl: ",
+    "girlFormula": " V=(M0.03) + (T0.4)",
+    "forMan": "For man: ",
+    "manFormula": " V=(M0.04) + (T0.6)",
     "comment": "* V is the volume of the water norm in liters per day, M is your body weight, T is the time of active sports, or another type of activity commensurate in terms of loads (in the absence of these, you must set 0)."
   },
   "values": {

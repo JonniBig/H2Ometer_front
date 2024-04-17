@@ -12,13 +12,11 @@ export const WhyDrinkWaterStyled = styled.div`
 
   @media screen and (min-width: 768px) {
     width: 494px;
-    height: 332px;
+    /* min-height: 332px; */
     padding: 32px 24px;
   }
   @media screen and (min-width: 1440px) {
-    width: 494px;
-    height: 332px;
-    padding: 32px 24px;
+    min-height: 332px;
   }
 
   h2 {

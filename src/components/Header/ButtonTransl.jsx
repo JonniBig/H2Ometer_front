@@ -30,6 +30,7 @@ const ButtonTransl = () => {
   return (
     <>
       <Button
+        sx={{ padding: '0', display: 'flex', justifyContent: 'flex-end' }}
         id="language-button"
         aria-controls="language-menu"
         aria-haspopup="true"

@@ -9,6 +9,8 @@ import logoutIcon from '../../../assets/images/icons/outline.svg';
 import { Overlay, UserLogoModalStyled } from './UserLogoModalStyled.styled';
 import { useSelector } from 'react-redux';
 import { useTranslation } from 'react-i18next';
+import ButtonTranslUser from '../ButtonTranslUser';
+// import ButtonTransl from '../ButtonTransl';
 
 const UserLogoModal = ({ onClose }) => {
   const [isSettingModalOpen, setIsSettingModalOpen] = useState(false);
@@ -50,6 +52,7 @@ const UserLogoModal = ({ onClose }) => {
           />
           {t('userInterface.logout.text')}
         </button>
+        <ButtonTranslUser />
 
         {isSettingModalOpen && <UserInfoModal onClose={handleCloseModal} />}
         {isLogoutModalOpen && <Logout onClose={handleCloseModal} />}

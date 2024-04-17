@@ -125,11 +125,12 @@ export const StyledDailyProgress = styled.div`
     }
     @media screen and (min-width: 1440px) {
       width: 178px;
+      padding: 5px 10px;
     }
   }
-  .textBtn {
+  /* .textBtn {
     width: 94px;
-  }
+  } */
   .plus {
     width: 18px;
     height: 18px;

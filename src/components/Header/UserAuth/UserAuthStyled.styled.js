@@ -3,20 +3,27 @@ import styled from 'styled-components';
 
 export const NavStyled = styled.nav`
   display: flex;
-  align-items: center;
-  gap: 4px;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  @media screen and (min-width: 768px) {
+    align-items: center;
+    gap: 4px;
+  }
 `;
 
 export const LinkStyled = styled(Link)`
   color: var(--blue);
   text-decoration: none;
-  padding: 12px 0;
+  padding: 4px 0;
   display: flex;
   align-items: center;
   gap: 8px;
   &:hover,
   &:focus {
     color: var(--secondary-orange);
+    @media screen and (min-width: 768px) {
+      padding: 12px 0;
+    }
   }
   .text {
     font-size: 16px;
