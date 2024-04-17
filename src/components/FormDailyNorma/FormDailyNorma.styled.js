@@ -115,8 +115,8 @@ export const StyledFormDailyNorma = styled.form`
     position: absolute;
     top: 55%;
     left: 50%;
-    width: 6px;
-    height: 6px;
+    width: 8px;
+    height: 8px;
     border-radius: 50%;
     background-color: dodgerblue;
     transform: translate(-53%, -54%);

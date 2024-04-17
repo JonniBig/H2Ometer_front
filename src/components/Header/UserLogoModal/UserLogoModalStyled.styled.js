@@ -21,7 +21,7 @@ export const UserLogoModalStyled = styled.div`
   gap: 16px;
   padding: 16px;
   width: 118px;
-  height: 88px;
+  height: 172px;
   background-color: var(--white);
   border-radius: 10px;
   border: 1px solid white;

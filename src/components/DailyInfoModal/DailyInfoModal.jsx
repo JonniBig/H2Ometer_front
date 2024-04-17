@@ -10,7 +10,7 @@ const DailyInfoModal = ({ date, dailyNorma, dayPercentage, portionsCount }) => {
       <p>
         {t('dailyInfo.dailyNorm')}&nbsp;
         <span className="value">
-          {dailyNorma} {t('l')}
+          {dailyNorma} {t('dailyNorm.l')}
         </span>
       </p>
       <p>

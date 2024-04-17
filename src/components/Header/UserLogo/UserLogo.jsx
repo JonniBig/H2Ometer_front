@@ -15,7 +15,6 @@ import {
   UserLogoStyled,
   UserLogoWrapper,
 } from './UserLogoStyled.styled';
-import ButtonTransl from '../ButtonTransl';
 
 const UserLogo = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
@@ -70,7 +69,6 @@ const UserLogo = () => {
               <img src={openIcon} alt="Open menu" />
             </ButtonMenuStyled>
           </div>
-          <ButtonTransl />
         </>
 
         {isModalOpen && <UserLogoModal onClose={handleCloseModal} />}

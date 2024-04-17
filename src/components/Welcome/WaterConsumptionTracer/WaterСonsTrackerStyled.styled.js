@@ -9,7 +9,7 @@ export const WaterConsTrackerStyled = styled.div`
 
   @media screen and (min-width: 1440px) {
     width: 439px;
-    height: 366px;
+    /* height: 366px; */
     margin-top: 80px;
   }
   h1 {
